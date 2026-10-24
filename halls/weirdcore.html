@@ -86,6 +86,38 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
   border-top:1px solid rgba(125,249,255,.3)}
 .ex:hover .ex-code{transform:translateY(0)}
 
+/* 触屏 / 窄屏适配(无精确指针即视为触屏) */
+@media(pointer:coarse),(not(pointer:fine)){
+  /* 自定义光标仅桌面(pointer:fine);触屏禁用其专用样式 */
+  .cur-p,.cur-ripple{display:none!important}
+}
+@media(max-width:720px){
+  .topbar{height:auto;min-height:44px;gap:8px;padding:8px 12px;font-size:11px;flex-wrap:wrap}
+  .hero{padding:92px 6vw 44px;min-height:60vh}
+  .wrap{padding:52px 5vw}
+  .sec{margin-bottom:48px}
+  pre{font-size:12px;padding:14px;-webkit-overflow-scrolling:touch}
+  .exgrid{grid-template-columns:1fr;gap:18px}
+  .ex-art{min-height:120px;padding:20px 16px}
+  .ex:hover{transform:none;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+  .ex:hover .xob{transform:none}
+  .ex:hover .ex-art::before{opacity:.04}
+  .ex-cap::before{transform:none}
+  /* 触屏点按揭示代码面板(1s 悬停模拟);JS 点击切换同样支持 */
+  .ex:active .ex-code,.ex.code-revealed .ex-code{transform:translateY(0)}
+  .ex:active .xob,.ex.code-revealed .xob{animation-play-state:paused}
+  .hallnav{flex-wrap:wrap;padding:20px 5vw;font-size:12px;gap:10px}
+  .hallnav a{padding:10px 14px;min-height:44px;display:inline-flex;align-items:center}
+  .chips li{padding:10px 14px}
+  .lede{margin-bottom:32px}
+  footer{padding:32px 5vw 48px}
+}
+/* 尊重系统减少动态偏好 */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .rv,.exgrid .ex{opacity:1!important;transform:none!important}
+}
+
 /* ---- 全局自定义光标 ---- */
 @media(pointer:fine){
   *{cursor:none!important}
@@ -205,8 +237,19 @@ filter: contrast(135%) saturate(125%);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+/* 触屏点按标本卡:切换代码面板(非精确指针才注册) */
 (function(){
+  if(matchMedia('(pointer:fine)').matches)return;
+  document.addEventListener('click',function(e){
+    var ex=e.target.closest('.ex');
+    if(!ex)return;
+    ex.classList.toggle('code-revealed');
+  },{passive:true});
+})();
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪(仅桌面指针) */
+(function(){
+  if(!matchMedia('(pointer:fine)').matches)return;
   var dot=document.createElement('div'); dot.id='cur-dot';
   var ring=document.createElement('div'); ring.id='cur-ring';
   document.body.appendChild(dot); document.body.appendChild(ring);

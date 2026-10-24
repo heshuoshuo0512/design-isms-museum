@@ -249,6 +249,31 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .note p code{color:#7df9ff;background:rgba(125,249,255,.08);padding:1px 6px;border-radius:4px;font-size:12px}
 footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-height:2;border-top:1px solid #1a1a20}
 
+/* ---- 触屏 / 窄屏适配(无精确指针即视为触屏) ---- */
+@media(pointer:coarse),(not(pointer:fine)){
+  .cur-p,.cur-ripple{display:none!important}
+  .key-hint{display:none}
+  .door:hover .quote{opacity:.92;transform:none}
+}
+@media(max-width:720px){
+  .cta-row{gap:12px}
+  .cta{padding:12px 22px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  .grid{grid-template-columns:1fr;gap:14px}
+  .door{min-height:150px;padding:20px 20px 18px}
+  .door h3{font-size:22px}
+  #doors{padding:70px 5vw 44px}
+  .doors-head{margin-bottom:36px}
+  .notes-grid{grid-template-columns:1fr;gap:14px}
+  #notes{padding:60px 5vw}
+  #exit{padding:70px 5vw}
+  .marq{margin-top:44px}
+  footer{padding:32px 5vw 48px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .rv,.door{opacity:1!important;transform:none!important;translate:none!important}
+}
+
 /* ---- 自定义光标 ---- */
 @media(pointer:fine){
   *{cursor:none!important}
@@ -446,8 +471,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
 io.observe(grid);
 document.querySelectorAll('.rv:not(.door)').forEach(el=>io.observe(el));
 
-/* 门磁吸：用独立 translate 属性叠加在 3D 倾斜之上,并让墙面同步视差 */
-const magnetState=new Map([...doors].map(d=>[d,{x:0,y:0}]));
+/* 门磁吸：用独立 translate 属性叠加在 3D 倾斜之上,并让墙面同步视差(仅精确指针) */
+const finePointer=matchMedia('(pointer:fine)').matches;
+const magnetState=new Map(finePointer?[...doors].map(d=>[d,{x:0,y:0}]):[]);
 let magnetPointer=null,tickFrame=0;
 const magnetRadius=430,magnetLerp=.14;
 const gridParallax={x:0,y:0},gridParallaxTarget={x:0,y:0};
@@ -502,6 +528,7 @@ const trackMagnet=e=>{
   }
   scheduleTick();
 };
+if(finePointer){
 grid.addEventListener('pointermove',trackMagnet,{passive:true});
 grid.addEventListener('pointerleave',()=>{
   magnetPointer=null;
@@ -537,6 +564,7 @@ const burstParticles=d=>{
     setTimeout(()=>particle.remove(),420);
   }
 };
+} // end if(finePointer)
 
 
 
@@ -563,7 +591,8 @@ addEventListener('keydown',e=>{
   keyJumpTimer=setTimeout(()=>{door.classList.remove('kb-flash');location.href=door.href},200);
 });
 
-/* 门 3D 倾斜 */
+/* 门 3D 倾斜(仅精确指针) */
+if(finePointer){
 document.querySelectorAll('.door').forEach(d=>{
   d.addEventListener('mousemove',e=>{
     const r=d.getBoundingClientRect();
@@ -579,9 +608,11 @@ addEventListener('mousemove',e=>{
   const x=(e.clientX/innerWidth-.5)*14, y=(e.clientY/innerHeight-.5)*10;
   title.style.transform=`translate(${x}px,${y}px)`;
 },{passive:true});
+} // end if(finePointer)
 
-/* 自定义光标 */
+/* 自定义光标(仅桌面指针) */
 (function(){
+  if(!matchMedia('(pointer:fine)').matches)return;
   var dot=document.createElement('div'); dot.id='cur-dot';
   var ring=document.createElement('div'); ring.id='cur-ring';
   document.body.appendChild(dot); document.body.appendChild(ring);

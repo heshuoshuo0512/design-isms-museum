@@ -308,8 +308,9 @@ const burstCardParticles=card=>{
   }
 };
 
-/* 自定义光标 */
+/* 自定义光标(仅桌面指针) */
 (function(){
+  if(!matchMedia('(pointer:fine)').matches)return;
   var dot=document.createElement('div'); dot.id='cur-dot';
   var ring=document.createElement('div'); ring.id='cur-ring';
   document.body.appendChild(dot); document.body.appendChild(ring);

@@ -287,8 +287,9 @@ ISMS.forEach(function(m){
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
-/* 自定义光标 */
+/* 自定义光标(仅桌面指针) */
 (function(){
+  if(!matchMedia('(pointer:fine)').matches)return;
   var dot=document.createElement('div'); dot.id='cur-dot';
   var ring=document.createElement('div'); ring.id='cur-ring';
   document.body.appendChild(dot); document.body.appendChild(ring);
