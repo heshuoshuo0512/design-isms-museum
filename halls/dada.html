@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>达达主义 Dada · 主义馆展厅 HALL 45</title>
+<meta name="description" content="达达主义(Dada)设计主义:历史、特征、代表案例与 CSS 实现。达达主义、Dada、现成品、偶然、摄影蒙太奇 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="达达主义、Dada、现成品、偶然、摄影蒙太奇">
+<meta property="og:title" content="达达主义 Dada · 主义馆">
+<meta property="og:description" content="既然世界荒诞,艺术就拒绝装作合理。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#ECE7DD;color:#151515;font-family:"Courier New",monospace}
+::selection{background:#D43D2F;color:#FFFDF5}
+.topbar{background:#FFFDF5;border-bottom:3px dashed #D43D2F;color:#151515}
+.hero{background:linear-gradient(13deg,transparent 0 45%,rgba(212,61,47,.14) 46% 52%,transparent 53%),repeating-linear-gradient(-4deg,transparent 0 28px,rgba(21,21,21,.07) 29px 31px)}
+.hero .big{font-weight:900;letter-spacing:-.1em;transform:rotate(-2deg);text-transform:uppercase}
+.hero .en{color:#D43D2F;letter-spacing:.1em;transform:rotate(2deg)}
+.hero .man{background:#FFFDF5;border:3px dashed #151515;padding:18px 24px;transform:rotate(1deg);box-shadow:7px 7px 0 #D43D2F}
+.meta span{border:2px dashed #151515;border-radius:0;background:#D9D3C7;color:#151515;transform:rotate(-2deg)}
+.a1{width:190px;height:190px;border:6px dashed #151515;border-radius:50%;background:#D43D2F;top:10%;right:8%;animation:spin 13s linear infinite}
+.a2{width:120px;height:150px;background:#151515;clip-path:polygon(8% 0,92% 8%,76% 100%,20% 90%);transform:rotate(12deg);bottom:12%;right:24%;animation:floaty 6s ease-in-out infinite}
+.sec h3{font-weight:900;letter-spacing:.06em;transform:rotate(-1deg)}
+.prose{background:#FFFDF5;border:3px dashed #151515;padding:28px;transform:rotate(.6deg);box-shadow:8px 8px 0 rgba(212,61,47,.45)}
+.chips li{border:2px dashed #151515;border-radius:0;background:#D43D2F;color:#FFFDF5;transform:rotate(-2deg)}
+pre{background:#151515;color:#D9F20B;border:4px dashed #D43D2F}
+.tl b{color:#D43D2F;font-weight:900}
+.hallnav a{border:3px dashed #151515;background:#FFFDF5;color:#151515;transform:rotate(1deg)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 45 / DADA</span>
+  <a href="../index.html#door-dada">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 45 · 1916–1923 · 苏黎世 / 柏林 / 巴黎</span>
+    <h1 class="big">达达主义</h1>
+    <div class="en">Dada · 1916</div>
+    <p class="man">“既然世界荒诞,艺术就拒绝装作合理。”</p>
+    <div class="meta"><span>1916</span><span>1916–1923 · 苏黎世 / 柏林 / 巴黎</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">把一张车票、一句废话和一只倒置的小便池放在一起,意义会塌掉,而新的自由从废墟里开始。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">第一次世界大战期间,特里斯坦·查拉、胡戈·巴尔等人在苏黎世伏尔泰酒馆聚集,以噪音诗、偶然诗和拼贴反抗理性文明的暴力。达达随后在柏林、纽约和巴黎展开,杜尚的现成品、汉娜·赫希的摄影蒙太奇与阿尔普的偶然构成,把作者权威和艺术边界一起拆开。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:190px;min-height:82px;padding:14px;background:#FFFDF5;border:3px dashed #151515;color:#D43D2F;font:700 16px/1.6 "Courier New",monospace;cursor:pointer;transform:rotate(2deg);transition:transform .25s"></span></div>
+      <figcaption class="ex-cap">偶然诗 · 点击重排</figcaption>
+      <div class="ex-code">display:block;width:190px;min-height:82px;padding:14px;background:#FFFDF5;border:3px dashed #151515;color:#D43D2F;font:700 16px/1.6 &quot;Courier New&quot;,monospace;cursor:pointer;transform:rotate(2deg);transition:transform .25s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');var words=["香蕉","电车","星期三","为什么","帽子","没有答案"];el.textContent="剪下报纸,摇匀";el.addEventListener("click",function(){words.sort(function(){return Math.random()-.5});el.textContent=words.slice(0,3).join(" / ");el.style.transform="rotate("+(Math.random()*8-4)+"deg)"})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:120px;height:120px;border:4px solid #151515;border-radius:50%;background:#D9D3C7;position:relative;cursor:pointer;transition:transform .5s,background .3s"></span></div>
+      <figcaption class="ex-cap">现成品 · 悬停倒置</figcaption>
+      <div class="ex-code">display:block;width:120px;height:120px;border:4px solid #151515;border-radius:50%;background:#D9D3C7;position:relative;cursor:pointer;transition:transform .5s,background .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.addEventListener("mouseenter",function(){el.style.transform="rotate(180deg) scale(.82)";el.style.background="#D43D2F"});el.addEventListener("mouseleave",function(){el.style.transform="";el.style.background="#D9D3C7"})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:block;width:170px;height:100px;background:linear-gradient(105deg,#293B8F 0 28%,#F0B429 28% 52%,#D43D2F 52% 74%,#ECE7DD 74%);clip-path:polygon(0 8%,24% 0,48% 10%,70% 2%,100% 14%,92% 92%,68% 82%,45% 100%,18% 88%,0 96%);border:2px solid #151515;cursor:pointer;transition:clip-path .4s,transform .4s"></span></div>
+      <figcaption class="ex-cap">拼贴碎片 · 点击撕裂</figcaption>
+      <div class="ex-code">display:block;width:170px;height:100px;background:linear-gradient(105deg,#293B8F 0 28%,#F0B429 28% 52%,#D43D2F 52% 74%,#ECE7DD 74%);clip-path:polygon(0 8%,24% 0,48% 10%,70% 2%,100% 14%,92% 92%,68% 82%,45% 100%,18% 88%,0 96%);border:2px solid #151515;cursor:pointer;transition:clip-path .4s,transform .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.clipPath=el.style.clipPath.includes("0 0")?"polygon(0 8%,24% 0,48% 10%,70% 2%,100% 14%,92% 92%,68% 82%,45% 100%,18% 88%,0 96%)":"polygon(0 0,31% 17%,49% 0,76% 22%,100% 6%,81% 100%,55% 79%,31% 100%,0 78%)";el.style.transform=el.style.transform?"":"rotate(6deg)"})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">伏尔泰酒馆（Cabaret Voltaire）</li><li class="rv">马塞尔·杜尚《泉》</li><li class="rv">汉娜·赫希摄影蒙太奇</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>反艺术</b> — 拒绝美术制度规定什么才算艺术</li><li><b>现成品</b> — 把日常物件移位为观念作品</li><li><b>偶然性</b> — 让骰子、剪纸与随机代替控制</li><li><b>拼贴蒙太奇</b> — 异质图像并置制造荒诞冲突</li><li><b>噪音语言</b> — 无意义音节取代优雅的叙事</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: #ECE7DD;
+color: #151515;
+font-family: &quot;Courier New&quot;, monospace;
+transform: rotate(-1deg);
+border: 3px dashed #D43D2F;
+filter: contrast(1.1);</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1916</b><span>伏尔泰酒馆开幕,达达诞生</span></li><li class="rv"><b>1918</b><span>查拉发表《达达宣言》</span></li><li class="rv"><b>1920s</b><span>柏林达达摄影蒙太奇与现成品扩散</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="futurism.html">← 未来主义</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="destijl.html">风格派 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 45/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

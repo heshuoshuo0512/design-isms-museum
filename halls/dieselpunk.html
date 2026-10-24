@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>柴油朋克 Dieselpunk · 主义馆展厅 HALL 65</title>
+<meta name="description" content="柴油朋克(Dieselpunk)设计主义:历史、特征、代表案例与 CSS 实现。柴油朋克、Dieselpunk、装饰艺术、柴油机械、黑色未来 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="柴油朋克、Dieselpunk、装饰艺术、柴油机械、黑色未来">
+<meta property="og:title" content="柴油朋克 Dieselpunk · 主义馆">
+<meta property="og:description" content="在烟尘、钢铁与爵士乐之间,未来已经发动。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#24221F;color:#E8D8B4;font-family:Arial,"Helvetica Neue",sans-serif;filter:sepia(.12)}
+::selection{background:#C75C32;color:#24221F}
+.topbar{background:#38332E;border-bottom:4px double #E8D8B4;color:#E8D8B4}
+.hero{background:linear-gradient(135deg,rgba(199,92,50,.45),transparent 52%),repeating-linear-gradient(45deg,transparent 0 20px,rgba(232,216,180,.08) 20px 22px)}
+.hero .big{font-weight:900;letter-spacing:.02em;text-transform:uppercase}
+.hero .en{color:#C75C32;letter-spacing:.18em;font-weight:700}
+.hero .man{background:#38332E;border:4px double #E8D8B4;padding:18px 24px;box-shadow:8px 8px 0 #161514}
+.meta span{border:2px double #E8D8B4;border-radius:0;background:#38332E;color:#E8D8B4}
+.a1{width:180px;height:180px;border:7px double #C75C32;border-radius:50%;background:repeating-conic-gradient(transparent 0 20deg,#78907A 21deg 25deg),#292723;top:9%;right:8%;animation:spin 18s linear infinite}
+.a2{width:125px;height:95px;background:linear-gradient(135deg,#C75C32,#6F2F26);border:4px double #E8D8B4;box-shadow:7px 7px 0 #161514;bottom:14%;right:24%;animation:floaty 6s ease-in-out infinite}
+.sec h3{font-weight:900;color:#C75C32;letter-spacing:.12em;text-transform:uppercase}
+.prose{background:#38332E;border:3px double #E8D8B4;padding:28px;box-shadow:8px 8px 0 #161514}
+.chips li{border:2px double #E8D8B4;border-radius:0;background:#C75C32;color:#24221F;font-weight:700}
+pre{background:#161514;color:#E8D8B4;border:4px solid #C75C32}
+.tl b{color:#C75C32;font-weight:900}
+.hallnav a{border:3px double #E8D8B4;background:#38332E;color:#E8D8B4}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 65 / DIESELPUNK</span>
+  <a href="../index.html#door-dieselpunk">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 65 · 2000s · 两次大战之间的黑色未来</span>
+    <h1 class="big">柴油朋克</h1>
+    <div class="en">Dieselpunk · 2000s</div>
+    <p class="man">“在烟尘、钢铁与爵士乐之间,未来已经发动。”</p>
+    <div class="meta"><span>2000s</span><span>2000s · 两次大战之间的黑色未来</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">柴油朋克借来装甲车的重量、收音机的颗粒和装饰艺术的速度,把 1920–50 年代的未来幻想重新点火。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">柴油朋克在 2000 年代作为复古未来主义的分支被命名,聚焦两次世界大战之间至冷战早期的工业想象。它吸收装饰艺术的几何、宣传海报的构图、早期广播的噪声、柴油发动机和军用机械的质感,想象一个由黑色电影、飞艇、巨型机甲与无线电共同组成的未来。与蒸汽朋克相比,它更冷、更硬,也更接近现代工业的阴影。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;padding:14px 24px;background:linear-gradient(135deg,#C75C32,#6F2F26);border:4px double #E8D8B4;box-shadow:0 0 0 3px #292723,0 6px 12px rgba(0,0,0,.45);color:#E8D8B4;font:700 21px Georgia;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;animation:dp-sign 2.6s steps(2) infinite"></span></div>
+      <figcaption class="ex-cap">装饰艺术标牌 · 电流闪烁</figcaption>
+      <div class="ex-code">display:block;padding:14px 24px;background:linear-gradient(135deg,#C75C32,#6F2F26);border:4px double #E8D8B4;box-shadow:0 0 0 3px #292723,0 6px 12px rgba(0,0,0,.45);color:#E8D8B4;font:700 21px Georgia;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;animation:dp-sign 2.6s steps(2) infinite</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');if(!document.getElementById("dp-sign-kf")){var s=document.createElement("style");s.id="dp-sign-kf";s.textContent="@keyframes dp-sign{50%{filter:brightness(1.45)}}";document.head.appendChild(s)}})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:110px;height:110px;border:5px solid #78907A;border-radius:50%;background:conic-gradient(from 0deg,rgba(168,214,146,.7),transparent 18% 100%),repeating-radial-gradient(circle,#0000 0 16px,rgba(168,214,146,.32) 17px 18px),#16201E;box-shadow:0 0 16px rgba(168,214,146,.45);animation:dp-radar 2.8s linear infinite"></span></div>
+      <figcaption class="ex-cap">雷达屏 · 扫描未知</figcaption>
+      <div class="ex-code">display:block;width:110px;height:110px;border:5px solid #78907A;border-radius:50%;background:conic-gradient(from 0deg,rgba(168,214,146,.7),transparent 18% 100%),repeating-radial-gradient(circle,#0000 0 16px,rgba(168,214,146,.32) 17px 18px),#16201E;box-shadow:0 0 16px rgba(168,214,146,.45);animation:dp-radar 2.8s linear infinite</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');if(!document.getElementById("dp-radar-kf")){var s=document.createElement("style");s.id="dp-radar-kf";s.textContent="@keyframes dp-radar{to{transform:rotate(360deg)}}";document.head.appendChild(s)}})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:block;width:168px;height:58px;background:repeating-linear-gradient(90deg,#25231F 0 20px,#C75C32 20px 34px,#25231F 34px 48px);border:3px solid #E8D8B4;box-shadow:inset 0 0 0 3px #5E5345,0 5px 8px #111;cursor:pointer;transition:filter .15s"></span></div>
+      <figcaption class="ex-cap">引擎活塞 · 点击启动</figcaption>
+      <div class="ex-code">display:block;width:168px;height:58px;background:repeating-linear-gradient(90deg,#25231F 0 20px,#C75C32 20px 34px,#25231F 34px 48px);border:3px solid #E8D8B4;box-shadow:inset 0 0 0 3px #5E5345,0 5px 8px #111;cursor:pointer;transition:filter .15s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.filter="brightness(1.7)";el.style.transform="translateX(10px)";setTimeout(function(){el.style.filter="";el.style.transform=""},300)})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">《Sky Captain》式复古科幻电影</li><li class="rv">《生化奇兵》装饰艺术场景</li><li class="rv">柴油朋克游戏与漫画设定</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>装饰艺术几何</b> — 阶梯线、扇形与对称构图带来速度感</li><li><b>军用工业</b> — 装甲、铆钉、柴油机和粗重钢板</li><li><b>烟尘颗粒</b> — 棕褐、灰黑与旧胶片的低饱和质地</li><li><b>无线电时代</b> — 雷达、收音机与机械刻度成为界面</li><li><b>黑色未来</b> — 进步与战争、秩序与压迫同时出现</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: linear-gradient(135deg,#C75C32,#292723 60%);
+border: 4px double #E8D8B4;
+filter: sepia(.25) contrast(120%);
+letter-spacing: .12em; /* diesel age */</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>2000s</b><span>dieselpunk 作为复古未来主义分支流行</span></li><li class="rv"><b>2005</b><span>电影、游戏与概念艺术扩展视觉词汇</span></li><li class="rv"><b>2010s</b><span>工业复古进入时装、插画与品牌设计</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="steampunk.html">← 蒸汽朋克</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="solarpunk.html">太阳朋克 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 65/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

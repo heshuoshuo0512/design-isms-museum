@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>非洲未来 Afrofuturism · 主义馆展厅 HALL 79</title>
+<meta name="description" content="非洲未来(Afrofuturism)设计主义:历史、特征、代表案例与 CSS 实现。非洲未来、Afrofuturism、离散、宇宙想象、主体性 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="非洲未来、Afrofuturism、离散、宇宙想象、主体性">
+<meta property="og:title" content="非洲未来 Afrofuturism · 主义馆">
+<meta property="og:description" content="未来不必抹去根系,科技可以携带祖先的声音。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#160D2D;color:#F7E7B2;font-family:"Trebuchet MS","Helvetica Neue",sans-serif}
+::selection{background:#17C3B2;color:#160D2D}
+.topbar{background:#2B1744;border-bottom:2px solid #17C3B2;color:#F7E7B2}
+.hero{background:radial-gradient(circle at 70% 20%,#FF6B35 0 8%,transparent 28%),radial-gradient(circle at 18% 72%,rgba(23,195,178,.25),transparent 25%)}
+.hero .big{font-weight:800;letter-spacing:-.05em;background:linear-gradient(110deg,#F7E7B2,#FF6B35,#17C3B2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .en{color:#17C3B2;letter-spacing:.2em}
+.hero .man{background:#2B1744;border:2px solid #17C3B2;padding:20px 24px;box-shadow:0 0 28px rgba(23,195,178,.35)}
+.meta span{border:1px solid #17C3B2;border-radius:99px;background:#2B1744;color:#F7E7B2}
+.a1{width:180px;height:180px;border:3px solid #17C3B2;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FF6B35 0 13%,transparent 14%),radial-gradient(circle at 30% 30%,#F7E7B2 0 2px,transparent 3px),#160D2D;box-shadow:0 0 28px rgba(23,195,178,.45);top:8%;right:8%;animation:spin 17s linear infinite}
+.a2{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#F7E7B2 0 9%,#FFB627 10% 34%,#FF6B35 35% 63%,#4C1D4F 64%);border:3px solid #F7E7B2;bottom:14%;right:24%;animation:floaty 7s ease-in-out infinite}
+.sec h3{font-weight:800;color:#17C3B2;letter-spacing:.08em}
+.prose{background:#2B1744;border:1px solid #17C3B2;padding:30px;line-height:2;box-shadow:0 0 24px rgba(23,195,178,.2)}
+.chips li{border:1px solid #17C3B2;border-radius:99px;background:#FF6B35;color:#160D2D;font-weight:700}
+pre{background:#0D071C;color:#F7E7B2;border:3px solid #17C3B2}
+.tl b{color:#FF6B35;font-weight:800}
+.hallnav a{border:1px solid #17C3B2;border-radius:99px;background:#2B1744;color:#F7E7B2}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 79 / AFROFUTURISM</span>
+  <a href="../index.html#door-afrofuturism">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 79 · 1990s · 文化批评与跨媒介视觉成形</span>
+    <h1 class="big">非洲未来</h1>
+    <div class="en">Afrofuturism · 1990s</div>
+    <p class="man">“未来不必抹去根系,科技可以携带祖先的声音。”</p>
+    <div class="meta"><span>1990s</span><span>1990s · 文化批评与跨媒介视觉成形</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">非洲未来把星际航行、祖先记忆、黑人离散经验与科技想象放在同一张地图上。它不为未来寻找单一外观,而是让被主流叙事删去的人拥有定义明日的主动权。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">「Afrofuturism」一词由 Mark Dery 在1993年的文章《Black to the Future》中系统讨论,但它的思想前史可追溯至 Sun Ra 的宇宙音乐、黑人科幻写作与非洲离散艺术。它把科技、未来城市、祖先记忆、身体与权力放在一起,质疑谁有资格书写未来。Octavia E. Butler、音乐与电影、当代时尚和数字艺术不断扩展这套跨媒介想象。非洲未来没有固定配色或纹样,重点是文化主体性、世界建构与历史修复。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:122px;height:122px;border:2px solid #17C3B2;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FF6B35 0 13%,transparent 14%),radial-gradient(circle at 30% 30%,#F7E7B2 0 2px,transparent 3px),radial-gradient(circle at 72% 68%,#F7E7B2 0 2px,transparent 3px),#160D2D;box-shadow:0 0 0 10px rgba(23,195,178,.12),0 0 28px rgba(23,195,178,.35);cursor:pointer;transition:transform .7s"></span></div>
+      <figcaption class="ex-cap">轨道星图 · 点击旋转</figcaption>
+      <div class="ex-code">display:block;width:122px;height:122px;border:2px solid #17C3B2;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FF6B35 0 13%,transparent 14%),radial-gradient(circle at 30% 30%,#F7E7B2 0 2px,transparent 3px),radial-gradient(circle at 72% 68%,#F7E7B2 0 2px,transparent 3px),#160D2D;box-shadow:0 0 0 10px rgba(23,195,178,.12),0 0 28px rgba(23,195,178,.35);cursor:pointer;transition:transform .7s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');el.addEventListener("click",function(){el.style.transform=el.style.transform?"":"rotate(140deg) scale(1.08)"})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#F7E7B2 0 9%,#FFB627 10% 34%,#FF6B35 35% 63%,#4C1D4F 64%);border:3px solid #F7E7B2;cursor:pointer;transition:filter .35s,transform .35s"></span></div>
+      <figcaption class="ex-cap">太阳圆盘 · 悬停升温</figcaption>
+      <div class="ex-code">display:block;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#F7E7B2 0 9%,#FFB627 10% 34%,#FF6B35 35% 63%,#4C1D4F 64%);border:3px solid #F7E7B2;cursor:pointer;transition:filter .35s,transform .35s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.addEventListener("mouseenter",function(){el.style.filter="saturate(1.5) brightness(1.15)";el.style.transform="scale(1.08)"});el.addEventListener("mouseleave",function(){el.style.filter="";el.style.transform=""})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:block;width:184px;height:76px;background:repeating-linear-gradient(135deg,transparent 0 13px,#17C3B2 13px 17px,transparent 17px 29px),repeating-linear-gradient(45deg,#160D2D 0 15px,#4C1D4F 15px 29px);border:2px solid #F7E7B2;cursor:pointer;transition:filter .4s,transform .4s"></span></div>
+      <figcaption class="ex-cap">未来纹样 · 点击换色</figcaption>
+      <div class="ex-code">display:block;width:184px;height:76px;background:repeating-linear-gradient(135deg,transparent 0 13px,#17C3B2 13px 17px,transparent 17px 29px),repeating-linear-gradient(45deg,#160D2D 0 15px,#4C1D4F 15px 29px);border:2px solid #F7E7B2;cursor:pointer;transition:filter .4s,transform .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.filter=el.style.filter?"":"hue-rotate(55deg) saturate(1.4)";el.style.transform=el.style.transform?"":"skewX(-6deg)"})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">Sun Ra《Space Is the Place》</li><li class="rv">Octavia E. Butler《Parable》系列</li><li class="rv">Janelle Monáe《The ArchAndroid》视觉体系</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>离散记忆</b> — 把迁徙、失落与祖先经验带进未来叙事</li><li><b>科技主体性</b> — 技术不再只是外来工具,而由自身文化重新命名</li><li><b>宇宙世界建构</b> — 星体、城市与身体共同组成可居住的未来</li><li><b>材料与纹样转译</b> — 传统线索被重新设计,而非被当作装饰样本</li><li><b>自我书写</b> — 拒绝单一他者凝视,让社群定义自己的明日</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: #160D2D;
+color: #F7E7B2;
+border: 2px solid #17C3B2;
+background-image: radial-gradient(
+  circle at 70% 20%, #FF6B35, transparent 28%
+);
+box-shadow: 0 0 28px rgba(23,195,178,.35);</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1970s</b><span>Sun Ra 等艺术家将宇宙想象与黑人经验相连</span></li><li class="rv"><b>1993</b><span>Mark Dery 文章系统提出 Afrofuturism</span></li><li class="rv"><b>2010s–2020s</b><span>音乐、电影、时尚与数字艺术扩大跨媒介影响</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="kawaii.html">← 可爱文化</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="isometric.html">等距插画 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 79/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

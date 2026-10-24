@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蒸汽波 Vaporwave · 主义馆展厅 HALL 21</title>
+<meta name="description" content="蒸汽波(Vaporwave)设计主义:历史、特征、代表案例与 CSS 实现。蒸汽波、Vaporwave、粉青渐变、怀旧、Win95 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="蒸汽波、Vaporwave、粉青渐变、怀旧、Win95">
+<meta property="og:title" content="蒸汽波 Vaporwave · 主义馆">
+<meta property="og:description" content="一场关于 80 年代未来的怀旧梦。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:linear-gradient(180deg,#2B0A54,#4A1A6E 60%,#FF71CE 130%);color:#01CDFE;font-family:"MS PGothic","Courier New","PingFang SC",monospace}
+::selection{background:#FF71CE;color:#2B0A54}
+.topbar{background:rgba(43,10,84,.92);border-bottom:1px solid #01CDFE;letter-spacing:.15em}
+.hero .big{color:#FF71CE;font-weight:900;font-style:italic;text-shadow:0 0 30px rgba(255,113,206,.7),4px 4px 0 #01CDFE;letter-spacing:.1em}
+.hero .en{letter-spacing:.6em;color:#fff}
+.hero .man{background:rgba(1,205,254,.08);border:1px solid #01CDFE;padding:20px 26px;letter-spacing:.12em;box-shadow:0 0 30px rgba(1,205,254,.25);color:#d9faff}
+.meta span{border:1px solid #FF71CE;color:#FF71CE;border-radius:0;letter-spacing:.2em}
+.a1{width:180px;height:180px;top:10%;right:10%;background:conic-gradient(#e8e8e8 0 25%,#2B0A54 0 50%,#e8e8e8 0 75%,#2B0A54 0);clip-path:polygon(50% 0,90% 10%,100% 50%,90% 90%,50% 100%,10% 90%,0 50%,10% 10%);opacity:.8;animation:spin 24s linear infinite}
+.a2{width:220px;height:120px;background:linear-gradient(180deg,#FF71CE,#B14BFF);clip-path:polygon(50% 0,100% 100%,0 100%);bottom:6%;right:6%;opacity:.85;filter:blur(1px)}
+.a3{width:100%;height:3px;background:linear-gradient(90deg,transparent,#01CDFE,transparent);bottom:20%;left:0;animation:tw 2s ease-in-out infinite}
+.prose{background:rgba(43,10,84,.7);border:1px solid #01CDFE;padding:30px;color:#d9faff;letter-spacing:.05em;box-shadow:0 0 40px rgba(1,205,254,.15)}
+.chips li{border:1px solid #01CDFE;color:#d9faff;background:rgba(1,205,254,.08);letter-spacing:.08em}
+.tl b{color:#FF71CE;letter-spacing:.15em}
+pre{background:#0d0318;border:1px solid #FF71CE;color:#01CDFE;letter-spacing:.05em}
+.hallnav a{border:1px solid #01CDFE;color:#01CDFE;letter-spacing:.15em}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 21 / VAPORWAVE</span>
+  <a href="../index.html#door-vaporwave">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 21 · 2010s · 互联网原生美学</span>
+    <h1 class="big">蒸汽波</h1>
+    <div class="en">Vaporwave · 2010</div>
+    <p class="man">“一场关于 80 年代未来的怀旧梦。”</p>
+    <div class="meta"><span>2010</span><span>2010s · 互联网原生美学</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">这是一场关于从未发生过的未来的怀旧。希腊雕像站在 Windows 95 的窗口里,落日永远是粉青色的。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">蒸汽波是第一种完全在互联网上生长的美学:2010 年前后的网络音乐人把 80 年代商场音乐放慢、失真,封面配上希腊雕像、Windows 95 窗口、棕榈树与粉色落日。它怀旧的不是真实存在的过去,而是广告里许诺过的未来。A E S T H E T I C——字符之间的空格,就是这场梦的呼吸。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:110px;height:110px;background:conic-gradient(#e8e8e8 0 25%,#2B0A54 0 50%,#e8e8e8 0 75%,#2B0A54 0);clip-path:polygon(50% 0,90% 10%,100% 50%,90% 90%,50% 100%,10% 90%,0 50%,10% 10%);animation:vp-spin 16s linear infinite;opacity:.85"></span></div>
+      <figcaption class="ex-cap">棋盘雕像 · 永恒旋转</figcaption>
+      <div class="ex-code">display:block;width:110px;height:110px;background:conic-gradient(#e8e8e8 0 25%,#2B0A54 0 50%,#e8e8e8 0 75%,#2B0A54 0);clip-path:polygon(50% 0,90% 10%,100% 50%,90% 90%,50% 100%,10% 90%,0 50%,10% 10%);animation:vp-spin 16s linear infinite;opacity:.85</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');if(!document.getElementById("vp-kf")){var s=document.createElement("style");s.id="vp-kf";s.textContent="@keyframes vp-spin{to{transform:rotate(360deg)}}";document.head.appendChild(s)}})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;background:#c0c0c0;border:2px outset #fff;padding:0;font-family:monospace;font-size:12px;color:#000;cursor:pointer;width:180px"></span></div>
+      <figcaption class="ex-cap">Win95 窗口 · 点击最小化</figcaption>
+      <div class="ex-code">display:block;background:#c0c0c0;border:2px outset #fff;padding:0;font-family:monospace;font-size:12px;color:#000;cursor:pointer;width:180px</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.innerHTML="<div style='background:#000080;color:#fff;padding:2px 6px;display:flex;justify-content:space-between'><span>AESTHETIC.EXE</span><span>_ □ ×</span></div><div style='padding:10px'>loading nostalgia...</div>";el.addEventListener("click",function(){el.style.transform="scaleY(0.05)";el.style.transformOrigin="top";setTimeout(function(){el.style.transform=""},600)})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:block;font-size:26px;letter-spacing:.6em;color:#01CDFE;font-style:italic;text-shadow:0 0 20px rgba(1,205,254,.6);animation:vp-glow 3s ease-in-out infinite;cursor:default"></span></div>
+      <figcaption class="ex-cap">全角字标 · 呼吸闪烁</figcaption>
+      <div class="ex-code">display:block;font-size:26px;letter-spacing:.6em;color:#01CDFE;font-style:italic;text-shadow:0 0 20px rgba(1,205,254,.6);animation:vp-glow 3s ease-in-out infinite;cursor:default</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');if(!document.getElementById("vp-kf2")){var s=document.createElement("style");s.id="vp-kf2";s.textContent="@keyframes vp-glow{50%{text-shadow:0 0 40px rgba(255,113,206,.9);color:#FF71CE}}";document.head.appendChild(s)}})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">Macintosh Plus 专辑封面</li><li class="rv">vaporwave 视觉社区</li><li class="rv">A E S T H E T I C 字体梗</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>粉青渐变</b> — 落日余晖的色谱</li><li><b>希腊雕像</b> — 古典撞上像素</li><li><b>Win95 窗口</b> — 操作系统成为怀旧道具</li><li><b>全角字符</b> — ＡＥＳＴＨＥＴＩＣ</li><li><b>故障低保真</b> — VHS 磁带的雪花</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: linear-gradient(180deg,#ff71ce,#01cdfe);
+font-family: &quot;MS PGothic&quot;, monospace;
+letter-spacing: .5em; /* 间 隔 就 是 态 度 */
+filter: hue-rotate(10deg);</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>2010</b><span>网络音乐场景诞生</span></li><li class="rv"><b>2011</b><span>Macintosh Plus 定义视觉</span></li><li class="rv"><b>2010s</b><span>成为互联网通用怀旧语</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="popart.html">← 波普艺术</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="frutigeraero.html">Frutiger Aero →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 21/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

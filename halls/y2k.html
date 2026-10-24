@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y2K 美学 Y2K Aesthetic · 主义馆展厅 HALL 08</title>
+<meta name="description" content="Y2K 美学(Y2K Aesthetic)设计主义:历史、特征、代表案例与 CSS 实现。Y2K、千禧年、铬银、GeoCities、全息 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="Y2K、千禧年、铬银、GeoCities、全息">
+<meta property="og:title" content="Y2K 美学 Y2K Aesthetic · 主义馆">
+<meta property="og:description" content="千禧年的未来幻想,廉价但真诚。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:linear-gradient(180deg,#0a0a2e,#1a0a3e 60%,#3e0a5e);color:#fff;font-family:Verdana,"PingFang SC",sans-serif}
+::selection{background:#ff71ce;color:#000}
+.topbar{background:rgba(26,10,62,.85);border-bottom:2px solid;border-image:linear-gradient(90deg,#7df9ff,#ff71ce,#fffb96) 1}
+.hero .stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 40% 70%,#fff,transparent),radial-gradient(2px 2px at 60% 20%,#fff,transparent),radial-gradient(1px 1px at 80% 50%,#fff,transparent),radial-gradient(2px 2px at 90% 80%,#fff,transparent),radial-gradient(1px 1px at 10% 85%,#fff,transparent);animation:tw 3s ease-in-out infinite}
+.hero .big{font-family:"Arial Black",Arial,sans-serif;font-style:italic;background:linear-gradient(180deg,#fff 20%,#7df9ff 45%,#b967ff 60%,#ff71ce);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 rgba(255,113,206,.5))}
+.hero .en{color:#7df9ff;font-style:italic;letter-spacing:.2em}
+.hero .man{background:linear-gradient(160deg,rgba(160,230,255,.22),rgba(255,120,220,.16));border:2px solid;border-image:linear-gradient(135deg,#7df9ff,#ff71ce) 1;border-radius:4px 20px 4px 20px;padding:18px 24px;backdrop-filter:blur(6px)}
+.meta span{border-color:#7df9ff;color:#7df9ff;border-radius:0}
+.a1{width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0%,#7df9ff 25%,#b967ff 60%,#2a0a4e 100%);box-shadow:0 0 60px rgba(185,103,255,.7);top:12%;right:10%;animation:floaty 5s ease-in-out infinite}
+.a2{width:80px;height:80px;background:linear-gradient(135deg,#fffb96,#ff71ce);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);bottom:16%;right:26%;animation:spin 8s linear infinite}
+.prose{background:rgba(125,249,255,.08);border:1px solid rgba(125,249,255,.4);border-radius:4px 20px 4px 20px;padding:28px;color:#d9f7ff;backdrop-filter:blur(4px)}
+.chips li{border:1px solid rgba(125,249,255,.5);color:#d9f7ff;background:rgba(125,249,255,.08)}
+pre{background:rgba(0,0,0,.5);border:1px solid #7df9ff;color:#7df9ff}
+.hallnav a{border-color:#ff71ce;color:#ff71ce}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 08 / Y2K AESTHETIC</span>
+  <a href="../index.html#door-y2k">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 08 · 1998–2003 原生 · 2020s 复兴</span>
+    <h1 class="big">Y2K 美学</h1>
+    <div class="en">Y2K Aesthetic · 1998</div>
+    <p class="man">“千禧年的未来幻想,廉价但真诚。”</p>
+    <div class="meta"><span>1998</span><span>1998–2003 原生 · 2020s 复兴</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">拨号音、星星 GIF、访客计数器——千禧年的网民在 GeoCities 上第一次拥有了「我的主页」。廉价的像素,真诚的兴奋。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">千年虫恐慌与拨号上网并存的年代,GeoCities 个人主页用星星 GIF、访客计数器和铬银渐变字体堆砌出第一代网民对未来的全部想象:全息、发光、液态金属。Flash 让一切可以动。二十年后,这代人掌握了审美话语权,Y2K 以蒸汽波与复古未来之名全面复兴——廉价的质感,因为真诚而动人。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:inline-block;font-size:40px;font-weight:900;font-style:italic;background:linear-gradient(180deg,#fff 20%,#aee 40%,#689 50%,#cff 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.1em;animation:y2k-shine 3s linear infinite;background-size:100% 300%"></span></div>
+      <figcaption class="ex-cap">铬银字标 · 彩虹流动</figcaption>
+      <div class="ex-code">display:inline-block;font-size:40px;font-weight:900;font-style:italic;background:linear-gradient(180deg,#fff 20%,#aee 40%,#689 50%,#cff 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.1em;animation:y2k-shine 3s linear infinite;background-size:100% 300%</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');if(!document.getElementById("y2k-kf")){var s=document.createElement("style");s.id="y2k-kf";s.textContent="@keyframes y2k-shine{to{background-position:0 300%}}";document.head.appendChild(s)}})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:inline-block;padding:12px 24px;background:linear-gradient(160deg,rgba(125,249,255,.3),rgba(255,113,206,.25));border:2px solid #7df9ff;border-radius:4px 20px 4px 20px;color:#fff;font-weight:700;cursor:pointer;transition:transform .3s"></span></div>
+      <figcaption class="ex-cap">星星徽章 · 悬停加速旋转</figcaption>
+      <div class="ex-code">display:inline-block;padding:12px 24px;background:linear-gradient(160deg,rgba(125,249,255,.3),rgba(255,113,206,.25));border:2px solid #7df9ff;border-radius:4px 20px 4px 20px;color:#fff;font-weight:700;cursor:pointer;transition:transform .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.addEventListener("mouseenter",function(){el.style.transform="rotate(360deg) scale(1.15)"});el.addEventListener("mouseleave",function(){el.style.transform=""})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:inline-block;padding:8px 18px;background:#000;color:#0f0;font-family:monospace;font-size:16px;letter-spacing:4px;border:2px solid #7df9ff;cursor:pointer"></span></div>
+      <figcaption class="ex-cap">访客计数 · 点击签到</figcaption>
+      <div class="ex-code">display:inline-block;padding:8px 18px;background:#000;color:#0f0;font-family:monospace;font-size:16px;letter-spacing:4px;border:2px solid #7df9ff;cursor:pointer</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');var v=8800;el.textContent="visitor "+v;el.addEventListener("click",function(){v++;el.textContent="visitor "+v})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">GeoCities 存档</li><li class="rv">早期 MySpace</li><li class="rv">Flash 时代个人主页</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>铬银渐变</b> — 金属质感字,未来=液态金属</li><li><b>全息配色</b> — 冰蓝/电紫/热粉/荧光绿</li><li><b>斜体圆体</b> — 像素字与未来感斜体并存</li><li><b>GIF 饰品</b> — 闪烁星星、分割线、计数器</li><li><b>低保真纹理</b> — 压缩痕迹本身就是美学</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>font-style: italic;
+background: linear-gradient(180deg,
+  #fff 20%, #7df9ff 45%, #b967ff 60%, #ff71ce);
+-webkit-background-clip: text;
+color: transparent;</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1998</b><span>GeoCities 个人主页黄金期</span></li><li class="rv"><b>2003</b><span>MySpace 把自定义推向巅峰</span></li><li class="rv"><b>2020s</b><span>Y2K 全面复兴</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="brutalism.html">← 野兽派网页</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="cyberpunk.html">赛博朋克 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 08/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

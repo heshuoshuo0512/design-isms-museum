@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长廊 · 主义馆 ISM MUSEUM</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Helvetica Neue","PingFang SC",sans-serif;background:#0d0d0d;color:#eee;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+::selection{background:#FFD23F;color:#000}
+
+/* ---- 顶栏 ---- */
+.top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid #222;padding:0 24px;height:56px;display:flex;align-items:center;gap:16px}
+.top .brand{font-weight:900;font-size:16px;letter-spacing:.04em;color:#FFD23F;text-decoration:none;white-space:nowrap}
+.top .links{display:flex;gap:4px;margin-left:auto}
+.top .links a{color:#888;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;transition:.2s;white-space:nowrap}
+.top .links a:hover{color:#fff;background:#222}
+.top .links a.on{color:#FFD23F}
+
+/* ---- 标题区 ---- */
+.head{padding:96px 5vw 20px;text-align:center}
+.head h1{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.05;letter-spacing:-.02em;background:linear-gradient(115deg,#FFD23F,#FF6B6B,#74B9FF,#0ff);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.head p{color:#777;font-size:clamp(13px,1.6vw,16px);line-height:1.8}
+.head p b{color:#aaa}
+
+/* ---- 轮播主体:4 行,方向交替,速度不同 ---- */
+.belt{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:14px;padding:16px 0 32px;overflow:hidden}
+.row{display:flex;overflow:hidden;user-select:none;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);opacity:0;--row-from:0%;animation:corridorRowIn .9s cubic-bezier(.22,.75,.25,1) both;animation-delay:var(--row-delay,0ms)}
+.row .track{display:flex;gap:14px;padding-right:14px;flex-shrink:0;min-width:100%;animation:slide var(--track-duration,40s) linear infinite}
+.row.rev .track{animation-direction:reverse}
+.row:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-100%)}}
+@keyframes corridorRowIn{from{opacity:0;transform:translateX(var(--row-from))}to{opacity:1;transform:translateX(0)}}
+
+/* ---- 卡片(走廊里的门牌) ---- */
+.card{flex-shrink:0;width:230px;padding:16px 18px 14px;border-radius:8px;text-decoration:none;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.22,.75,.25,1),box-shadow .35s,filter .35s;cursor:pointer;border:1px solid rgba(255,255,255,.08)}
+.card:hover{transform:translateY(-8px) scale(1.08) rotate(var(--card-tilt,2deg));box-shadow:0 0 26px var(--card-accent,rgba(255,255,255,.6)),0 0 56px rgba(255,255,255,.16);filter:saturate(1.16);z-index:2}
+.card .card-particle{position:absolute;left:50%;top:50%;width:var(--particle-size,3px);height:var(--particle-size,3px);border-radius:var(--particle-radius,50%);background:var(--particle-color,currentColor);box-shadow:0 0 8px var(--particle-color,currentColor);opacity:1;transform:translate(-50%,-50%) scale(.2) rotate(0deg);pointer-events:none;z-index:5;will-change:transform,opacity;transition:transform .4s ease-out,opacity .4s ease-out}
+.card .no{font-size:11px;letter-spacing:.28em;opacity:.6;display:block;margin-bottom:6px}
+.card .zh{font-size:20px;font-weight:800;line-height:1.15;margin-bottom:3px}
+.card .en{font-size:11px;opacity:.55;letter-spacing:.06em;text-transform:uppercase}
+.card .bar{position:absolute;bottom:0;left:0;right:0;height:4px;opacity:.85}
+
+/* ---- 每厅配色(80 条) ---- */
+.c-artsandcrafts{background:linear-gradient(135deg,#F4E8C1,#9CAF88);color:#2F3A24;border:3px double #6B4F2A}.c-artsandcrafts .bar{background:#6B4F2A}
+.c-artnouveau{background:radial-gradient(ellipse at 20% 0%,#E7C65A,#1B6B67 58%,#123B3A);color:#FFF4C2;border:2px solid #D6B94C}.c-artnouveau .bar{background:#D6B94C}
+.c-viennasecretion{background:linear-gradient(135deg,#F5F2E8 0 52%,#E6B800 52%);color:#151515;border:3px solid #151515}.c-viennasecretion .bar{background:#151515}
+.c-futurism{background:linear-gradient(125deg,#101D3C 0 56%,#E22D43 56% 61%,#15A9D6 61%);color:#fff}.c-futurism .bar{background:#F4D35E}
+.c-dada{background:repeating-linear-gradient(118deg,#F4D35E 0 18px,#EE4266 18px 36px,#292F36 36px 54px);color:#fff;border:3px solid #111}.c-dada .bar{background:#111}
+.c-destijl{background:linear-gradient(90deg,#E3342F 0 34%,#F6D743 34% 62%,#174A9E 62%);color:#111;border:5px solid #111}.c-destijl .bar{background:#111}
+.c-surrealism{background:linear-gradient(135deg,#1D3557,#5B2A86);color:#F7F1D1;border-radius:28px 4px 28px 4px}.c-surrealism .bar{background:#F5D547}
+.c-streamline{background:repeating-linear-gradient(160deg,#DCE6EA 0 10px,#6D8790 10px 14px,#233E4A 14px 22px);color:#fff;border-radius:32px 6px 32px 6px}.c-streamline .bar{background:#DDECF2}
+.c-photomontage{background:linear-gradient(135deg,#F7F7F4 0 38%,#D62828 38% 64%,#111 64%);color:#fff;border:2px solid #111;border-radius:0}.c-photomontage .bar{background:#F7F7F4}
+.c-midcentury{background:radial-gradient(circle at 85% 20%,#F4A261 0 12%,transparent 13%),#2A9D8F;color:#FDF1D6}.c-midcentury .bar{background:#F4A261}
+.c-googie{background:linear-gradient(135deg,#1E9AA8,#F28F3B 60%,#E84855);color:#fff;border:2px solid #FFE66D;border-radius:40px 8px 40px 8px}.c-googie .bar{background:#FFE66D}
+.c-atompunk{background:radial-gradient(circle,#FFE66D 0 10%,#F4A261 11% 23%,#E76F51 24% 26%,#264653 27%);color:#fff;border:2px solid #F6BD60}.c-atompunk .bar{background:#F6BD60}
+.c-blueprint{background:linear-gradient(rgba(164,219,255,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(164,219,255,.28) 1px,transparent 1px),#125A91;background-size:14px 14px;color:#D9F2FF;border:1px solid #A4DBFF;font-family:"Courier New",monospace}.c-blueprint .bar{background:#A4DBFF}
+.c-pushpin{background:#FFFDF2;color:#242424;border:2px solid #D42B2B;box-shadow:5px 5px 0 #1B4F9C}.c-pushpin .bar{background:#D42B2B}
+.c-psychedelicposter{background:repeating-radial-gradient(ellipse at 50% 0%,#FFE600 0 12px,#F72585 12px 24px,#3A0CA3 24px 36px);color:#fff;border:2px solid #111}.c-psychedelicposter .bar{background:#76FF03}
+.c-punkxerox{background:repeating-linear-gradient(102deg,#eee 0 24px,#222 24px 28px,#bbb 28px 48px);color:#111;border:2px solid #111;border-radius:0}.c-punkxerox .bar{background:#E21A2D}
+.c-asciiart{background:#071A0E;color:#65FF8A;border:2px solid #65FF8A;border-radius:0;font-family:"Courier New",monospace}.c-asciiart .bar{background:#65FF8A}
+.c-retrogui{background:linear-gradient(135deg,#D5D9E0,#AEB5C0);color:#111;border:3px outset #F7F7F7;border-radius:2px;font-family:Tahoma,Arial,sans-serif}.c-retrogui .bar{background:#123B8E}
+.c-lowpoly{background:linear-gradient(135deg,#FF8A65 0 33%,#7E57C2 33% 66%,#26A69A 66%);color:#fff}.c-lowpoly .bar{background:#FFE082}
+.c-web1{background:linear-gradient(#ddd 0 28%,#fff 28%);color:#000;border:2px outset #fff;border-radius:0;font-family:"Times New Roman",serif}.c-web1 .bar{background:#00e}
+.c-web2gloss{background:linear-gradient(180deg,#C9F0FF 0,#2F80ED 45%,#1554A3);color:#fff;border:2px solid #BFE8FF;border-radius:12px;box-shadow:inset 0 2px 0 rgba(255,255,255,.8)}.c-web2gloss .bar{background:#BFE8FF}
+.c-glitchart{background:linear-gradient(90deg,#080808 0 45%,#0ff 45% 48%,#f0f 48% 51%,#080808 51%);color:#fff;border:2px solid #0ff;border-radius:0}.c-glitchart .bar{background:#f0f}
+.c-synthwave{background:linear-gradient(180deg,#1B124A 0 55%,#FF5E7A);color:#fff;border:1px solid #FF5E7A}.c-synthwave .bar{background:#00E5FF}
+.c-steampunk{background:linear-gradient(135deg,#3A2415,#B07D3C);color:#FFE2A8;border:2px solid #D4A373}.c-steampunk .bar{background:#D4A373}
+.c-dieselpunk{background:linear-gradient(145deg,#30352F,#8A7961);color:#E9D8A6;border:2px solid #B9A77A}.c-dieselpunk .bar{background:#B9A77A}
+.c-solarpunk{background:linear-gradient(135deg,#D5F2B1,#36A269 58%,#197278);color:#103B2F;border:2px solid #F2C14E;border-radius:18px 3px 18px 3px}.c-solarpunk .bar{background:#F2C14E}
+.c-corpmemphis{background:linear-gradient(135deg,#EEF2FF 0 50%,#B8C0FF 50%);color:#202A44;border-radius:18px;border:1px solid #A5B4FC}.c-corpmemphis .bar{background:#6366F1}
+.c-dreamcore{background:linear-gradient(135deg,#FBCFE8,#818CF8 70%);color:#312E81;border-radius:24px}.c-dreamcore .bar{background:#fff}
+.c-weirdcore{background:linear-gradient(135deg,#E8F32A,#FF5C8A 45%,#2DE2E6);color:#171717;border:3px dotted #171717;border-radius:0}.c-weirdcore .bar{background:#171717}
+.c-liminal{background:linear-gradient(90deg,#B5BBC6,#E7E8E3 48%,#8B929D);color:#2A3036;border:1px solid #DDE1E6;border-radius:2px}.c-liminal .bar{background:#626B75}
+.c-darkacademia{background:linear-gradient(135deg,#2C211B,#765548);color:#E8DCC8;border:1px solid #B08968;font-family:Georgia,serif}.c-darkacademia .bar{background:#B08968}
+.c-cottagecore{background:#DDE8C8;color:#3B5132;border:2px solid #9CAF88;border-radius:18px 3px 18px 3px;font-family:Georgia,serif}.c-cottagecore .bar{background:#E9C46A}
+.c-materialdesign{background:#2196F3;color:#fff;border-radius:2px;box-shadow:0 6px 14px rgba(0,0,0,.3)}.c-materialdesign .bar{background:#BBDEFB}
+.c-metro{background:#0078D7;color:#fff;border-radius:0;border-left:10px solid #FFB900}.c-metro .bar{background:#FFB900}
+.c-kinetictypo{background:#F2F2F2;color:#111;border-radius:0;border:2px solid #111}.c-kinetictypo .bar{background:#E21A2D}
+.c-holographic{background:linear-gradient(120deg,#FF9A9E,#FAD0C4 22%,#A1C4FD 48%,#C2FFD8 72%,#D4A5FF);color:#3B245C;border:1px solid #fff}.c-holographic .bar{background:#fff}
+.c-liquidtypo{background:radial-gradient(ellipse at 30% 20%,#8AF5FF,#38BDF8 40%,#135D8C);color:#E9FFFF;border-radius:38% 62% 35% 65%}.c-liquidtypo .bar{background:#8AF5FF}
+.c-kawaii{background:#FFE4F0;color:#A21CAF;border:3px solid #F9A8D4;border-radius:28px}.c-kawaii .bar{background:#F9A8D4}
+.c-afrofuturism{background:linear-gradient(135deg,#210B42,#E85D04 55%,#FFBA08);color:#FFF3B0;border:2px solid #FFBA08}.c-afrofuturism .bar{background:#FFF3B0}
+.c-isometric{background:linear-gradient(135deg,#D8F3DC 0 33%,#74C69D 33% 66%,#1B4332 66%);color:#fff;border:2px solid #B7E4C7}.c-isometric .bar{background:#B7E4C7}
+.c-neubrutalism{background:#FFD23F;color:#000}.c-neubrutalism .bar{background:#FF6B6B}
+.c-minimalism{background:#fff;color:#111}.c-minimalism .bar{background:#111}
+.c-swiss{background:#E30613;color:#fff}.c-swiss .bar{background:#fff}
+.c-glassmorphism{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}.c-glassmorphism .bar{background:rgba(255,255,255,.5)}
+.c-neumorphism{background:#E0E5EC;color:#5a6a7e}.c-neumorphism .bar{background:#b8bec7}
+.c-claymorphism{background:#FFE0F0;color:#a0508a}.c-claymorphism .bar{background:#C7E9FF}
+.c-brutalism{background:#fff;color:#000;border:2px solid #000}.c-brutalism .bar{background:#00e}
+.c-y2k{background:linear-gradient(135deg,#2a0a4e,#7b2ff7);color:#7df9ff}.c-y2k .bar{background:#ff71ce}
+.c-cyberpunk{background:#0a0a0f;color:#0ff}.c-cyberpunk .bar{background:#f0f}
+.c-darkmode{background:#121212;color:#e6e6e6}.c-darkmode .bar{background:#8ab4f8}
+.c-maximalism{background:repeating-linear-gradient(45deg,#FF2D78 0 14px,#FFE600 14px 28px,#00C2FF 28px 42px);color:#fff;text-shadow:1px 1px 0 #111}.c-maximalism .bar{background:#7B2FFF}
+.c-flatdesign{background:#1ABC9C;color:#fff}.c-flatdesign .bar{background:#E74C3C}
+.c-skeuomorphism{background:linear-gradient(180deg,#3a2a1a,#241a10);color:#f0e6d2}.c-skeuomorphism .bar{background:#c4956a}
+.c-retrofuturism{background:linear-gradient(180deg,#134a5e,#ff7e5f);color:#fff}.c-retrofuturism .bar{background:#ffd93b}
+.c-bentogrid{background:#F5F5F7;color:#1d1d1f}.c-bentogrid .bar{background:#0071E3}
+.c-bauhaus{background:#F5EFE0;color:#111}.c-bauhaus .bar{background:linear-gradient(90deg,#D32F2F 33%,#FDD835 33% 66%,#1976D2 66%)}
+.c-constructivism{background:#E8E0D0;color:#111}.c-constructivism .bar{background:#C62828}
+.c-artdeco{background:#0e0e12;color:#d4af37}.c-artdeco .bar{background:#d4af37}
+.c-memphis{background:#FFF7F0;color:#111}.c-memphis .bar{background:repeating-linear-gradient(90deg,#FF6FA5 0 12px,#40C4FF 12px 24px,#FFE94A 24px 36px)}
+.c-popart{background:#FFDE00;color:#111}.c-popart .bar{background:#E4002B}
+.c-vaporwave{background:linear-gradient(180deg,#2B0A54,#4A1A6E);color:#01CDFE}.c-vaporwave .bar{background:#FF71CE}
+.c-frutigeraero{background:linear-gradient(180deg,#87CEEB,#5BB85D);color:#fff}.c-frutigeraero .bar{background:rgba(255,255,255,.7)}
+.c-aciddesign{background:#0A0A0A;color:#D9FF3D}.c-aciddesign .bar{background:linear-gradient(90deg,#D9FF3D,#B14BFF,#FF3DE8)}
+.c-pixelart{background:#1A1C2C;color:#F4F4F4}.c-pixelart .bar{background:repeating-linear-gradient(90deg,#FF004D 0 12px,#41A6F6 12px 24px,#73EFF7 24px 36px)}
+.c-aurora{background:#0a0a12;color:#c9c9e0}.c-aurora .bar{background:linear-gradient(90deg,#7C3AED,#06B6D4,#EC4899)}
+.c-papercut{background:#FFF8E7;color:#5A4632}.c-papercut .bar{background:#FFD3B6}
+.c-doodle{background:#FFFDF5;color:#111}.c-doodle .bar{background:#F25C54}
+.c-psychedelic{background:radial-gradient(circle at 30% 0%,#FF6F00,#FF3DE8 50%,#4A148C);color:#FFEB3B}.c-psychedelic .bar{background:#76FF03}
+.c-grunge{background:#2B2620;color:#C9BFA8}.c-grunge .bar{background:#8B3A2A}
+.c-editorial{background:#FAF7F2;color:#1A1A1A}.c-editorial .bar{background:#B08D4A}
+.c-swisspunk{background:#111;color:#F5F5F5}.c-swisspunk .bar{background:#00E5FF}
+.c-wabisabi{background:#E8E0D0;color:#5A5248}.c-wabisabi .bar{background:#A85D3B}
+.c-typographic{background:#F4F1EA;color:#111;border-radius:0}.c-typographic .bar{background:#E21A2D}
+.c-antidesign{background:#B8FF00;color:#4A0C67;border-radius:0}.c-antidesign .bar{background:#4A0C67}
+.c-hightech{background:linear-gradient(rgba(21,232,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(21,232,255,.14) 1px,transparent 1px),#071622;background-size:16px 16px;color:#9CF6FF}.c-hightech .bar{background:#15E8FF}
+.c-newchinese{background:linear-gradient(135deg,#F2E8D5,#D8C3A5);color:#3E3025}.c-newchinese .bar{background:#7B1E1E}
+.c-opart{background:repeating-linear-gradient(45deg,#111 0 6px,#F4F4F4 6px 12px);color:#111}.c-opart .bar{background:#111}
+.c-duotone{background:linear-gradient(135deg,#FF5A36 0 50%,#3626A7 50%);color:#fff}.c-duotone .bar{background:#FFD23F}
+.c-flat3d{background:linear-gradient(135deg,#50E3C2 0 58%,#2C8DFF 58%);color:#fff}.c-flat3d .bar{background:#FF5C8A}
+.c-aigenerative{background:conic-gradient(from 210deg at 75% 25%,#FF2D95,#7C3AED,#00E5FF,#FFB000,#FF2D95);color:#fff}.c-aigenerative .bar{background:#fff}
+
+
+/* ---- 底部 ---- */
+.foot{padding:14px 5vw 22px;text-align:center;font-size:11px;color:#555;line-height:2}
+.foot a{color:#888}
+@media(max-width:720px){.card{width:190px}.card .zh{font-size:17px}}
+
+/* ---- 自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,opacity .3s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:12px;height:12px;background:#fff}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:1;will-change:transform,opacity}
+  body.cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(255,255,255,.9)}
+  body.cur-down #cur-ring{width:22px;height:22px}
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="index.html">← 主义馆</a>
+  <div class="links">
+    <a href="index.html">大厅</a>
+    <a class="on" href="corridor.html">长廊</a>
+    <a href="timeline.html">时间轴</a>
+  </div>
+</div>
+
+<header class="head">
+  <h1>长廊 · 八十个主义</h1>
+  <p>四行门牌永续流动,<b>悬停任意一行</b>可让它暂停 · 点击门牌进入展厅</p>
+</header>
+
+<main class="belt" id="belt"></main>
+
+<footer class="foot">主义馆 ISM MUSEUM · 长廊模式 · 80 个前端设计主义,全部由 CSS 绘制</footer>
+
+<script>
+const ISMS=[
+['neubrutalism','01','新粗野主义','Neubrutalism'],
+['minimalism','02','极简主义','Minimalism'],
+['swiss','03','瑞士国际主义','Swiss Style'],
+['glassmorphism','04','玻璃拟态','Glassmorphism'],
+['neumorphism','05','新拟态','Neumorphism'],
+['claymorphism','06','粘土拟态','Claymorphism'],
+['brutalism','07','野兽派','Web Brutalism'],
+['y2k','08','千禧年风','Y2K'],
+['cyberpunk','09','赛博朋克','Cyberpunk'],
+['darkmode','10','暗黑模式','Dark Mode'],
+['maximalism','11','极繁主义','Maximalism'],
+['flatdesign','12','扁平化','Flat Design'],
+['skeuomorphism','13','拟物化','Skeuomorphism'],
+['retrofuturism','14','复古未来','Retrofuturism'],
+['bentogrid','15','便当网格','Bento Grid'],
+['bauhaus','16','包豪斯','Bauhaus'],
+['constructivism','17','构成主义','Constructivism'],
+['artdeco','18','装饰艺术','Art Deco'],
+['memphis','19','孟菲斯','Memphis'],
+['popart','20','波普艺术','Pop Art'],
+['vaporwave','21','蒸汽波','Vaporwave'],
+['frutigeraero','22','Aero 水晶','Frutiger Aero'],
+['aciddesign','23','酸性设计','Acid Design'],
+['pixelart','24','像素艺术','Pixel Art'],
+['aurora','25','极光渐变','Aurora'],
+['papercut','26','纸艺剪纸','Paper Cut'],
+['doodle','27','涂鸦手绘','Doodle'],
+['psychedelic','28','迷幻风','Psychedelic'],
+['grunge','29','垃圾摇滚','Grunge'],
+['editorial','30','编辑杂志','Editorial'],
+['swisspunk','31','瑞士朋克','Swiss Punk'],
+['wabisabi','32','侘寂极简','Wabi-Sabi'],
+['typographic','33','字体排印','Typographic Poster'],
+['antidesign','34','反设计','Anti-Design'],
+['hightech','35','高科技结构','High-Tech'],
+['newchinese','36','新中式','New Chinese'],
+['opart','37','欧普艺术','Op Art'],
+['duotone','38','双色调','Duotone'],
+['flat3d','39','扁平3D','Flat 3D'],
+['aigenerative','40','AI生成主义','AI Generative'],
+['artsandcrafts','41','工艺美术运动','Arts and Crafts'],
+['artnouveau','42','新艺术运动','Art Nouveau'],
+['viennasecretion','43','维也纳分离派','Vienna Secession'],
+['futurism','44','未来主义','Futurism'],
+['dada','45','达达主义','Dada'],
+['destijl','46','风格派','De Stijl'],
+['surrealism','47','超现实主义','Surrealism'],
+['streamline','48','流线现代','Streamline Moderne'],
+['photomontage','49','摄影蒙太奇','Photomontage'],
+['midcentury','50','中世纪现代','Mid-Century Modern'],
+['googie','51','古吉风格','Googie'],
+['atompunk','52','原子朋克','Atompunk'],
+['blueprint','53','蓝图风','Blueprint Style'],
+['pushpin','54','图钉工作室','Push Pin Studios'],
+['psychedelicposter','55','迷幻海报','Psychedelic Poster'],
+['punkxerox','56','朋克剪贴','Punk Xerox'],
+['asciiart','57','ASCII 艺术','ASCII Art'],
+['retrogui','58','复古界面','Retro GUI'],
+['lowpoly','59','低多边形','Low Poly'],
+['web1','60','Web 1.0 美学','Web 1.0'],
+['web2gloss','61','Web 2.0 光泽','Web 2.0 Gloss'],
+['glitchart','62','故障艺术','Glitch Art'],
+['synthwave','63','合成波','Synthwave'],
+['steampunk','64','蒸汽朋克','Steampunk'],
+['dieselpunk','65','柴油朋克','Dieselpunk'],
+['solarpunk','66','太阳朋克','Solarpunk'],
+['corpmemphis','67','企业孟菲斯','Corporate Memphis'],
+['dreamcore','68','梦境核','Dreamcore'],
+['weirdcore','69','怪异核','Weirdcore'],
+['liminal','70','阈限空间','Liminal Space'],
+['darkacademia','71','暗色学术','Dark Academia'],
+['cottagecore','72','田园核','Cottagecore'],
+['materialdesign','73','材质设计','Material Design'],
+['metro','74','Metro 现代','Metro'],
+['kinetictypo','75','动态字体','Kinetic Typography'],
+['holographic','76','全息虹彩','Holographic'],
+['liquidtypo','77','液体字体','Liquid Typography'],
+['kawaii','78','可爱文化','Kawaii'],
+['afrofuturism','79','非洲未来','Afrofuturism'],
+['isometric','80','等距插画','Isometric Illustration'],
+];
+
+// 把 80 厅分成 4 行,每行内部错开,行方向/速度不同
+const ROWS=4;
+const rows=Array.from({length:ROWS},()=>[]);
+ISMS.forEach((m,i)=>rows[i%ROWS].push(m));
+
+const belt=document.getElementById('belt');
+rows.forEach((items,ri)=>{
+  const row=document.createElement('div');
+  const baseDuration=60+ri*14;
+  row.className='row'+(ri%2?' rev':'');
+  row.style.setProperty('--track-duration',`${baseDuration}s`);
+  row.style.setProperty('--slow-duration',`${baseDuration*2}s`);
+  row.style.setProperty('--row-from',ri%2?'100%':'-100%');
+  row.style.setProperty('--row-delay',`${ri*150}ms`);
+  row.style.setProperty('--card-tilt',ri%2?'-2deg':'2deg');
+  // 两条 track 首尾相接形成无缝循环
+  for(let t=0;t<2;t++){
+    const track=document.createElement('div');
+    track.className='track';
+    items.forEach(([slug,no,zh,en])=>{
+      const a=document.createElement('a');
+      a.className='card c-'+slug;
+      a.href='halls/'+slug+'.html';
+      a.innerHTML=`<span class="no">HALL ${no}</span><div class="zh">${zh}</div><div class="en">${en}</div><span class="bar"></span>`;
+      track.appendChild(a);
+    });
+    row.appendChild(track);
+  }
+  belt.appendChild(row);
+  // 用门牌底部强调色作为悬停发光色,渐变底色则退回文字色。
+  row.querySelectorAll('.card').forEach(card=>{
+    const barColor=getComputedStyle(card.querySelector('.bar')).backgroundColor;
+    const cardColor=getComputedStyle(card).color;
+    card.style.setProperty('--card-accent',barColor&&barColor!=='rgba(0, 0, 0, 0)'?barColor:cardColor);
+  });
+});
+
+/* 卡片悬停粒子：CSS transition 驱动,事件委托避免 160 组监听器 */
+const cardBurstAt=new WeakMap();
+const burstCardParticles=card=>{
+  const now=performance.now(),last=cardBurstAt.get(card)||-Infinity;
+  if(now-last<250)return;
+  cardBurstAt.set(card,now);
+  const style=getComputedStyle(card);
+  const color=style.getPropertyValue('--card-accent')||style.color;
+  const count=5+Math.floor(Math.random()*4);
+  for(let i=0;i<count;i++){
+    const particle=document.createElement('span');
+    const angle=Math.random()*Math.PI*2,distance=24+Math.random()*28;
+    const x=Math.cos(angle)*distance,y=Math.sin(angle)*distance;
+    particle.className='card-particle';
+    particle.style.setProperty('--particle-color',color);
+    particle.style.setProperty('--particle-size',`${(2+Math.random()*2).toFixed(1)}px`);
+    particle.style.setProperty('--particle-radius',Math.random()>.45?'50%':'2px');
+    particle.style.transition='transform .4s ease-out,opacity .4s ease-out';
+    card.appendChild(particle);
+    requestAnimationFrame(()=>{
+      particle.style.transform=`translate(calc(-50% + ${x}px),calc(-50% + ${y}px)) scale(.7) rotate(${Math.round(Math.random()*260-130)}deg)`;
+      particle.style.opacity='0';
+    });
+    setTimeout(()=>particle.remove(),420);
+  }
+};
+
+/* 自定义光标 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my,frame=0;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  var hoverSelector='a,button,.xob,.door,.card',hovered=null;
+  function schedule(){
+    if(!frame)frame=requestAnimationFrame(tick);
+  }
+  function tick(){
+    frame=0;
+    var dx=mx-rx,dy=my-ry;
+    rx+=dx*.16;ry+=dy*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    if(Math.abs(dx)>.1||Math.abs(dy)>.1)schedule();
+  }
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+    schedule();
+  },{passive:true});
+  addEventListener('mousedown',function(){document.body.classList.add('cur-down')});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function closestHover(node){
+    return node instanceof Element?node.closest(hoverSelector):null;
+  }
+  document.addEventListener('mouseover',function(e){
+    var target=closestHover(e.target),related=e.relatedTarget;
+    if(target){
+      hovered=target;
+      document.body.classList.add('cur-hover');
+    }
+    var card=target&&target.closest('.card');
+    if(card&&(!related||!(related instanceof Node)||!card.contains(related))){
+      burstCardParticles(card);
+    }
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    var target=closestHover(e.target),related=e.relatedTarget;
+    if(target&&target===hovered&&(!related||!(related instanceof Node)||!target.contains(related))){
+      hovered=null;
+      document.body.classList.remove('cur-hover');
+    }
+  },{passive:true});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4,angle=Math.random()*Math.PI*2,d=16+Math.random()*32;
+    var dx=Math.cos(angle)*d,dy=Math.sin(angle)*d;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transform:translate(-50%,-50%);transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      p.style.transform='translate(calc(-50% + '+dx+'px),calc(-50% + '+dy+'px)) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+})();
+</script>
+</body>
+</html>

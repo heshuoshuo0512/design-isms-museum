@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frutiger Aero Frutiger Aero · 主义馆展厅 HALL 22</title>
+<meta name="description" content="Frutiger Aero(Frutiger Aero)设计主义:历史、特征、代表案例与 CSS 实现。Frutiger Aero、Aero、水珠、科技乐观、Vista | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="Frutiger Aero、Aero、水珠、科技乐观、Vista">
+<meta property="og:title" content="Frutiger Aero Frutiger Aero · 主义馆">
+<meta property="og:description" content="玻璃后面,是一整个清澈的自然。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:linear-gradient(180deg,#87CEEB 0%,#BFE8F5 45%,#5BB85D 100%);color:#0A3A5A;font-family:Frutiger,"Segoe UI","PingFang SC",sans-serif}
+::selection{background:#5BB85D;color:#fff}
+.topbar{background:rgba(255,255,255,.4);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.7)}
+.hero .big{font-weight:800;color:#fff;text-shadow:0 2px 20px rgba(10,58,90,.4)}
+.hero .en{color:#0A3A5A;font-weight:600}
+.hero .man{background:rgba(255,255,255,.5);backdrop-filter:blur(12px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:22px;padding:20px 26px;box-shadow:inset 0 1px 0 #fff,0 14px 34px rgba(10,58,90,.2)}
+.meta span{border:none;border-radius:99px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);font-weight:600;box-shadow:inset 0 1px 0 #fff,0 4px 12px rgba(10,58,90,.15);padding:8px 16px}
+.a1{width:90px;height:90px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.25) 22%,rgba(135,206,235,.5) 60%,rgba(70,160,220,.65));top:12%;right:12%;animation:floaty 5s ease-in-out infinite;box-shadow:0 8px 20px rgba(70,160,220,.4)}
+.a2{width:60px;height:60px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.25) 22%,rgba(135,206,235,.5) 60%,rgba(70,160,220,.65));top:26%;right:26%;animation:floaty 6s 1s ease-in-out infinite}
+.a3{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95),rgba(91,184,93,.5));bottom:16%;right:14%;animation:floaty 7s 2s ease-in-out infinite}
+.prose{background:rgba(255,255,255,.55);backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:32px;box-shadow:inset 0 1px 0 #fff,0 18px 40px rgba(10,58,90,.18)}
+.chips li{border-radius:99px;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);font-weight:600;box-shadow:inset 0 1px 0 #fff,0 6px 14px rgba(10,58,90,.15);padding:10px 18px;border:1px solid rgba(255,255,255,.9)}
+.tl b{color:#0A6A3A}
+pre{background:rgba(10,58,90,.85);color:#BFE8F5;border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.hallnav a{border:none;border-radius:99px;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);font-weight:600;box-shadow:inset 0 1px 0 #fff,0 6px 16px rgba(10,58,90,.2);color:#0A3A5A}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 22 / FRUTIGER AERO</span>
+  <a href="../index.html#door-frutigeraero">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 22 · 2006–2013 · 后拟物时代</span>
+    <h1 class="big">Frutiger Aero</h1>
+    <div class="en">Frutiger Aero · 2006</div>
+    <p class="man">“玻璃后面,是一整个清澈的自然。”</p>
+    <div class="meta"><span>2006</span><span>2006–2013 · 后拟物时代</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">2007 年的科技广告里,草地永远青翠,水珠永远晶莹。那是互联网还相信自己在拯救世界的年代。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">Vista 的 Aero 毛玻璃、Wii 的蓝天草地、初代 iPhone 的水滴壁纸——2006 到 2013 年,科技产品集体做了一场关于自然的梦:水珠、草地、鱼群、极光,全被压进半透明玻璃面板里。它得名于 Frutiger 字体与 Aero 界面。2020 年代,经历过扁平化的干燥之后,人们开始怀念那个湿润、乐观、相信科技与自然能和解的年代。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:80px;height:80px;border-radius:50%/60% 60% 40% 40%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95),rgba(135,206,235,.55) 60%,rgba(70,160,220,.65));box-shadow:0 8px 20px rgba(70,160,220,.4);cursor:pointer;transition:transform .3s"></span></div>
+      <figcaption class="ex-cap">水珠 · 悬停涟漪</figcaption>
+      <div class="ex-code">display:block;width:80px;height:80px;border-radius:50%/60% 60% 40% 40%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95),rgba(135,206,235,.55) 60%,rgba(70,160,220,.65));box-shadow:0 8px 20px rgba(70,160,220,.4);cursor:pointer;transition:transform .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');el.addEventListener("mouseenter",function(){el.style.transform="scale(1.2)"});el.addEventListener("mouseleave",function(){el.style.transform=""})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;padding:20px;background:rgba(255,255,255,.5);backdrop-filter:blur(12px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:18px;color:#0A3A5A;font-weight:600;box-shadow:inset 0 1px 0 #fff,0 10px 26px rgba(10,58,90,.2);cursor:pointer;transition:backdrop-filter .5s"></span></div>
+      <figcaption class="ex-cap">Aero 面板 · 点击切换模糊</figcaption>
+      <div class="ex-code">display:block;padding:20px;background:rgba(255,255,255,.5);backdrop-filter:blur(12px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:18px;color:#0A3A5A;font-weight:600;box-shadow:inset 0 1px 0 #fff,0 10px 26px rgba(10,58,90,.2);cursor:pointer;transition:backdrop-filter .5s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');var on=true;el.textContent="Frutiger Aero · 2007";el.addEventListener("click",function(){on=!on;el.style.backdropFilter=on?"blur(12px) saturate(160%)":"blur(0)"})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:inline-block;padding:12px 26px;background:linear-gradient(180deg,#7dd87f,#5BB85D);color:#fff;border-radius:99px;font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 12px rgba(46,125,50,.3);cursor:pointer;transition:transform .3s"></span></div>
+      <figcaption class="ex-cap">草地徽章 · 点击长叶</figcaption>
+      <div class="ex-code">display:inline-block;padding:12px 26px;background:linear-gradient(180deg,#7dd87f,#5BB85D);color:#fff;border-radius:99px;font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 12px rgba(46,125,50,.3);cursor:pointer;transition:transform .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.transform="scale(1.1)";setTimeout(function(){el.style.transform=""},300)})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">Windows Vista Aero</li><li class="rv">Wii 开机界面</li><li class="rv">初代 iPhone 广告</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>水珠×草地</b> — 自然素材的玻璃化处理</li><li><b>Aero 毛玻璃</b> — 半透明+高光的湿润感</li><li><b>天蓝×草绿</b> — 清澈到不真实的配色</li><li><b>光晕镜头</b> — 太阳永远在画面里</li><li><b>科技乐观主义</b> — 数字与自然的大和解</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: linear-gradient(180deg,
+  #87CEEB 0%, #5BB85D 100%);
+backdrop-filter: blur(10px) saturate(180%);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.8),
+            0 0 40px rgba(135,206,235,.6);</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>2006</b><span>Vista Aero 发布</span></li><li class="rv"><b>2007</b><span>iPhone 水滴壁纸</span></li><li class="rv"><b>2020s</b><span>被重新考古并命名</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="vaporwave.html">← 蒸汽波</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="aciddesign.html">酸性设计 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 22/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

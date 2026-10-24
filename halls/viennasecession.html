@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>维也纳分离派 Vienna Secession · 主义馆展厅 HALL 43</title>
+<meta name="description" content="维也纳分离派(Vienna Secession)设计主义:历史、特征、代表案例与 CSS 实现。维也纳分离派、Vienna Secession、克里姆特、金色、几何装饰 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="维也纳分离派、Vienna Secession、克里姆特、金色、几何装饰">
+<meta property="og:title" content="维也纳分离派 Vienna Secession · 主义馆">
+<meta property="og:description" content="每个时代都有自己的艺术,艺术应有自己的自由。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#F2E6C9;color:#332B25;font-family:"Helvetica Neue",Arial,sans-serif}
+::selection{background:#B58B2A;color:#FFF8E5}
+.topbar{background:#FFF8E5;border-bottom:4px solid #B58B2A;color:#332B25}
+.hero{background:repeating-linear-gradient(45deg,rgba(181,139,42,.12) 0 2px,transparent 2px 24px),linear-gradient(90deg,transparent 48%,rgba(51,43,37,.1) 49% 51%,transparent 52%)}
+.hero .big{font-weight:700;letter-spacing:.02em;color:#332B25}
+.hero .en{color:#8A681B;letter-spacing:.28em;text-transform:uppercase}
+.hero .man{background:#FFF8E5;border:3px solid #B58B2A;padding:18px 24px;box-shadow:8px 8px 0 #332B25}
+.meta span{border:2px solid #B58B2A;border-radius:0;background:#F7EFD9;color:#6B531B;font-weight:700}
+.a1{width:200px;height:200px;border:10px solid #B58B2A;background:repeating-linear-gradient(0deg,transparent 0 20px,rgba(181,139,42,.7) 20px 23px),repeating-linear-gradient(90deg,transparent 0 20px,rgba(181,139,42,.7) 20px 23px);top:8%;right:8%;animation:spin 20s linear infinite}
+.a2{width:125px;height:125px;background:#B58B2A;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);bottom:14%;right:25%;animation:floaty 6s ease-in-out infinite}
+.sec h3{font-weight:700;color:#8A681B;letter-spacing:.16em}
+.prose{background:#FFF8E5;border:3px solid #B58B2A;padding:30px;box-shadow:8px 8px 0 rgba(51,43,37,.2)}
+.chips li{border:2px solid #B58B2A;border-radius:0;background:#F7EFD9;color:#332B25;font-weight:700}
+pre{background:#332B25;color:#F2E6C9;border:4px double #B58B2A}
+.tl b{color:#8A681B;font-weight:700}
+.hallnav a{border:2px solid #332B25;background:#FFF8E5;color:#332B25;font-weight:700}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 43 / VIENNA SECESSION</span>
+  <a href="../index.html#door-viennasecession">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 43 · 1897–1914 · 维也纳</span>
+    <h1 class="big">维也纳分离派</h1>
+    <div class="en">Vienna Secession · 1897</div>
+    <p class="man">“每个时代都有自己的艺术,艺术应有自己的自由。”</p>
+    <div class="meta"><span>1897</span><span>1897–1914 · 维也纳</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">金色穹顶像一颗巨大的月桂球,几何与装饰在这里握手。分离派不是一种固定样式,而是从学院制度中离席的决心。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">1897年,克里姆特、霍夫曼、莫塞等艺术家退出维也纳艺术家协会,成立分离派并建造展览馆。他们以《Ver Sacrum》杂志和跨学科展览连接绘画、建筑与工艺,在平面装饰和几何秩序间寻找新语法。克里姆特的金色画面、霍夫曼的方格建筑,共同塑造了世纪之交的维也纳现代性。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:150px;height:150px;background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(181,139,42,.8) 22px 24px),repeating-linear-gradient(90deg,transparent 0 22px,rgba(181,139,42,.8) 22px 24px);border:4px solid #B58B2A;box-shadow:inset 0 0 0 10px #FFF8E5;cursor:pointer;transition:filter .4s,transform .4s"></span></div>
+      <figcaption class="ex-cap">金色方格 · 悬停闪烁</figcaption>
+      <div class="ex-code">display:block;width:150px;height:150px;background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(181,139,42,.8) 22px 24px),repeating-linear-gradient(90deg,transparent 0 22px,rgba(181,139,42,.8) 22px 24px);border:4px solid #B58B2A;box-shadow:inset 0 0 0 10px #FFF8E5;cursor:pointer;transition:filter .4s,transform .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');el.addEventListener("mouseenter",function(){el.style.filter="brightness(1.22) saturate(1.3)";el.style.transform="rotate(4deg)"});el.addEventListener("mouseleave",function(){el.style.filter="";el.style.transform=""})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:140px;height:82px;border-radius:70px 70px 8px 8px;background:radial-gradient(circle at 22% 28%,#B58B2A 0 5%,transparent 6%),radial-gradient(circle at 52% 18%,#B58B2A 0 5%,transparent 6%),radial-gradient(circle at 80% 32%,#B58B2A 0 5%,transparent 6%),#332B25;border:3px solid #B58B2A;cursor:pointer;transition:transform .4s,border-radius .4s"></span></div>
+      <figcaption class="ex-cap">分离派穹顶 · 点击展开</figcaption>
+      <div class="ex-code">display:block;width:140px;height:82px;border-radius:70px 70px 8px 8px;background:radial-gradient(circle at 22% 28%,#B58B2A 0 5%,transparent 6%),radial-gradient(circle at 52% 18%,#B58B2A 0 5%,transparent 6%),radial-gradient(circle at 80% 32%,#B58B2A 0 5%,transparent 6%),#332B25;border:3px solid #B58B2A;cursor:pointer;transition:transform .4s,border-radius .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.addEventListener("click",function(){el.style.transform=el.style.transform?"":"scaleY(1.25)";el.style.borderRadius=el.style.borderRadius?"":"50% 50% 8px 8px"})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:block;font:700 22px/1.2 Georgia,serif;letter-spacing:.18em;color:#B58B2A;border-top:2px solid #B58B2A;border-bottom:2px solid #B58B2A;padding:10px 8px;cursor:pointer;transition:letter-spacing .35s,color .35s"></span></div>
+      <figcaption class="ex-cap">Ver Sacrum 字标 · 悬停放大</figcaption>
+      <div class="ex-code">display:block;font:700 22px/1.2 Georgia,serif;letter-spacing:.18em;color:#B58B2A;border-top:2px solid #B58B2A;border-bottom:2px solid #B58B2A;padding:10px 8px;cursor:pointer;transition:letter-spacing .35s,color .35s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("mouseenter",function(){el.style.letterSpacing=".35em";el.style.color="#8A571D"});el.addEventListener("mouseleave",function(){el.style.letterSpacing=".18em";el.style.color="#B58B2A"})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">约瑟夫·奥尔布里希分离派展览馆</li><li class="rv">古斯塔夫·克里姆特《贝多芬饰带》</li><li class="rv">约瑟夫·霍夫曼布鲁塞尔斯托克雷宫</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>金色装饰</b> — 金箔与平面图案制造神圣光泽</li><li><b>几何网格</b> — 方格、棋盘与模块化秩序</li><li><b>跨媒介总成</b> — 绘画、建筑、家具和版式协同</li><li><b>象征叙事</b> — 神话与寓言藏在装饰表皮</li><li><b>制度出走</b> — 以独立展览挑战学院权威</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: #F2E6C9;
+color: #332B25;
+border: 3px solid #B58B2A;
+background-image: linear-gradient(45deg,rgba(181,139,42,.12) 25%,transparent 25% 75%,rgba(181,139,42,.12) 75%);
+background-size: 24px 24px;</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1897</b><span>维也纳分离派成立</span></li><li class="rv"><b>1898</b><span>分离派展览馆落成并举办首展</span></li><li class="rv"><b>1903</b><span>维也纳工坊成立</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="artnouveau.html">← 新艺术运动</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="futurism.html">未来主义 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 43/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

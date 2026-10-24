@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原子朋克 Atompunk · 主义馆展厅 HALL 52</title>
+<meta name="description" content="原子朋克(Atompunk)设计主义:历史、特征、代表案例与 CSS 实现。原子朋克、Atompunk、原子时代、复古未来、辐射符号 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="原子朋克、Atompunk、原子时代、复古未来、辐射符号">
+<meta property="og:title" content="原子朋克 Atompunk · 主义馆">
+<meta property="og:description" content="相信明天会更亮，也更有辐射感。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#183B56;color:#D9F2E6;font-family:"Trebuchet MS",Arial,sans-serif}
+::selection{background:#F7D154;color:#183B56}
+.topbar{background:#10283A;border-bottom:3px solid #F7D154;color:#D9F2E6}
+.hero{background:radial-gradient(circle at 82% 20%,rgba(247,209,84,.3),transparent 24%),repeating-radial-gradient(circle at 18% 70%,transparent 0 30px,rgba(247,209,84,.12) 31px 33px)}
+.hero .big{font-weight:800;letter-spacing:-.05em}
+.hero .en{color:#F7D154;letter-spacing:.2em}
+.hero .man{background:#244F69;border:3px solid #F7D154;padding:20px 24px;box-shadow:8px 8px 0 #FF7043}
+.meta span{border:2px solid #F7D154;border-radius:0;background:#244F69;color:#D9F2E6}
+.a1{width:190px;height:190px;border:8px double #F7D154;border-radius:50%;background:repeating-conic-gradient(transparent 0 14deg,#FF7043 15deg 18deg,transparent 19deg 30deg),#244F69;top:8%;right:8%;animation:spin 17s linear infinite}
+.a2{width:125px;height:125px;background:#F7D154;border:7px solid #183B56;border-radius:50%;box-shadow:0 0 0 5px #FF7043;bottom:14%;right:24%;animation:floaty 7s ease-in-out infinite}
+.sec h3{font-weight:800;color:#F7D154;letter-spacing:.08em}
+.prose{background:#244F69;border:2px solid #F7D154;padding:30px;line-height:2}
+.chips li{border:2px solid #F7D154;border-radius:0;background:#FF7043;color:#183B56;font-weight:700}
+pre{background:#10283A;color:#F7D154;border:4px solid #FF7043}
+.tl b{color:#F7D154;font-weight:800}
+.hallnav a{border:2px solid #F7D154;background:#244F69;color:#D9F2E6}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 52 / ATOMPUNK</span>
+  <a href="../index.html#door-atompunk">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 52 · 1950s–60s · 原子时代想象</span>
+    <h1 class="big">原子朋克</h1>
+    <div class="en">Atompunk · 1950s</div>
+    <p class="man">“相信明天会更亮，也更有辐射感。”</p>
+    <div class="meta"><span>1950s</span><span>1950s–60s · 原子时代想象</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">原子朋克把冷战时代的宣传画、实验室仪器和家庭未来想象拼成一台时间机器：核能既是危险的阴影，也是人人都能拥有的明日科技。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">原子朋克是一种回望 1940–60 年代的复古未来主义视角：原子能进入广告、家电、城市规划与科幻插画，核家庭、地下避难所和飞行汽车同时出现在大众想象中。它与喷气时代、太空竞赛和冷战宣传共享视觉资源，却更强调辐射符号、实验室色彩和“核能会解决一切”的矛盾乐观。今天的原子朋克常被用于游戏、电影与品牌叙事，提醒人们技术乌托邦从来伴随风险。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:inline-flex;align-items:center;justify-content:center;width:118px;height:118px;border-radius:50%;background:#F7D154;color:#183B56;border:8px double #183B56;font-family:Georgia,serif;font-size:36px;font-weight:900;cursor:pointer;transition:transform .4s,background .3s"></span></div>
+      <figcaption class="ex-cap">原子徽章 · 点击裂变</figcaption>
+      <div class="ex-code">display:inline-flex;align-items:center;justify-content:center;width:118px;height:118px;border-radius:50%;background:#F7D154;color:#183B56;border:8px double #183B56;font-family:Georgia,serif;font-size:36px;font-weight:900;cursor:pointer;transition:transform .4s,background .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');var active=false;el.addEventListener("click",function(){active=!active;el.style.transform=active?"rotate(45deg) scale(1.12)":"";el.style.background=active?"#FF7043":"#F7D154"})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:180px;height:92px;border:7px solid #F7D154;border-radius:100px 100px 12px 12px;background:#183B56;position:relative;overflow:hidden;cursor:pointer;box-shadow:inset 0 -16px 0 #10283A"></span></div>
+      <figcaption class="ex-cap">辐射仪表 · 指针扫描</figcaption>
+      <div class="ex-code">display:block;width:180px;height:92px;border:7px solid #F7D154;border-radius:100px 100px 12px 12px;background:#183B56;position:relative;overflow:hidden;cursor:pointer;box-shadow:inset 0 -16px 0 #10283A</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');var deg=-55;var needle=document.createElement("i");needle.style.cssText="position:absolute;left:50%;bottom:12px;width:4px;height:58px;background:#FF7043;transform-origin:50% 100%;transform:rotate(-55deg);transition:transform .25s";el.appendChild(needle);el.addEventListener("click",function(){deg=deg>=55?-55:deg+22;needle.style.transform="rotate("+deg+"deg)"})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:inline-block;padding:14px 22px;background:#D9F2E6;color:#183B56;border:3px solid #183B56;font-family:Arial,sans-serif;font-weight:800;letter-spacing:.08em;box-shadow:7px 7px 0 #F7D154;cursor:pointer;transition:box-shadow .25s,color .25s"></span></div>
+      <figcaption class="ex-cap">未来家庭 · 悬停发光</figcaption>
+      <div class="ex-code">display:inline-block;padding:14px 22px;background:#D9F2E6;color:#183B56;border:3px solid #183B56;font-family:Arial,sans-serif;font-weight:800;letter-spacing:.08em;box-shadow:7px 7px 0 #F7D154;cursor:pointer;transition:box-shadow .25s,color .25s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("mouseenter",function(){el.style.boxShadow="0 0 20px #F7D154,7px 7px 0 #FF7043";el.style.color="#FF7043"});el.addEventListener("mouseleave",function(){el.style.boxShadow="7px 7px 0 #F7D154";el.style.color="#183B56"})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">1950s 原子时代家电广告</li><li class="rv">《The Jetsons》未来家庭视觉</li><li class="rv">冷战时期民防与防空洞海报</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>辐射符号</b> — 三叶放射、原子轨道与同心圆构成视觉语法</li><li><b>实验室配色</b> — 奶油黄、薄荷绿、海军蓝与警示橙并置</li><li><b>流线金属</b> — 铝制曲线、仪表盘和铆钉暗示科技产品</li><li><b>乌托邦与焦虑</b> — 舒适家庭愿景和核灾难阴影同时出现</li><li><b>未来复古</b> — 用过去的预测方式想象一个并未到来的明天</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: #183B56;
+color: #F7D154;
+border: 3px solid #F7D154;
+box-shadow: 8px 8px 0 #FF7043;</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1945</b><span>原子时代进入大众文化与广告</span></li><li class="rv"><b>1950s</b><span>民防、核家庭与未来家电成为热门题材</span></li><li class="rv"><b>1957</b><span>人造卫星发射,太空竞赛升级视觉想象</span></li><li class="rv"><b>2010s</b><span>原子朋克作为复古未来主义标签重新流行</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="googie.html">← 古吉风</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="blueprint.html">蓝图风 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 52/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

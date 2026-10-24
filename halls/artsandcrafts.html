@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工艺美术运动 Arts and Crafts · 主义馆展厅 HALL 41</title>
+<meta name="description" content="工艺美术运动(Arts and Crafts)设计主义:历史、特征、代表案例与 CSS 实现。工艺美术运动、Arts and Crafts、威廉·莫里斯、手工、自然纹样 | 主义馆 ISM MUSEUM">
+<meta name="keywords" content="工艺美术运动、Arts and Crafts、威廉·莫里斯、手工、自然纹样">
+<meta property="og:title" content="工艺美术运动 Arts and Crafts · 主义馆">
+<meta property="og:description" content="让日常之物恢复手工的诚实与尊严。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;
+ height:48px;padding:0 18px;font-size:12px;backdrop-filter:blur(10px)}
+.topbar a{color:inherit;text-decoration:none;opacity:.75}
+.topbar a:hover{opacity:1}
+.topbar .tt{margin-right:auto;font-weight:700;letter-spacing:.08em}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:110px 8vw 60px;position:relative;overflow:hidden}
+.hero .big{font-size:clamp(46px,10vw,120px);line-height:1;margin:6px 0 10px}
+.hero .en{font-size:clamp(15px,2.4vw,26px);opacity:.65;letter-spacing:.08em}
+.hero .man{font-size:clamp(17px,2.4vw,26px);margin-top:26px;max-width:720px;line-height:1.6}
+.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.meta span{padding:5px 12px;border:1px solid currentColor;opacity:.85}
+.art{position:absolute;inset:0;pointer-events:none}
+.art>*{position:absolute}
+@keyframes floaty{50%{transform:translateY(-18px) rotate(3deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{50%{opacity:.45}}
+.wrap{max-width:960px;margin:0 auto;padding:70px 6vw}
+.sec{margin-bottom:64px}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55;margin-bottom:14px}
+.sec h3{font-size:clamp(22px,3.4vw,34px);margin-bottom:18px}
+.prose{line-height:2;font-size:16px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{font-size:13px;padding:8px 16px}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:currentColor;opacity:.25}
+.tl li{position:relative;padding:10px 0 10px 12px}
+.tl li::before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:currentColor}
+.tl b{display:block;font-size:18px}
+.tl span{opacity:.75;font-size:14px}
+pre{overflow-x:auto;padding:22px;font-size:14px;line-height:1.7;margin-top:6px}
+.hallnav{display:flex;justify-content:space-between;gap:12px;padding:26px 6vw;font-size:14px}
+.hallnav a{color:inherit;text-decoration:none;border:1px solid currentColor;padding:10px 20px;opacity:.85}
+.hallnav a:hover{opacity:1}
+footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-height:2}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.lede{font-size:clamp(18px,2.4vw,24px);line-height:2;font-weight:300;padding:0 0 24px;letter-spacing:.02em;border-bottom:1px solid currentColor;margin-bottom:44px}
+.hint{font-size:13px;opacity:.55;margin:-8px 0 22px}
+
+/* ---- 标本陈列系统 ---- */
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin:14px 0 0;perspective:1200px}
+.ex{position:relative;padding:0;display:flex;flex-direction:column;overflow:hidden;
+    border:1px solid currentColor;border-radius:14px;background:rgba(128,128,128,.03);
+    transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;will-change:transform}
+.ex:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.22),0 0 0 1px currentColor;z-index:2}
+.ex-art{display:flex;align-items:center;justify-content:center;min-height:150px;width:100%;
+        padding:28px 22px;position:relative;overflow:hidden}
+.ex-art::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+        background-image:radial-gradient(circle,currentColor 1px,transparent 1.4px);background-size:18px 18px;
+        transition:opacity .3s}
+.ex:hover .ex-art::before{opacity:.1}
+.ex .xob{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.ex:hover .xob{transform:scale(1.15) rotate(-2deg);animation-play-state:paused}
+.ex-cap{padding:14px 18px 16px;border-top:1px solid currentColor;font-size:12.5px;opacity:.78;line-height:1.65;
+        display:flex;align-items:flex-start;gap:10px;transition:opacity .3s}
+.ex:hover .ex-cap{opacity:1}
+.ex-cap::before{content:"◈";flex-shrink:0;opacity:.5;font-size:13px;line-height:1.6;transition:transform .3s}
+.ex:hover .ex-cap::before{transform:rotate(90deg);opacity:1}
+
+/* ---- 标本入场编排 ---- */
+.exgrid .ex{opacity:0;transform:translateY(30px) rotateX(8deg) scale(.96);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.exgrid .ex.in{opacity:1;transform:none}
+.exgrid .ex:nth-child(2){transition-delay:.09s}
+.exgrid .ex:nth-child(3){transition-delay:.18s}
+
+/* ---- 悬停揭示代码 ---- */
+.ex .ex-code{position:absolute;inset:auto 0 0 0;padding:12px 16px;font-family:ui-monospace,monospace;
+  font-size:10.5px;line-height:1.5;background:rgba(0,0,0,.85);color:#7df9ff;
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  max-height:55%;overflow:auto;white-space:pre-wrap;word-break:break-all;z-index:3;pointer-events:none;
+  border-top:1px solid rgba(125,249,255,.3)}
+.ex:hover .ex-code{transform:translateY(0)}
+
+/* ---- 全局自定义光标 ---- */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;mix-blend-mode:difference}
+  body.cur-hover #cur-dot{width:14px;height:14px;background:#fff}
+  body.cur-hover #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.9);animation:cur-spin 3s linear infinite}
+  body.cur-down #cur-ring{width:20px;height:20px}
+  @keyframes cur-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+  .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+  @keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+}
+/* 粒子与涟漪在所有设备生效(JS 控制创建) */
+.cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
+.cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+body{background:#F3E7CF;color:#3B4A2F;font-family:Georgia,"Times New Roman",serif}
+::selection{background:#9A4E2F;color:#FFF8EA}
+.topbar{background:#E8D7B7;border-bottom:3px solid #7A4E2D;color:#3B4A2F}
+.hero{background:repeating-linear-gradient(45deg,rgba(122,78,45,.08) 0 2px,transparent 2px 14px),radial-gradient(circle at 80% 20%,rgba(154,78,47,.2),transparent 30%)}
+.hero .big{font-weight:700;letter-spacing:-.04em;color:#6B3F29}
+.hero .en{font-style:italic;color:#9A4E2F;letter-spacing:.2em}
+.hero .man{background:#FFF8EA;border:2px solid #7A4E2D;border-radius:4px;padding:20px 24px;box-shadow:8px 8px 0 rgba(122,78,45,.2)}
+.meta span{border:1px solid #9A4E2F;border-radius:2px;background:#FFF8EA;color:#6B3F29}
+.a1{width:190px;height:190px;border:12px solid #9A4E2F;border-radius:50% 40% 50% 40%;background:repeating-radial-gradient(circle,#E7B27D 0 5px,#FFF8EA 5px 10px);top:9%;right:8%;animation:floaty 8s ease-in-out infinite}
+.a2{width:120px;height:150px;background:linear-gradient(120deg,#3B6B4A,#9A4E2F);clip-path:polygon(50% 0,90% 24%,76% 100%,24% 100%,10% 24%);bottom:12%;right:24%;animation:floaty 7s 1s ease-in-out infinite}
+.sec h3{font-weight:700;color:#6B3F29;letter-spacing:.08em}
+.prose{background:#FFF8EA;border:1px solid #C28B5C;border-left:6px solid #9A4E2F;padding:30px;line-height:2.1}
+.chips li{border:1px solid #C28B5C;border-radius:2px;background:#E7D6B6;color:#3B4A2F;padding:9px 16px}
+pre{background:#3B4A2F;color:#F3E7CF;border:4px solid #7A4E2D}
+.tl b{color:#9A4E2F;font-weight:700}
+.hallnav a{border:1px solid #7A4E2D;background:#FFF8EA;color:#6B3F29}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 大厅</a>
+  <a href="../corridor.html">长廊</a>
+  <a href="../timeline.html">时间轴</a>
+  <span class="tt">HALL 41 / ARTS AND CRAFTS</span>
+  <a href="../index.html#door-artsandcrafts">返回门位</a>
+</div>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+  <div style="position:relative">
+    <span class="kicker">HALL 41 · 1860s–1900s · 英国 / 美国</span>
+    <h1 class="big">工艺美术运动</h1>
+    <div class="en">Arts and Crafts · 1860s</div>
+    <p class="man">“让日常之物恢复手工的诚实与尊严。”</p>
+    <div class="meta"><span>1860s</span><span>1860s–1900s · 英国 / 美国</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede rv">机器能复制物件,却不能替代手的判断。工艺美术运动把木纹、织物与书页带回生活,也把设计重新交给做东西的人。</p>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>历史档案</h3>
+    <p class="prose">19世纪中叶工业化带来廉价批量商品,威廉·莫里斯与约翰·拉斯金对此提出反思。莫里斯在纺织、家具、壁纸和印刷中恢复手工流程,强调材料诚实、劳动尊严与整体环境。运动从英国工坊传播到美国,影响了住宅、书籍和现代设计教育,也为后来的现代主义提供了工艺基础。</p>
+  </section>
+    <section class="sec rv">
+    <div class="kicker">Specimens</div>
+    <h3>馆内标本</h3>
+    <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
+    <div class="exgrid"><figure class="ex rv" data-x="0">
+      <div class="ex-art"><span class="xob" style="display:block;width:190px;height:120px;background-color:#F3E7CF;background-image:radial-gradient(ellipse at 30% 30%,#9A4E2F 0 7%,transparent 8%),radial-gradient(ellipse at 68% 70%,#3B6B4A 0 8%,transparent 9%),linear-gradient(55deg,transparent 45%,#6B7F3B 46% 49%,transparent 50%);background-size:52px 52px;cursor:pointer;transition:background-size .6s,filter .4s"></span></div>
+      <figcaption class="ex-cap">莫里斯壁纸 · 悬停生长</figcaption>
+      <div class="ex-code">display:block;width:190px;height:120px;background-color:#F3E7CF;background-image:radial-gradient(ellipse at 30% 30%,#9A4E2F 0 7%,transparent 8%),radial-gradient(ellipse at 68% 70%,#3B6B4A 0 8%,transparent 9%),linear-gradient(55deg,transparent 45%,#6B7F3B 46% 49%,transparent 50%);background-size:52px 52px;cursor:pointer;transition:background-size .6s,filter .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="0"] .xob');el.addEventListener("mouseenter",function(){el.style.backgroundSize="70px 70px";el.style.filter="saturate(1.35)"});el.addEventListener("mouseleave",function(){el.style.backgroundSize="52px 52px";el.style.filter=""})})()</script>
+    </figure><figure class="ex rv" data-x="1">
+      <div class="ex-art"><span class="xob" style="display:block;width:170px;height:105px;border:12px solid #7A4E2D;background:#FFF8EA;box-shadow:inset 0 0 0 3px #C28B5C;cursor:pointer;transition:box-shadow .4s,transform .4s"></span></div>
+      <figcaption class="ex-cap">木刻花框 · 点击显纹</figcaption>
+      <div class="ex-code">display:block;width:170px;height:105px;border:12px solid #7A4E2D;background:#FFF8EA;box-shadow:inset 0 0 0 3px #C28B5C;cursor:pointer;transition:box-shadow .4s,transform .4s</div>
+      <script>(function(){var el=document.querySelector('[data-x="1"] .xob');el.addEventListener("click",function(){el.style.boxShadow=el.style.boxShadow.includes("#3B6B4A")?"inset 0 0 0 3px #C28B5C":"inset 0 0 0 3px #3B6B4A, inset 0 0 0 12px #FFF8EA";el.style.transform=el.style.transform?"":"rotate(-2deg)"})})()</script>
+    </figure><figure class="ex rv" data-x="2">
+      <div class="ex-art"><span class="xob" style="display:inline-block;padding:16px 20px;background:#3B4A2F;color:#F3E7CF;font:700 18px Georgia,serif;letter-spacing:.08em;cursor:pointer;transition:letter-spacing .3s,color .3s"></span></div>
+      <figcaption class="ex-cap">手工铅字 · 点击排版</figcaption>
+      <div class="ex-code">display:inline-block;padding:16px 20px;background:#3B4A2F;color:#F3E7CF;font:700 18px Georgia,serif;letter-spacing:.08em;cursor:pointer;transition:letter-spacing .3s,color .3s</div>
+      <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.letterSpacing=el.style.letterSpacing===".08em"?".22em":".08em";el.style.color=el.style.color==="rgb(243, 231, 207)"?"#D79A55":"#F3E7CF"})})()</script>
+    </figure></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Archive</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">威廉·莫里斯《草莓盗》壁纸</li><li class="rv">红屋（Red House）</li><li class="rv">Kelmscott Press《乔叟著作》</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Traits</div>
+    <h3>风格特征</h3>
+    <ul class="chips"><li><b>手工制作</b> — 让工匠的手势、差异与时间留在成品上</li><li><b>材料诚实</b> — 木、石、织物各自显露真实质地</li><li><b>自然纹样</b> — 藤蔓、花鸟与植物被组织成连续图案</li><li><b>整体设计</b> — 建筑、家具、织物和书籍共享同一语汇</li><li><b>反工业异化</b> — 批评廉价复制,捍卫有意义的劳动</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: #F3E7CF;
+color: #3B4A2F;
+border: 1px solid #7A4E2D;
+background-image: repeating-linear-gradient(45deg, transparent 0 12px, rgba(122,78,45,.12) 12px 13px);
+font-family: Georgia, serif;</code></pre>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>1860s</b><span>拉斯金与莫里斯发起工艺反思</span></li><li class="rv"><b>1861</b><span>莫里斯、马歇尔、福克纳公司成立</span></li><li class="rv"><b>1888</b><span>Arts and Crafts Exhibition Society 成立</span></li></ul>
+  </section>
+</main>
+
+<nav class="hallnav">
+  <a href="aigenerative.html">← AI 生成主义</a>
+  <a href="../index.html">返回大厅</a>
+  <a href="artnouveau.html">新艺术运动 →</a>
+</nav>
+<footer>主义馆 ISM MUSEUM · HALL 41/80 · 本展厅全部质感由 CSS 绘制,无一张图片</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* 自定义光标:点+拖尾环+CSS 粒子+点击涟漪 */
+(function(){
+  var dot=document.createElement('div'); dot.id='cur-dot';
+  var ring=document.createElement('div'); ring.id='cur-ring';
+  document.body.appendChild(dot); document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lx=mx,ly=my;
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    var dx=mx-lx,dy=my-ly;
+    if(dx*dx+dy*dy>200){spawnP(mx,my);lx=mx;ly=my}
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  addEventListener('mousedown',function(e){document.body.classList.add('cur-down');ripple(e.clientX,e.clientY)});
+  addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function spawnP(x,y){
+    var p=document.createElement('span');p.className='cur-p';
+    var sz=3+Math.random()*4;
+    p.style.cssText='left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+sz+'px;background:'+(Math.random()<.5?'#FFD23F':'#fff')+';transition:transform .4s ease-out,opacity .4s ease-out';
+    document.body.appendChild(p);
+    requestAnimationFrame(function(){
+      var a=Math.random()*Math.PI*2,d=16+Math.random()*32;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) scale(0)';
+      p.style.opacity='0';
+    });
+    setTimeout(function(){p.remove()},420);
+  }
+  function ripple(x,y){
+    var r=document.createElement('span');r.className='cur-ripple';
+    r.style.cssText='left:'+x+'px;top:'+y+'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(r);setTimeout(function(){r.remove()},500);
+  }
+  // 事件委托代替逐个监听
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.add('cur-hover');
+  },{passive:true});
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button,.xob,[role=button]')) document.body.classList.remove('cur-hover');
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
