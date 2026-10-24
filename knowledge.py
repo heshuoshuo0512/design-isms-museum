@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """生成现代设计知识库页面。"""
 
-import html
 import json
 import os
 
 from data import ISMS
-from knowledge_data import COURSE_AXES, ISM_AXES
+from knowledge_data import COURSE_AXES, ISM_AXES, ISM_BRIDGES
 
 
 def _record(m):
@@ -27,6 +26,7 @@ def _record(m):
         'timeline': [[year, text] for year, text in m.get('tl', [])],
         'specimens': [cap for cap, _css, _js in m.get('exhibits', [])],
         'axes': ISM_AXES[m['slug']],
+        **ISM_BRIDGES[m['slug']],
     }
 
 
@@ -84,6 +84,7 @@ button{cursor:pointer}
 .library-result{color:#777;font-size:12px;white-space:nowrap}.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.filter{padding:7px 11px;border:1px solid #343744;border-radius:99px;background:transparent;color:#999;font-size:11px;transition:.2s}.filter:hover,.filter.active{border-color:var(--yellow);background:rgba(255,210,63,.1);color:#eee}.filter span{color:#777;margin-left:3px}.filter.active span{color:var(--yellow)}
 .ism-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}.ism-card{display:flex;flex-direction:column;min-height:330px;padding:20px;border:1px solid #272a35;border-radius:14px;background:#12141a;transition:transform .2s,border-color .2s,box-shadow .2s}.ism-card:hover{transform:translateY(-4px);border-color:#4a4d5d;box-shadow:0 16px 36px rgba(0,0,0,.22)}
 .ism-top{display:flex;justify-content:space-between;gap:10px;color:#777;font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.ism-top .ism-era{color:var(--cyan)}.ism-card h3{font-size:21px;margin-top:12px}.ism-en{color:#777;font:11px ui-monospace,SFMono-Regular,Menlo,monospace}.ism-manifesto{margin-top:12px;color:#ddd;font-size:13px;line-height:1.8}.ism-history{margin-top:10px;color:#858894;font-size:12px;line-height:1.8}.ism-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px;color:#777;font-size:11px}.ism-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:14px}.ism-tags span{padding:4px 7px;color:#9a9ca6;background:#1a1d25;border-radius:5px;font-size:10px}.ism-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px;padding-top:12px;border-top:1px solid #292c37}.ism-footer small{color:#666;font-size:10px}.ism-open{color:var(--yellow);font-size:12px;text-decoration:none}.ism-open:hover{text-decoration:underline}.empty{padding:42px 20px;text-align:center;color:#777;border:1px dashed #343744;border-radius:14px;margin-top:20px}.empty[hidden]{display:none}
+.ism-relation{margin-top:14px;padding:12px 13px;border-left:2px solid var(--cyan);background:rgba(125,249,255,.035);border-radius:0 8px 8px 0}.ism-relation b{display:block;color:#d9dae1;font-size:11px;margin-top:9px}.ism-relation b:first-child{margin-top:0}.ism-relation p{margin-top:4px;color:#9295a1;font-size:11.5px;line-height:1.75}.ism-relation .return{color:#b8c7c8}
 .kb-footer{padding:28px 6vw 46px;border-top:1px solid #1d1f27;color:#666;text-align:center;font-size:11px;line-height:1.9}.kb-footer a{text-decoration:none;color:#aaa}.kb-footer a:hover{color:var(--yellow)}
 @media(max-width:900px){.ism-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.kb-top{padding:18px 5vw 0;align-items:flex-start;flex-direction:column}.kb-top nav{gap:12px}.kb-hero{padding:60px 5vw 58px}.kb-lede{font-size:13px}.kb-stats{grid-template-columns:1fr;margin-top:34px}.kb-section{padding:54px 5vw 0}.kb-section:last-of-type{padding-bottom:64px}.kb-section-head{display:block}.kb-section-head p{margin-top:12px}.axis-grid,.ism-grid{grid-template-columns:1fr}.axis-card{padding:20px}.library-tools-top{align-items:stretch;display:block}.library-result{display:block;margin-top:10px}.filter-row{gap:6px}.filter{font-size:10px;padding:7px 9px}.ism-card{min-height:0}.kb-footer{padding-left:5vw;padding-right:5vw}}
@@ -109,12 +110,12 @@ HTML = r'''<!DOCTYPE html>
   <h1>现代设计<br>知识库</h1>
   <p class="kb-lede">把现代设计的历史、形式、材料、生产和责任整理成可检索的知识层；再把课内方向转译成前端约束，用原型、测试与技术取舍把结果反哺回课程。</p>
   <div class="kb-hero-actions"><a class="kb-cta primary" href="#feedback">进入反哺库 ↓</a><a class="kb-cta" href="#library">检索 80 个设计方向</a></div>
-  <div class="kb-stats"><div class="kb-stat"><strong>80</strong><span>现代设计方向与完整展厅档案</span></div><div class="kb-stat"><strong>08</strong><span>课内母题与前端转译分类</span></div><div class="kb-stat"><strong>04</strong><span>可回写课程的证据产物</span></div></div>
+  <div class="kb-stats"><div class="kb-stat"><strong>80</strong><span>现代设计方向与完整展厅档案</span></div><div class="kb-stat"><strong>08</strong><span>课内母题与前端转译分类</span></div><div class="kb-stat"><strong>80/80</strong><span>已建立课内 → 前端 → 课程关系</span></div></div>
 </header>
 <main>
 <section class="kb-section" id="feedback">
   <div class="kb-section-head"><div><div class="kb-kicker">FEEDBACK LIBRARY</div><h2>反哺库 · 课内方向如何进入前端</h2></div><p>每个分类都回答三件事：课内在问什么，前端要做什么，做完以后什么证据可以回到课程。</p></div>
-  <div class="kb-scope"><b>知识边界：</b>80 个展厅是扩展后的现代设计索引；8 个母题是根据课内重点建立的策展映射。一个主义可以跨越多个分类，分类用于设计实践与课程反思，不把扩展目录冒充成课堂原样目录。</div>
+  <div class="kb-scope"><b>知识边界：</b>80 个展厅是扩展后的现代设计索引；8 个母题是根据课内重点建立的策展映射。一个主义可以跨越多个分类，分类用于设计实践与课程反思，不把扩展目录冒充成课堂原样目录。<b>本页另为 80/80 个条目补齐了“课内关系 → 前端转译 → 课程回写”三段关系。</b></div>
   <div class="axis-grid" id="axis-grid"></div>
 </section>
 <section class="kb-section" id="library">
@@ -177,7 +178,7 @@ function renderRecords(){
   const query=search.value.trim().toLowerCase();
   const visible=records.filter(record=>{
     const axisMatch=activeAxis==='all'||record.axes.includes(activeAxis);
-    const haystack=[record.zh,record.en,record.era,record.period,record.manifesto,record.prologue,record.history,...record.reps,...record.keywords,...record.axes.map(axisLabel)].join(' ').toLowerCase();
+    const haystack=[record.zh,record.en,record.era,record.period,record.manifesto,record.prologue,record.history,record.bridge,record.frontend,record.feedback,...record.reps,...record.keywords,...record.axes.map(axisLabel)].join(' ').toLowerCase();
     return axisMatch&&(!query||haystack.includes(query));
   });
   resultCount.textContent=`显示 ${visible.length} / ${records.length} 个条目`;
@@ -187,6 +188,7 @@ function renderRecords(){
     <h3>${esc(record.zh)}</h3><div class="ism-en">${esc(record.en)}</div>
     <p class="ism-manifesto">“${esc(record.manifesto)}”</p>
     <p class="ism-history">${esc(shorten(record.history))}</p>
+    <div class="ism-relation"><b>课内关系</b><p>${esc(record.bridge)}</p><b>前端转译</b><p>${esc(record.frontend)}</p><b>课程回写</b><p class="return">${esc(record.feedback)}</p></div>
     <div class="ism-meta"><span>${record.timeline.length} 个时间节点</span><span>${record.specimens.length} 个 CSS 标本</span></div>
     <div class="ism-tags">${record.axes.map(axis=>`<span>${esc(axisLabel(axis))}</span>`).join('')}</div>
     <div class="ism-footer"><small>${esc(record.reps.slice(0,2).join(' · '))}</small><a class="ism-open" href="halls/${encodeURIComponent(record.slug)}.html">完整档案 ↗</a></div>
