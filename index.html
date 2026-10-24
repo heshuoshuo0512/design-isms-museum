@@ -241,44 +241,29 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .bridge-head .k{font-size:11px;letter-spacing:.4em;color:#666;margin-bottom:10px}
 .bridge-head h2{font-size:clamp(26px,4vw,44px);font-weight:800;color:#eee;margin-bottom:16px}
 .bridge-head p{max-width:700px;margin:0 auto;color:#999;font-size:14px;line-height:2}
-.bridge-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.bridge-card{position:relative;min-height:270px;padding:26px;border:1px solid #272934;border-radius:18px;background:#14161d;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
-.bridge-card:hover{transform:translateY(-6px);border-color:#4a4d5d;box-shadow:0 18px 44px rgba(0,0,0,.25)}
-.bridge-card::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--bridge-accent,#FFD23F)}
-.bridge-card.course{--bridge-accent:#FFD23F}
-.bridge-card.major{--bridge-accent:#7DF9FF}
-.bridge-card.loop{--bridge-accent:#FF71CE}
-.bridge-card .direction{font-size:11px;letter-spacing:.16em;color:var(--bridge-accent);margin-bottom:20px}
-.bridge-card h3{font-size:22px;color:#f0f0f5;margin-bottom:12px}
-.bridge-card p{font-size:13.5px;color:#9295a1;line-height:1.9}
-.bridge-card ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:20px}
-.bridge-card li{font-size:11px;color:#c8cad4;padding:5px 9px;border:1px solid #30333e;border-radius:99px}
-.bridge-loop{max-width:1200px;margin:24px auto 0;padding:20px 22px;border:1px solid #272934;border-radius:16px;background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.bridge-step{display:flex;align-items:center;gap:8px;color:#d7d8df;font-size:13px}
-.bridge-step b{display:grid;place-items:center;width:26px;height:26px;border:1px solid #FFD23F;border-radius:50%;color:#FFD23F;font-size:12px}
-.bridge-arrow{color:#555;font-size:18px}
-.bridge-practice{max-width:820px;margin:28px auto 0;text-align:center;color:#777;font-size:13px;line-height:1.9}
-.bridge-feedback{max-width:1200px;margin:18px auto 0;padding:24px 26px;border:1px dashed #383b48;border-radius:16px;background:rgba(125,249,255,.025)}
-.bridge-feedback h3{font-size:15px;color:#e7e8ef;margin-bottom:18px}
-.feedback-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.feedback-item{padding:15px;border-left:2px solid #353846}
-.feedback-item b{display:block;color:#7DF9FF;font-size:13px;margin-bottom:8px}
-.feedback-item p{color:#858894;font-size:12px;line-height:1.8}
-.bridge-practice b{color:#d5d6df;font-weight:600}
-.course-map-head{max-width:820px;margin:58px auto 22px;padding-top:30px;border-top:1px solid #272934}
-.course-map-head .k{font-size:11px;letter-spacing:.35em;color:#666;margin-bottom:9px}
-.course-map-head h3{font-size:clamp(20px,3vw,30px);color:#eee;margin-bottom:10px}
-.course-map-head p{color:#858894;font-size:13px;line-height:1.9}
-.course-map{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.course-map-item{padding:22px;border:1px solid #292c37;border-radius:14px;background:rgba(20,22,29,.78);position:relative}
-.course-map-item:nth-child(4n+1){border-top:2px solid #FFD23F}
-.course-map-item:nth-child(4n+2){border-top:2px solid #7DF9FF}
-.course-map-item:nth-child(4n+3){border-top:2px solid #FF71CE}
-.course-map-item:nth-child(4n){border-top:2px solid #A7FFEA}
-.course-no{font:700 11px ui-monospace,monospace;color:#FFD23F;letter-spacing:.12em;margin-bottom:9px}
-.course-map-item h4{font-size:18px;color:#f0f0f5;margin-bottom:14px}
-.course-line{font-size:12.5px;color:#9497a3;line-height:1.8;margin-top:8px}
-.course-line b{color:#d9dae1;font-weight:600}
+.bridge-feature{max-width:1120px;margin:36px auto 0;padding:28px;border:1px solid #272934;border-radius:18px;background:#14161d}
+.bridge-feature-head{max-width:720px;margin-bottom:20px}
+.bridge-feature-head .k{font-size:11px;letter-spacing:.35em;color:#666;margin-bottom:9px}
+.bridge-feature-head h3{font-size:clamp(20px,3vw,30px);color:#eee;margin-bottom:10px}
+.bridge-feature-head p{color:#858894;font-size:13px;line-height:1.9}
+.bridge-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px 0 12px}
+.bridge-tab{appearance:none;border:1px solid #30333e;border-radius:9px;padding:11px 12px;background:#101219;color:#858894;text-align:left;font:inherit;font-size:12px;line-height:1.4;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.bridge-tab:hover{color:#eee;border-color:#55596a}
+.bridge-tab[aria-selected=true]{color:#111;background:#FFD23F;border-color:#FFD23F;font-weight:700}
+.bridge-detail{padding:22px;border:1px solid #343744;border-radius:14px;background:rgba(255,255,255,.025)}
+.bridge-detail-top{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.bridge-detail-index{font:700 11px ui-monospace,monospace;color:#FFD23F;letter-spacing:.12em}
+.bridge-detail h4{font-size:20px;color:#f0f0f5}
+.bridge-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.bridge-detail-item{padding:15px;border-left:2px solid #353846;background:rgba(0,0,0,.12)}
+.bridge-detail-item:nth-child(2){border-color:#7DF9FF}
+.bridge-detail-item:nth-child(3){border-color:#FF71CE}
+.bridge-detail-item b{display:block;color:#d9dae1;font-size:12px;margin-bottom:7px}
+.bridge-detail-item p{color:#9295a1;font-size:12.5px;line-height:1.8}
+.bridge-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;color:#c8cad4;font-size:12px}
+.bridge-flow span{padding:6px 10px;border:1px solid #30333e;border-radius:99px}
+.bridge-flow i{font-style:normal;color:#555}
+.bridge-note{margin:16px auto 0;max-width:720px;text-align:center;color:#666;font-size:12px;line-height:1.8}
 
 /* ---- 策展笔记 ---- */
 #notes{padding:90px 6vw;background:#0f0f13;border-top:1px solid #1a1a20}
@@ -309,21 +294,17 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
   .door h3{font-size:22px}
   #doors{padding:70px 5vw 44px}
   .doors-head{margin-bottom:36px}
-.bridge-grid{grid-template-columns:1fr;gap:14px}
-.bridge-card{min-height:0;padding:22px}
-#bridge{padding:64px 5vw 72px}
-.bridge-head{margin-bottom:30px}
-.bridge-head p{font-size:13px}
-.bridge-loop{justify-content:flex-start;padding:18px}
-.bridge-arrow{display:none}
-.bridge-step{width:100%}
-.bridge-practice{text-align:left;font-size:12.5px}
-  .feedback-grid{grid-template-columns:1fr;gap:10px}
-  .bridge-feedback{padding:18px}
-  .feedback-item{padding:12px}
-  .course-map{grid-template-columns:1fr;gap:12px}
-  .course-map-head{margin-top:42px;padding-top:24px}
-  .course-map-item{padding:18px}
+  .bridge-feature{margin-top:28px;padding:18px}
+  .bridge-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:18px}
+  .bridge-tab{padding:10px;font-size:11px}
+  .bridge-detail{padding:16px}
+  .bridge-detail-top{display:block;margin-bottom:14px}
+  .bridge-detail h4{margin-top:6px;font-size:18px}
+  .bridge-detail-grid{grid-template-columns:1fr;gap:9px}
+  .bridge-detail-item{padding:13px}
+  .bridge-flow{justify-content:flex-start;gap:7px}
+  .bridge-flow i{display:none}
+  .bridge-note{text-align:left}
   #notes{padding:60px 5vw}
   #exit{padding:70px 5vw}
   .marq{margin-top:44px}
@@ -361,8 +342,7 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
     <a class="cta primary" href="#doors">进入展厅 ↓</a>
     <a class="cta" id="random" href="#">🎲 带我去随机一厅</a>
     <a class="cta" href="corridor.html">长廊模式</a>
-    <a class="cta" href="#bridge">↔ 双向赋能</a>
-    <a class="cta" href="knowledge.html">◎ 设计知识库</a>
+    <a class="cta" href="#bridge">↔ 反哺展示</a>
   </div>
   <div class="marq"><span id="marq"></span></div>
   <div class="scroll-hint">SCROLL ↓</div>
@@ -391,109 +371,36 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
 <section id="bridge" class="rv">
   <div class="bridge-head">
     <div class="k">TWO-WAY EMPOWERMENT</div>
-    <h2>双向赋能 · 让课程成为专业的实验场</h2>
-    <p>反哺不是把成品交给课程,而是让前端实践产生可被课程再次使用的证据:哪些概念被误读,哪些交互帮助理解,哪些技术约束改变了表达。课程提供命题,专业负责把命题变成可验证的学习对象。</p>
+    <h2>双向赋能 · 课程与前端互相改写</h2>
+    <p>课程提供命题,前端把它变成可验证的学习对象,再把证据带回课程。</p>
   </div>
-  <div class="bridge-grid">
-    <article class="bridge-card course">
-      <div class="direction">课程 → 前端专业</div>
-      <h3>把历史转成设计约束</h3>
-      <p>从运动的时代语境、价值取向和形式规则中提炼可执行约束:层级、网格、色彩、动效、可读性与性能。前端练习因此不只是“还原风格”,而是在训练需求分析、设计系统、组件化和技术取舍。</p>
-      <ul><li>设计判断</li><li>系统思维</li><li>技术取舍</li></ul>
-    </article>
-    <article class="bridge-card major">
-      <div class="direction">前端专业 → 课程</div>
-      <h3>先生成可验证的证据</h3>
-      <p>用数据驱动页面、CSS 标本、时间轴、响应式与无障碍,把抽象史料变成可探索的学习对象。学生不仅能看见结果,还要修改原型、让同伴使用,记录理解变化与技术限制。</p>
-      <ul><li>可视化叙事</li><li>交互验证</li><li>开放学习</li></ul>
-    </article>
-    <article class="bridge-card loop">
-      <div class="direction">专业 ↔ 课程</div>
-      <h3>建立真正的回写接口</h3>
-      <p>如果原型让历史语境变得模糊,就修改文案与案例;如果交互让概念更清楚,就把它沉淀为课程标本;如果性能或无障碍要求改变了方案,就把取舍写进评价量表。反哺必须改变下一轮课程,而不只是留下感想。</p>
-      <ul><li>偏差清单</li><li>课程补丁</li><li>新版评价</li></ul>
-    </article>
-  </div>
-  <div class="course-map-head">
-    <div class="k">COURSE CORE → FRONTEND TRANSFER</div>
-    <h3>八个课内母题,八种前端转译</h3>
-    <p>这不是把课纲贴在展览旁边,而是把每个知识点变成一个可执行的前端问题,再把原型里的验证结果送回课程。这样,历史知识决定设计约束,技术实践也会修正我们对历史的理解。</p>
-  </div>
-  <div class="course-map">
-    <article class="course-map-item">
-      <div class="course-no">01 · PLAN / SOLVE</div>
-      <h4>设计计划与问题解决</h4>
-      <p class="course-line"><b>课内追问:</b>要解决谁的问题？场景、材料、成本和限制是什么？形式为什么这样出现？</p>
-      <p class="course-line"><b>前端转译:</b>先写用户任务、内容目标、约束条件和验收标准,再开始做视觉,把设计变成可检验的假设。</p>
-      <p class="course-line"><b>反哺产物:</b>把 brief、决策日志和测试结果作为“设计计划”案例,让课程看到问题如何被逐步解决。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">02 · FUNCTION / USER / FORM</div>
-      <h4>功能、使用者与形式</h4>
-      <p class="course-line"><b>课内追问:</b>形式是否帮助使用者？装饰何时服务内容,何时遮蔽内容？“形式追随功能”是否永远成立？</p>
-      <p class="course-line"><b>前端转译:</b>用信息架构、语义 HTML、视觉层级、明确的操作反馈和同伴任务测试验证“好看”有没有真的变好用。</p>
-      <p class="course-line"><b>反哺产物:</b>把误读、完成任务的路径和修改前后对照写回功能主义案例,不再只用口号解释功能。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">03 · MATERIAL / STRUCTURE</div>
-      <h4>材料与结构</h4>
-      <p class="course-line"><b>课内追问:</b>材料的特性和制作方法怎样生成形式？结构是被隐藏,还是应该诚实地显露？</p>
-      <p class="course-line"><b>前端转译:</b>把 DOM、布局、CSS 状态和动效当作数字材料与结构;纹理、阴影和玻璃效果必须改变空间或交互,不能只是贴图。</p>
-      <p class="course-line"><b>反哺产物:</b>记录不同屏幕、输入方式和性能条件下的“材料行为”,补充课程对数字材料的讨论。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">04 · PRODUCTION / STANDARD</div>
-      <h4>工业生产与标准化</h4>
-      <p class="course-line"><b>课内追问:</b>机器、批量生产和标准化如何改变设计？怎样在效率中保留质量与差异？</p>
-      <p class="course-line"><b>前端转译:</b>用设计令牌、组件、数据驱动页面和性能预算支持多页面复用,同时保留内容与文化语境的差异。</p>
-      <p class="course-line"><b>反哺产物:</b>把组件清单、版本变化和“标准化造成的损失”做成案例,更新课程对数字生产的理解。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">05 · ORNAMENT / SOURCE</div>
-      <h4>装饰与形式来源</h4>
-      <p class="course-line"><b>课内追问:</b>纹样从哪里来？新艺术的自然曲线、装饰艺术的机器几何和新中式的框景,为什么不能混成一种“好看”？</p>
-      <p class="course-line"><b>前端转译:</b>为色彩、图形、字体和动效建立来源地图与转译说明,让装饰承担导航、语义或情绪功能,不做无依据的贴花。</p>
-      <p class="course-line"><b>反哺产物:</b>把来源、改动和语境风险写进标本说明与评价量表,训练“形式从何而来”的判断。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">06 · MODERNISM</div>
-      <h4>现代主义</h4>
-      <p class="course-line"><b>课内追问:</b>进入机器时代后,设计怎样建立适合现代生活的新形式？包豪斯如何连接艺术、工艺、技术、教育和生产？</p>
-      <p class="course-line"><b>前端转译:</b>用网格、字体层级、内容优先和响应式系统组织复杂信息,但区分“理性原则”和某个历史外观。</p>
-      <p class="course-line"><b>反哺产物:</b>当固定网格在手机或无障碍场景失效时,把这次改写写回包豪斯与现代主义的课堂讨论。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">07 · POSTMODERN / REBELLION</div>
-      <h4>后现代与反叛</h4>
-      <p class="course-line"><b>课内追问:</b>能不能拒绝唯一的好品味、统一秩序和单一功能？孟菲斯、波普、达达为何用幽默、拼贴和消费图像反问规则？</p>
-      <p class="course-line"><b>前端转译:</b>允许多重语气、故意的冲突和可控的陌生化,但用清晰结构、替代文本和键盘路径保证反叛不会变成排斥。</p>
-      <p class="course-line"><b>反哺产物:</b>保留克制版与反叛版的理解测试,把“表达更强但是否更难用”的证据带回后现代章节。</p>
-    </article>
-    <article class="course-map-item">
-      <div class="course-no">08 · ETHICS / RESPONSIBILITY</div>
-      <h4>设计伦理与责任</h4>
-      <p class="course-line"><b>课内追问:</b>设计为谁服务？是否排斥、操控、浪费资源,或把某种价值伪装成中立形式？</p>
-      <p class="course-line"><b>前端转译:</b>把对比度、键盘访问、减少动效、包容性语言、性能和反暗黑模式作为发布门槛,而不是最后的加分项。</p>
-      <p class="course-line"><b>反哺产物:</b>把可访问性审计、资源取舍和用户伤害风险写入评分量表,让技术责任成为课程的硬证据。</p>
-    </article>
-  </div>
-  <div class="bridge-loop" aria-label="双向学习循环">
-    <div class="bridge-step"><b>1</b>课程语境</div><span class="bridge-arrow">→</span>
-    <div class="bridge-step"><b>2</b>提炼原则</div><span class="bridge-arrow">→</span>
-    <div class="bridge-step"><b>3</b>CSS / JS 原型</div><span class="bridge-arrow">→</span>
-    <div class="bridge-step"><b>4</b>用户验证</div><span class="bridge-arrow">→</span>
-    <div class="bridge-step"><b>5</b>反思回写课程</div>
-  </div>
-  <div class="bridge-feedback">
-    <h3>真正的反哺,要留下四份可以回到课程里的产物</h3>
-    <div class="feedback-grid">
-      <div class="feedback-item"><b>01 · 命题卡</b><p>写清历史判断、原始语境与本次要验证的设计原则,避免只凭印象模仿风格。</p></div>
-      <div class="feedback-item"><b>02 · 原型对照</b><p>至少保留“忠实转译”和“当代改写”两版,说明哪些地方改变了、为什么改变。</p></div>
-      <div class="feedback-item"><b>03 · 验证记录</b><p>记录同伴的误读、操作路径、对比度、键盘访问和性能结果,让技术结果成为课程证据。</p></div>
-      <div class="feedback-item"><b>04 · 课程补丁</b><p>把偏差、有效案例和评价标准写回下一课的讲义、标本库或评分量表,完成真正的反向输入。</p></div>
+  <div class="bridge-feature">
+    <div class="bridge-feature-head">
+      <div class="k">ONE FEATURE / COURSE ↔ FRONTEND</div>
+      <h3>选择一个课内母题,看它如何变成前端证据</h3>
+      <p>这是展厅里的一个功能展示,不是另起一个全局知识库。点击母题,只展开当前一条“课内问题 → 前端转译 → 课程回写”关系。</p>
     </div>
+    <div class="bridge-tabs" role="tablist" aria-label="课内母题">
+      <button class="bridge-tab" type="button" role="tab" aria-selected="true" aria-controls="bridge-detail" data-bridge-axis="planning">01 计划与问题</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="function">02 功能与使用者</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="material">03 材料与结构</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="production">04 生产与标准</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="ornament">05 装饰与来源</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="modernism">06 现代主义</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="postmodern">07 后现代与反叛</button>
+      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="ethics">08 伦理与责任</button>
+    </div>
+    <article class="bridge-detail" id="bridge-detail" role="tabpanel" aria-live="polite">
+      <div class="bridge-detail-top"><span class="bridge-detail-index" id="bridge-detail-index">01 · PLAN / SOLVE</span><h4 id="bridge-detail-title">设计计划与问题解决</h4></div>
+      <div class="bridge-detail-grid">
+        <div class="bridge-detail-item"><b>课内追问</b><p id="bridge-question">要解决谁的问题？场景、材料、成本和限制是什么？</p></div>
+        <div class="bridge-detail-item"><b>前端转译</b><p id="bridge-frontend">先写用户任务、内容目标、约束条件和验收标准,再开始做视觉。</p></div>
+        <div class="bridge-detail-item"><b>课程回写</b><p id="bridge-feedback">把 brief、决策日志和测试结果作为设计计划案例,回到课程。</p></div>
+      </div>
+      <div class="bridge-flow" aria-label="反哺流程"><span>课内问题</span><i>→</i><span>前端原型</span><i>→</i><span>验证记录</span><i>→</i><span>课程补丁</span></div>
+    </article>
+    <p class="bridge-note">展示关系只在这里展开;其余内容仍回到对应的八十个展厅,保持首页的主线清楚。</p>
   </div>
-  <p class="bridge-practice"><b>建议的课程任务:</b>从八个母题中选一个,提出一个前端问题,做“忠实转译”和“当代改写”两版,再用同伴测试、无障碍检查和性能结果决定如何回写课程。评价同时看史实解释、交互证据、技术取舍与责任意识,让“学到了什么”和“做成了什么”彼此证明。</p>
 </section>
 
 <section id="notes" class="rv">
@@ -620,6 +527,33 @@ grid.innerHTML=ISMS.map(([s,no,zh,en,q])=>`
  </a>`).join('');
 document.getElementById('marq').textContent=(ISMS.map(i=>`HALL ${i[1]} ${i[2]} ${i[3]}`).join(' ★ ')+' ★ ').repeat(2);
 document.getElementById('random').onclick=e=>{e.preventDefault();location.href='halls/'+ISMS[Math.floor(Math.random()*ISMS.length)][0]+'.html'};
+const bridgeAxes={
+  planning:{no:'01 · PLAN / SOLVE',title:'设计计划与问题解决',question:'要解决谁的问题？场景、材料、成本和限制是什么？',frontend:'先写用户任务、内容目标、约束条件和验收标准,再开始做视觉。',feedback:'把 brief、决策日志和测试结果作为设计计划案例,回到课程。'},
+  function:{no:'02 · FUNCTION / USER / FORM',title:'功能、使用者与形式',question:'形式是否帮助使用者？装饰何时服务内容,何时遮蔽内容？',frontend:'用信息架构、语义 HTML、视觉层级和同伴任务测试验证“好看”有没有真的变好用。',feedback:'把误读、任务路径和修改前后对照写回功能主义案例。'},
+  material:{no:'03 · MATERIAL / STRUCTURE',title:'材料与结构',question:'材料特性和制作方法怎样生成形式？结构是否应该诚实地显露？',frontend:'把 DOM、布局、CSS 状态和动效当作数字材料;效果必须改变空间或交互。',feedback:'记录不同屏幕、输入方式和性能条件下的材料行为,补充数字材料讨论。'},
+  production:{no:'04 · PRODUCTION / STANDARD',title:'工业生产与标准化',question:'机器、批量生产和标准化如何改变设计？效率中如何保留质量与差异？',frontend:'用设计令牌、组件、数据驱动页面和性能预算支持复用,同时保留语境差异。',feedback:'把组件清单、版本变化和标准化造成的损失做成数字生产案例。'},
+  ornament:{no:'05 · ORNAMENT / SOURCE',title:'装饰与形式来源',question:'纹样从哪里来？不同来源为什么不能混成一种“好看”？',frontend:'为色彩、图形、字体和动效建立来源说明,让装饰承担导航、语义或情绪功能。',feedback:'把来源、改动和语境风险写进标本说明与评价量表。'},
+  modernism:{no:'06 · MODERNISM',title:'现代主义',question:'机器时代后,设计怎样建立适合现代生活的新形式？',frontend:'用网格、字体层级、内容优先和响应式系统组织信息,区分原则与外观。',feedback:'当固定网格在手机或无障碍场景失效时,把改写写回现代主义讨论。'},
+  postmodern:{no:'07 · POSTMODERN / REBELLION',title:'后现代与反叛',question:'能不能拒绝唯一的好品味、统一秩序和单一功能？',frontend:'允许冲突和陌生化,但用清晰结构、替代文本和键盘路径避免排斥。',feedback:'保留克制版与反叛版的理解测试,把表达与可用性的证据带回课程。'},
+  ethics:{no:'08 · ETHICS / RESPONSIBILITY',title:'设计伦理与责任',question:'设计为谁服务？是否排斥、操控、浪费资源或伪装价值？',frontend:'把对比度、键盘访问、减少动效、性能和包容性作为发布门槛。',feedback:'把可访问性审计、资源取舍和用户伤害风险写入评分量表。'}
+};
+const bridgeTabs=document.querySelectorAll('.bridge-tab');
+const bridgeDetailIndex=document.getElementById('bridge-detail-index');
+const bridgeDetailTitle=document.getElementById('bridge-detail-title');
+const bridgeQuestion=document.getElementById('bridge-question');
+const bridgeFrontend=document.getElementById('bridge-frontend');
+const bridgeFeedback=document.getElementById('bridge-feedback');
+const showBridgeAxis=key=>{
+  const item=bridgeAxes[key];
+  if(!item)return;
+  bridgeTabs.forEach(tab=>tab.setAttribute('aria-selected',String(tab.dataset.bridgeAxis===key)));
+  bridgeDetailIndex.textContent=item.no;
+  bridgeDetailTitle.textContent=item.title;
+  bridgeQuestion.textContent=item.question;
+  bridgeFrontend.textContent=item.frontend;
+  bridgeFeedback.textContent=item.feedback;
+};
+bridgeTabs.forEach(tab=>tab.addEventListener('click',()=>showBridgeAxis(tab.dataset.bridgeAxis)));
 
 /* 滚动显现：一次性给整面墙加 class,由 CSS transition-delay 编排入场 */
 const doors=document.querySelectorAll('.door');
