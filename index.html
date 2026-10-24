@@ -265,6 +265,20 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .feedback-item b{display:block;color:#7DF9FF;font-size:13px;margin-bottom:8px}
 .feedback-item p{color:#858894;font-size:12px;line-height:1.8}
 .bridge-practice b{color:#d5d6df;font-weight:600}
+.course-map-head{max-width:820px;margin:58px auto 22px;padding-top:30px;border-top:1px solid #272934}
+.course-map-head .k{font-size:11px;letter-spacing:.35em;color:#666;margin-bottom:9px}
+.course-map-head h3{font-size:clamp(20px,3vw,30px);color:#eee;margin-bottom:10px}
+.course-map-head p{color:#858894;font-size:13px;line-height:1.9}
+.course-map{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.course-map-item{padding:22px;border:1px solid #292c37;border-radius:14px;background:rgba(20,22,29,.78);position:relative}
+.course-map-item:nth-child(4n+1){border-top:2px solid #FFD23F}
+.course-map-item:nth-child(4n+2){border-top:2px solid #7DF9FF}
+.course-map-item:nth-child(4n+3){border-top:2px solid #FF71CE}
+.course-map-item:nth-child(4n){border-top:2px solid #A7FFEA}
+.course-no{font:700 11px ui-monospace,monospace;color:#FFD23F;letter-spacing:.12em;margin-bottom:9px}
+.course-map-item h4{font-size:18px;color:#f0f0f5;margin-bottom:14px}
+.course-line{font-size:12.5px;color:#9497a3;line-height:1.8;margin-top:8px}
+.course-line b{color:#d9dae1;font-weight:600}
 
 /* ---- 策展笔记 ---- */
 #notes{padding:90px 6vw;background:#0f0f13;border-top:1px solid #1a1a20}
@@ -307,6 +321,9 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
   .feedback-grid{grid-template-columns:1fr;gap:10px}
   .bridge-feedback{padding:18px}
   .feedback-item{padding:12px}
+  .course-map{grid-template-columns:1fr;gap:12px}
+  .course-map-head{margin-top:42px;padding-top:24px}
+  .course-map-item{padding:18px}
   #notes{padding:60px 5vw}
   #exit{padding:70px 5vw}
   .marq{margin-top:44px}
@@ -397,6 +414,69 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
       <ul><li>偏差清单</li><li>课程补丁</li><li>新版评价</li></ul>
     </article>
   </div>
+  <div class="course-map-head">
+    <div class="k">COURSE CORE → FRONTEND TRANSFER</div>
+    <h3>八个课内母题,八种前端转译</h3>
+    <p>这不是把课纲贴在展览旁边,而是把每个知识点变成一个可执行的前端问题,再把原型里的验证结果送回课程。这样,历史知识决定设计约束,技术实践也会修正我们对历史的理解。</p>
+  </div>
+  <div class="course-map">
+    <article class="course-map-item">
+      <div class="course-no">01 · PLAN / SOLVE</div>
+      <h4>设计计划与问题解决</h4>
+      <p class="course-line"><b>课内追问:</b>要解决谁的问题？场景、材料、成本和限制是什么？形式为什么这样出现？</p>
+      <p class="course-line"><b>前端转译:</b>先写用户任务、内容目标、约束条件和验收标准,再开始做视觉,把设计变成可检验的假设。</p>
+      <p class="course-line"><b>反哺产物:</b>把 brief、决策日志和测试结果作为“设计计划”案例,让课程看到问题如何被逐步解决。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">02 · FUNCTION / USER / FORM</div>
+      <h4>功能、使用者与形式</h4>
+      <p class="course-line"><b>课内追问:</b>形式是否帮助使用者？装饰何时服务内容,何时遮蔽内容？“形式追随功能”是否永远成立？</p>
+      <p class="course-line"><b>前端转译:</b>用信息架构、语义 HTML、视觉层级、明确的操作反馈和同伴任务测试验证“好看”有没有真的变好用。</p>
+      <p class="course-line"><b>反哺产物:</b>把误读、完成任务的路径和修改前后对照写回功能主义案例,不再只用口号解释功能。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">03 · MATERIAL / STRUCTURE</div>
+      <h4>材料与结构</h4>
+      <p class="course-line"><b>课内追问:</b>材料的特性和制作方法怎样生成形式？结构是被隐藏,还是应该诚实地显露？</p>
+      <p class="course-line"><b>前端转译:</b>把 DOM、布局、CSS 状态和动效当作数字材料与结构;纹理、阴影和玻璃效果必须改变空间或交互,不能只是贴图。</p>
+      <p class="course-line"><b>反哺产物:</b>记录不同屏幕、输入方式和性能条件下的“材料行为”,补充课程对数字材料的讨论。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">04 · PRODUCTION / STANDARD</div>
+      <h4>工业生产与标准化</h4>
+      <p class="course-line"><b>课内追问:</b>机器、批量生产和标准化如何改变设计？怎样在效率中保留质量与差异？</p>
+      <p class="course-line"><b>前端转译:</b>用设计令牌、组件、数据驱动页面和性能预算支持多页面复用,同时保留内容与文化语境的差异。</p>
+      <p class="course-line"><b>反哺产物:</b>把组件清单、版本变化和“标准化造成的损失”做成案例,更新课程对数字生产的理解。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">05 · ORNAMENT / SOURCE</div>
+      <h4>装饰与形式来源</h4>
+      <p class="course-line"><b>课内追问:</b>纹样从哪里来？新艺术的自然曲线、装饰艺术的机器几何和新中式的框景,为什么不能混成一种“好看”？</p>
+      <p class="course-line"><b>前端转译:</b>为色彩、图形、字体和动效建立来源地图与转译说明,让装饰承担导航、语义或情绪功能,不做无依据的贴花。</p>
+      <p class="course-line"><b>反哺产物:</b>把来源、改动和语境风险写进标本说明与评价量表,训练“形式从何而来”的判断。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">06 · MODERNISM</div>
+      <h4>现代主义</h4>
+      <p class="course-line"><b>课内追问:</b>进入机器时代后,设计怎样建立适合现代生活的新形式？包豪斯如何连接艺术、工艺、技术、教育和生产？</p>
+      <p class="course-line"><b>前端转译:</b>用网格、字体层级、内容优先和响应式系统组织复杂信息,但区分“理性原则”和某个历史外观。</p>
+      <p class="course-line"><b>反哺产物:</b>当固定网格在手机或无障碍场景失效时,把这次改写写回包豪斯与现代主义的课堂讨论。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">07 · POSTMODERN / REBELLION</div>
+      <h4>后现代与反叛</h4>
+      <p class="course-line"><b>课内追问:</b>能不能拒绝唯一的好品味、统一秩序和单一功能？孟菲斯、波普、达达为何用幽默、拼贴和消费图像反问规则？</p>
+      <p class="course-line"><b>前端转译:</b>允许多重语气、故意的冲突和可控的陌生化,但用清晰结构、替代文本和键盘路径保证反叛不会变成排斥。</p>
+      <p class="course-line"><b>反哺产物:</b>保留克制版与反叛版的理解测试,把“表达更强但是否更难用”的证据带回后现代章节。</p>
+    </article>
+    <article class="course-map-item">
+      <div class="course-no">08 · ETHICS / RESPONSIBILITY</div>
+      <h4>设计伦理与责任</h4>
+      <p class="course-line"><b>课内追问:</b>设计为谁服务？是否排斥、操控、浪费资源,或把某种价值伪装成中立形式？</p>
+      <p class="course-line"><b>前端转译:</b>把对比度、键盘访问、减少动效、包容性语言、性能和反暗黑模式作为发布门槛,而不是最后的加分项。</p>
+      <p class="course-line"><b>反哺产物:</b>把可访问性审计、资源取舍和用户伤害风险写入评分量表,让技术责任成为课程的硬证据。</p>
+    </article>
+  </div>
   <div class="bridge-loop" aria-label="双向学习循环">
     <div class="bridge-step"><b>1</b>课程语境</div><span class="bridge-arrow">→</span>
     <div class="bridge-step"><b>2</b>提炼原则</div><span class="bridge-arrow">→</span>
@@ -413,7 +493,7 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
       <div class="feedback-item"><b>04 · 课程补丁</b><p>把偏差、有效案例和评价标准写回下一课的讲义、标本库或评分量表,完成真正的反向输入。</p></div>
     </div>
   </div>
-  <p class="bridge-practice"><b>建议的课程任务:</b>一位主义 + 一项技术约束 + 一段反思记录;评价同时看史实解释、交互证据、可访问性与性能,让“学到了什么”和“做成了什么”彼此证明。</p>
+  <p class="bridge-practice"><b>建议的课程任务:</b>从八个母题中选一个,提出一个前端问题,做“忠实转译”和“当代改写”两版,再用同伴测试、无障碍检查和性能结果决定如何回写课程。评价同时看史实解释、交互证据、技术取舍与责任意识,让“学到了什么”和“做成了什么”彼此证明。</p>
 </section>
 
 <section id="notes" class="rv">
