@@ -2,7 +2,6 @@
 """生成 halls/<slug>.html —— 每个主义一个独立展厅页,整页按该主义风格渲染。"""
 import html as H, os
 from data import ISMS
-from knowledge import build_knowledge
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, 'halls')
@@ -1691,7 +1690,6 @@ def render(m, prev_m, next_m):
   <a href="../index.html">← 大厅</a>
   <a href="../corridor.html">长廊</a>
   <a href="../timeline.html">时间轴</a>
-  <a href="../knowledge.html">知识库</a>
   <span class="tt">HALL {m['no']} / {e(m['en']).upper()}</span>
   <a href="../index.html#door-{m['slug']}">返回门位</a>
 </div>
@@ -1753,4 +1751,3 @@ for i, m in enumerate(ISMS):
     with open(os.path.join(OUT, m['slug'] + '.html'), 'w', encoding='utf-8') as f:
         f.write(render(m, prev_m, next_m))
 print('generated', len(ISMS), 'hall pages')
-build_knowledge(BASE)
