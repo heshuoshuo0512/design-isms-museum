@@ -238,6 +238,21 @@ background-image: radial-gradient(circle at 80% 20%,#E3B33B 0 8%,transparent 9%)
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
+/* 保底:IO 不可靠的环境(无头/老 WebView)——滚动与超时双保险 */
+(function(){
+  var check=function(){
+    document.querySelectorAll('.rv:not(.in)').forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<innerHeight*.92&&r.bottom>0){el.classList.add('in');io.unobserve(el)}
+    });
+  };
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('resize',check,{passive:true});
+  setInterval(check,600);
+  setTimeout(check,100);
+  setTimeout(function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){el.classList.add('in')})},3000);
+})();
+
 /* 触屏点按标本卡:切换代码面板(非精确指针才注册) */
 (function(){
   if(matchMedia('(pointer:fine)').matches)return;

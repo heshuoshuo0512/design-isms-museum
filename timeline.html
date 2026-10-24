@@ -287,6 +287,21 @@ ISMS.forEach(function(m){
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
+/* 保底:IO 不可靠的环境——滚动与超时双保险 */
+(function(){
+  var check=function(){
+    document.querySelectorAll('.rv:not(.in)').forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<innerHeight*.92&&r.bottom>0){el.classList.add('in');io.unobserve(el)}
+    });
+  };
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('resize',check,{passive:true});
+  setInterval(check,600);
+  setTimeout(check,100);
+  setTimeout(function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){el.classList.add('in')})},3000);
+})();
+
 /* 自定义光标(仅桌面指针) */
 (function(){
   if(!matchMedia('(pointer:fine)').matches)return;
