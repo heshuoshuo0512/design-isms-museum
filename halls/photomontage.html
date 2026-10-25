@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>摄影蒙太奇 Photomontage · 主义馆展厅 HALL 49</title>
-<meta name="description" content="摄影蒙太奇(Photomontage)设计主义:历史、特征、代表案例与 CSS 实现。摄影蒙太奇、Photomontage、拼贴、达达、政治海报 | 主义馆 ISM MUSEUM">
+<meta name="description" content="摄影蒙太奇(Photomontage)设计主义:起源、人物、转折、传播、争议、影响与代表案例。摄影蒙太奇、Photomontage、拼贴、达达、政治海报 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="摄影蒙太奇、Photomontage、拼贴、达达、政治海报">
 <meta property="og:title" content="摄影蒙太奇 Photomontage · 主义馆">
 <meta property="og:description" content="把现实剪开,让新的现实在缝隙中出现。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#E2E0D8;color:#1B1B1B;font-family:Arial,Helvetica,sans-serif}
 ::selection{background:#D2372B;color:#F7F5ED}
 .topbar{background:#F7F5ED;border-bottom:3px solid #1B1B1B;color:#1B1B1B}
@@ -179,6 +179,12 @@ pre{background:#1B1B1B;color:#E2E0D8;border:4px solid #D2372B}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">摄影蒙太奇在1920年代先锋艺术中成熟,受到达达拼贴、报刊印刷和电影剪辑的共同推动。汉娜·赫希、约翰·哈特菲尔德以剪切、放大、错位和文字叠加揭露政治宣传与消费社会;俄国构成主义者则将照片组织成革命传播的视觉机器。它改变了海报、杂志和广告,成为数字图像合成的直接前史。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>摄影蒙太奇在 1910—20 年代由达达拼贴、报刊复制和电影剪辑共同推动。它把不同照片、文字和尺度放在同一平面，用剪切揭露现实并非单一、自然或透明。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Hannah Höch、Raoul Hausmann、John Heartfield、El Lissitzky、Alexander Rodchenko 和 Gustav Klutsis 是重要实践者。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1919 年前后，柏林达达把杂志照片和政治人物拼接成讽刺图像。</li><li>1920 年代，构成主义将摄影组织成革命书籍、海报和展览传播。</li><li>1930 年代，反法西斯蒙太奇扩大了图像作为政治证据和攻击工具的能力。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经报纸、杂志、海报、书籍和展览传播，成为 Photoshop、合成影像和数字拼贴的直接前史。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>蒙太奇既能揭露宣传，也能制造新的操控；图像来源、剪辑权和被代表者的同意必须被追问。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它使设计师意识到排列和删减本身就是论证，任何合成图像都应对自己的政治关系负责。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>纸艺剪纸风 Paper Cut / Material Paper · 主义馆展厅 HALL 26</title>
-<meta name="description" content="纸艺剪纸风(Paper Cut / Material Paper)设计主义:历史、特征、代表案例与 CSS 实现。纸艺、剪纸风、Paper Cut、Material、立体书 | 主义馆 ISM MUSEUM">
+<meta name="description" content="纸艺剪纸风(Paper Cut / Material Paper)设计主义:起源、人物、转折、传播、争议、影响与代表案例。纸艺、剪纸风、Paper Cut、Material、立体书 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="纸艺、剪纸风、Paper Cut、Material、立体书">
 <meta property="og:title" content="纸艺剪纸风 Paper Cut / Material Paper · 主义馆">
 <meta property="og:description" content="屏幕不是玻璃,是一叠有厚度的纸。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#FFF8E7;color:#5A4632;font-family:"Comic Sans MS","PingFang SC",sans-serif}
 ::selection{background:#E8634A;color:#fff}
 .topbar{background:rgba(255,248,231,.94);border-bottom:3px dashed #C9B896}
@@ -180,6 +180,12 @@ pre{background:#5A4632;color:#FFF8E7;border-radius:15px 255px 15px 225px/225px 1
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2014 年 Google Material Design 提出「数字纸张」隐喻:界面元素是有厚度的纸片,按海拔高度投下阴影。纸艺剪纸风把这一隐喻推向手工方向——多层剪纸的错位阴影、撕边、折角,让界面像一本立体书。它温暖、有层次、亲近,常见于教育产品、儿童应用与手作品牌的官网。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>纸艺剪纸风把真实纸张的厚度、折叠、撕边和层叠转译为数字图像。它既继承民间剪纸、立体书和纸模型，也受到 2014 年 Material Design 纸张隐喻的影响。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Google Material 团队、纸艺插画师、儿童出版和品牌动画共同推动了这类视觉；没有单一流派或固定地域起点。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>纸张长期作为教育、出版和手工媒介提供了形体与层级经验。</li><li>2014 年 Material Design 用纸片和海拔说明数字层级。</li><li>随后插画与网页设计把剪切边缘、层叠阴影和手工纹理作为情绪化品牌语言。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经儿童产品、教育应用、公益品牌和节庆活动扩散，常以 SVG、插画或 CSS 伪元素实现。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>纸张隐喻可能把文化剪纸传统简化为装饰纹样；过多阴影、纹理和图层也会降低性能与可读性。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它让数字界面重新思考材料和制作痕迹，但必须说明纸艺来源，不能把具体工艺抽空成通用“温暖感”。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

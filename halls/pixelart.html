@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>像素艺术 Pixel Art / 8-bit · 主义馆展厅 HALL 24</title>
-<meta name="description" content="像素艺术(Pixel Art / 8-bit)设计主义:历史、特征、代表案例与 CSS 实现。像素、Pixel Art、8-bit、红白机、复古游戏 | 主义馆 ISM MUSEUM">
+<meta name="description" content="像素艺术(Pixel Art / 8-bit)设计主义:起源、人物、转折、传播、争议、影响与代表案例。像素、Pixel Art、8-bit、红白机、复古游戏 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="像素、Pixel Art、8-bit、红白机、复古游戏">
 <meta property="og:title" content="像素艺术 Pixel Art / 8-bit · 主义馆">
 <meta property="og:description" content="限制,是风格最诚实的母亲。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#1A1C2C;color:#F4F4F4;font-family:"Courier New",monospace}
 ::selection{background:#FF004D;color:#F4F4F4}
 .topbar{background:#262B44;border-bottom:4px solid #000;box-shadow:0 4px 0 rgba(0,0,0,.4);letter-spacing:.1em}
@@ -179,6 +179,12 @@ pre{background:#000;color:#73EFF7;border:4px solid #262B44}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">红白机时代,美术只有 16×16 的格子和 54 种颜色可用——像素艺术从硬件的镣铐里诞生。逐格摆放的谨慎、抖动混色的智慧、轮廓线的吝啬,都是「在极限里跳舞」。硬件解放之后,它作为主动选择的美学存活下来:独立游戏、NFT 头像与复古 UI,像素是数字世界的手工感。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>像素艺术首先是低分辨率显示、有限调色板和存储空间下的游戏生产方法。艺术家必须在像素网格中决定每一条轮廓、阴影和抖动混色，技术限制因此变成了一种具有手工判断的视觉语言。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Atari、任天堂、世嘉等游戏平台和早期游戏美术团队建立了实践传统；Susan Kare 的图标、独立游戏开发者和像素社区继续扩展其跨媒介影响。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1970—80 年代，街机与家用机将像素图像带入大众文化。</li><li>1990 年代，16-bit 调色板和卷轴游戏形成丰富的像素叙事能力。</li><li>硬件升级后，独立游戏在 2010 年代主动回到像素，把限制转为风格与身份。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从游戏精灵、字体和图标扩散到动画、网页、NFT、表情和品牌周边，依靠网格限制保持可识别性。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>复古像素可能掩盖当年开发者的劳动、硬件差异和行业商业压力；把像素放大不等于理解像素绘画。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它证明低分辨率可以产生高密度的形式判断，也让数字设计重新讨论限制、手工和观看尺度。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

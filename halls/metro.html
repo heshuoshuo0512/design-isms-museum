@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>现代 Metro UI · 主义馆展厅 HALL 74</title>
-<meta name="description" content="现代(Metro UI)设计主义:历史、特征、代表案例与 CSS 实现。现代 UI、Metro UI、动态磁贴、大字排版、内容优先 | 主义馆 ISM MUSEUM">
+<meta name="description" content="现代(Metro UI)设计主义:起源、人物、转折、传播、争议、影响与代表案例。现代 UI、Metro UI、动态磁贴、大字排版、内容优先 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="现代 UI、Metro UI、动态磁贴、大字排版、内容优先">
 <meta property="og:title" content="现代 Metro UI · 主义馆">
 <meta property="og:description" content="内容优先,界面像城市一样清晰。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#1A1A1A;color:#FFF;font-family:"Segoe UI",Arial,sans-serif}
 ::selection{background:#00A4EF;color:#1A1A1A}
 .topbar{background:#111;border-bottom:2px solid #00A4EF;color:#FFF}
@@ -179,6 +179,12 @@ pre{background:#111;color:#00A4EF;border-left:5px solid #F25022}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">Metro 是微软在2010年前后为 Zune 与 Windows Phone 7 形成的设计语言,随后进入 Windows 8。它受瑞士国际主义、机场标牌和公共交通信息系统启发,用大字号、平面色块、留白和动态磁贴组织信息;内容本身不必被厚重的容器包住。Windows 8 的全屏磁贴让这种语法进入桌面争论,之后微软逐步转向 Fluent,但 Metro 对移动界面、信息架构和动效的影响仍然清晰。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Metro 是微软在 2010 年前后为 Zune 和 Windows Phone 7 形成的设计语言，受瑞士排版、机场标牌和公共交通信息系统启发。它强调大字号、平面色块、留白和动态磁贴，让内容而不是容器成为主角。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>微软设计团队、Zune 与 Windows Phone 产品团队，以及 Albert Shum 等设计领导者推动了它的形成和系统化。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2010 年 Windows Phone 7 发布，Metro 建立移动端的字体、磁贴和转场规则。</li><li>2012 年 Windows 8 将动态磁贴带入桌面，触发全屏起始界面的争议。</li><li>2017 年后 Fluent Design 逐步接替 Metro 命名，但大字、内容优先和动态层级仍然保留。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它通过微软设备、应用商店、公共信息设计和网页模板传播，对扁平化、响应式信息架构和动效产生影响。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>全屏磁贴和隐藏入口可能增加学习成本；公共标牌的清晰语法迁移到个人桌面时，并不自动符合个人任务。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它证明扁平界面仍可依靠字体、节奏、状态和空间运动表达层级，而不是回到写实材质。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

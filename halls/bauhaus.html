@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>包豪斯 Bauhaus · 主义馆展厅 HALL 16</title>
-<meta name="description" content="包豪斯(Bauhaus)设计主义:历史、特征、代表案例与 CSS 实现。包豪斯、Bauhaus、三原色、几何、功能主义 | 主义馆 ISM MUSEUM">
+<meta name="description" content="包豪斯(Bauhaus)设计主义:起源、人物、转折、传播、争议、影响与代表案例。包豪斯、Bauhaus、三原色、几何、功能主义 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="包豪斯、Bauhaus、三原色、几何、功能主义">
 <meta property="og:title" content="包豪斯 Bauhaus · 主义馆">
 <meta property="og:description" content="形式追随功能,几何即语言。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F5EFE0;color:#111;font-family:Futura,"Century Gothic","PingFang SC",sans-serif}
 ::selection{background:#D32F2F;color:#fff}
 .topbar{background:rgba(245,239,224,.92);border-bottom:4px solid #111}
@@ -179,6 +179,12 @@ pre{background:#111;color:#FDD835}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">1919 年格罗皮乌斯在魏玛创立包豪斯,首次把艺术、工艺与技术置于同一屋檐下。红黄蓝三原色、圆方三角基本形、无衬线字体与功能主义,构成现代设计教育的原点。1933 年学校被关闭,师生流亡全球,包豪斯反而成为世界语言——今天每一个「按钮是圆角矩形」的共识,都源自这里。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>包豪斯 1919 年由 Walter Gropius 在魏玛创立，目标不是制造一种固定外观，而是重新组织艺术、工艺、教育和工业生产。预备课程、工坊实验、建筑与日用品生产共同构成了它的现代设计教育模型。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Gropius、Johannes Itten、Paul Klee、Wassily Kandinsky、László Moholy-Nagy、Marcel Breuer、Hannes Meyer 和 Ludwig Mies van der Rohe 先后塑造学校方向。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1919 年魏玛成立，早期强调工艺、表现和集体生活。</li><li>1923 年后转向“艺术与技术的新统一”，1925 年迁往德绍并进入工业合作阶段。</li><li>1930 年 Mies 接任，1932 年迁柏林，1933 年在纳粹压力下关闭；师生流亡使其观念国际化。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>通过师生移民、设计学院、建筑事务所和企业生产扩散到美国、欧洲、以色列和拉丁美洲，成为现代设计教育的全球神话。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>包豪斯常被简化为几何形和三原色，也被批评为欧洲中心、男性大师中心，并低估纺织、女性学生和工人劳动的复杂历史。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它留下的是以问题、材料、工艺、生产和社会生活组织教学的制度模型，而不是一套可直接复制的视觉皮肤。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

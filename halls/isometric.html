@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>等距插画 Isometric · 主义馆展厅 HALL 80</title>
-<meta name="description" content="等距插画(Isometric)设计主义:历史、特征、代表案例与 CSS 实现。等距插画、Isometric、轴测、产品插画、数据可视化 | 主义馆 ISM MUSEUM">
+<meta name="description" content="等距插画(Isometric)设计主义:起源、人物、转折、传播、争议、影响与代表案例。等距插画、Isometric、轴测、产品插画、数据可视化 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="等距插画、Isometric、轴测、产品插画、数据可视化">
 <meta property="og:title" content="等距插画 Isometric · 主义馆">
 <meta property="og:description" content="不用透视,也能把复杂世界折成立体。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F7F1E3;color:#243447;font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif}
 ::selection{background:#FFB703;color:#243447}
 .topbar{background:#fff;border-bottom:2px solid #D9E2EC;color:#243447}
@@ -179,6 +179,12 @@ pre{background:#243447;color:#BDE0FE;border-radius:5px;box-shadow:0 8px 0 rgba(3
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">等距投影源自工程制图与建筑图示,它让平行线保持平行,不使用真实透视来表现空间。2010年代,产品插画、SaaS 官网和数据可视化重新发现这种语言:复杂流程被拆成房间、道路、人物与设备,用统一网格即可持续扩展。Dropbox、Slack 等品牌推动了扁平等距插画的流行。与单纯追求「立体」不同,等距插画的价值在于视角一致、对象可组合、信息能被读懂。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>等距插画源自工程制图与轴测投影，用平行线和统一角度表现三维结构，不依赖真实透视。2010 年代产品插画和数据可视化重新使用它，把复杂流程拆成可组合的房间、道路、设备与人物。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>工程制图传统、建筑图示、等距游戏、Dropbox/Slack 等科技品牌插画团队和现代矢量工具共同形成了当代谱系。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>20 世纪前半叶，轴测图成为工程、建筑和技术说明的高效表达。</li><li>1980—90 年代，等距视角在 SimCity 等游戏中变成可探索的城市空间。</li><li>2010 年代后，SaaS 产品页和数据图形用等距网格建立可扩展的品牌插画系统。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经产品说明、地图、游戏、数据可视化和网页 onboarding 传播，依赖统一角度保持对象之间的可比较性。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>等距图看起来中立，却可能把真实城市、劳动和流程简化成无人的图标世界；立体感也不必然带来更好的理解。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它保留了“视角一致、对象可组合、关系可读”的系统价值，适合用于解释结构而非只制造立体感。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

@@ -2,6 +2,7 @@
 """生成 halls/<slug>.html —— 每个主义一个独立展厅页,整页按该主义风格渲染。"""
 import html as H, os
 from data import ISMS
+from history_data import ISM_HISTORY
 from knowledge import build_knowledge
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -134,7 +135,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}"""
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}"""
 
 # 每厅专属主题 css —— key: css 片段(选择器相对 body)
 THEME_CSS = {
@@ -1660,8 +1661,9 @@ def render(m, prev_m, next_m):
     tl = ''.join(f'<li class="rv"><b>{e(y)}</b><span>{e(t)}</span></li>' for y, t in m['tl'])
     reps = ''.join(f'<li class="rv">{e(r)}</li>' for r in m['reps'])
     kw = '、'.join(m['keywords'])
-    seo = f"{m['zh']}({m['en']})设计主义:历史、特征、代表案例与 CSS 实现。{kw} | 主义馆 ISM MUSEUM"
+    seo = f"{m['zh']}({m['en']})设计主义:起源、人物、转折、传播、争议、影响与代表案例。{kw} | 主义馆 ISM MUSEUM"
     prologue = m.get('prologue', '')
+    history_deep = f'''<div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>{e(m['origin'])}</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>{e(m['figures'])}</p></article><article class="history-deep-card"><h4>关键转折</h4><ul>{''.join(f'<li>{e(item)}</li>' for item in m['turns'])}</ul></article><article class="history-deep-card"><h4>传播路径</h4><p>{e(m['diffusion'])}</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>{e(m['debate'])}</p></article><article class="history-deep-card"><h4>当代影响</h4><p>{e(m['legacy'])}</p></article></div>'''
     exhibits = ''.join(f'''<figure class="ex rv" data-x="{i}">
       <div class="ex-art"><span class="xob" style="{css}"></span></div>
       <figcaption class="ex-cap">{e(cap)}</figcaption>
@@ -1713,6 +1715,12 @@ def render(m, prev_m, next_m):
     <h3>历史档案</h3>
     <p class="prose">{e(m['history'])}</p>
   </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    {history_deep}
+  </section>
   {exhibit_sec}
   <section class="sec rv">
     <div class="kicker">Archive</div>
@@ -1746,6 +1754,8 @@ def render(m, prev_m, next_m):
 </body>
 </html>"""
 
+for m in ISMS:
+    m.update(ISM_HISTORY[m['slug']])
 for i, m in enumerate(ISMS):
     prev_m = ISMS[(i - 1) % len(ISMS)]
     next_m = ISMS[(i + 1) % len(ISMS)]

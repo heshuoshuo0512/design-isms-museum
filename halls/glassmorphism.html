@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>玻璃拟态 Glassmorphism · 主义馆展厅 HALL 04</title>
-<meta name="description" content="玻璃拟态(Glassmorphism)设计主义:历史、特征、代表案例与 CSS 实现。玻璃拟态、Glassmorphism、backdrop-filter、毛玻璃 | 主义馆 ISM MUSEUM">
+<meta name="description" content="玻璃拟态(Glassmorphism)设计主义:起源、人物、转折、传播、争议、影响与代表案例。玻璃拟态、Glassmorphism、backdrop-filter、毛玻璃 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="玻璃拟态、Glassmorphism、backdrop-filter、毛玻璃">
 <meta property="og:title" content="玻璃拟态 Glassmorphism · 主义馆">
 <meta property="og:description" content="让数字界面拥有玻璃的通透与层次。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:linear-gradient(135deg,#667eea,#764ba2,#f093fb,#4facfe);background-size:300% 300%;animation:bgpan 16s ease infinite;color:#fff;font-family:"Helvetica Neue","PingFang SC",sans-serif}
 @keyframes bgpan{50%{background-position:100% 50%}}
 ::selection{background:#fff;color:#764ba2}
@@ -177,6 +177,12 @@ pre{background:rgba(0,0,0,.35);backdrop-filter:blur(10px);border:1px solid rgba(
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2020 年,Apple 在 macOS Big Sur 与 iOS 控制中心里大面积使用半透明模糊面板,Microsoft Fluent Design 同步跟进。设计师 Michal Malewicz 将这种风格命名为 Glassmorphism。backdrop-filter 属性的成熟让「隔着毛玻璃看内容」第一次可以在浏览器里廉价实现,深度不再靠投影,而靠光的折射与遮挡。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>玻璃拟态是 2020 年前后数字界面对半透明、模糊和层叠表面的重新命名。它不是玻璃工艺的直接历史延续，而是把操作系统的窗口层级、材质渲染和浏览器 backdrop-filter 组合成一种可复制的屏幕语法。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Michal Malewicz 通过文章和案例传播了 Glassmorphism 这一称呼；Apple 的 macOS Big Sur、iOS 控制中心和 Microsoft Fluent 则提供了更大范围的系统示范。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>操作系统长期使用半透明窗口和模糊来表达前后层级。</li><li>2020 年 macOS Big Sur 将这一语法大规模带入系统视觉。</li><li>设计社区把它抽象成卡片、边框、模糊和鲜艳背景的组合，迅速进入网页模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它由操作系统界面扩散到仪表盘、音乐播放器、金融产品和营销页，CSS 的 backdrop-filter 让这种效果从原生应用进入浏览器。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>背景模糊可能降低文字对比度、增加 GPU 成本，并把视觉层级误当成真实空间；玻璃的“透明”也可能掩盖信息遮挡和隐私风险。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它重新让界面讨论材质、景深和层级，但留下的核心问题是：视觉深度是否真的改善理解和操作。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

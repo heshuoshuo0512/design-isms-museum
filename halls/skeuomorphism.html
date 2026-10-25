@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>拟物化 Skeuomorphism · 主义馆展厅 HALL 13</title>
-<meta name="description" content="拟物化(Skeuomorphism)设计主义:历史、特征、代表案例与 CSS 实现。拟物化、Skeuomorphism、iOS 6、材质 | 主义馆 ISM MUSEUM">
+<meta name="description" content="拟物化(Skeuomorphism)设计主义:起源、人物、转折、传播、争议、影响与代表案例。拟物化、Skeuomorphism、iOS 6、材质 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="拟物化、Skeuomorphism、iOS 6、材质">
 <meta property="og:title" content="拟物化 Skeuomorphism · 主义馆">
 <meta property="og:description" content="让数字像实物一样可靠、熟悉、可触摸。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:linear-gradient(180deg,#3a2a1a,#241a10);color:#f0e6d2;font-family:Georgia,"Songti SC",serif}
 ::selection{background:#c4956a;color:#241a10}
 .topbar{background:linear-gradient(180deg,#4a3826,#33261a);border-bottom:1px solid #1a1208;box-shadow:0 2px 8px rgba(0,0,0,.6);color:#d8c8a8}
@@ -178,6 +178,12 @@ pre{background:#1a1208;border:1px solid #4a3826;color:#d8b878;border-radius:6px;
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2007 年 iPhone 把电脑塞进所有人的口袋,拟物化承担了教学使命:iBooks 的木书架告诉你书放在哪,备忘录的黄便签告诉你这是纸,日历的皮革缝线告诉你这是台历。乔布斯时代的 Apple 把材质渲染推到极致。当用户学会所有手势后,教学道具便被抛弃——2013 年扁平化革命,拟物化退位,但它教会了一代人触摸屏幕。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>拟物化把数字操作映射到用户熟悉的纸、书架、相机、日历和录音设备上。它继承了早期图形界面的桌面隐喻，在触屏尚未形成共同手势时承担了重要的学习和信任功能。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Xerox PARC 的 GUI 研究、Apple Human Interface 团队和 Steve Jobs 时代的产品设计推动了它的大众化；Scott Forstall 负责的早期 iOS 体验将材质渲染推到高峰。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1970—80 年代，窗口、文件夹、垃圾桶和菜单把命令行抽象成可见物件。</li><li>2007 年 iPhone 发布，皮革、木纹和纸张成为触屏手势的教学隐喻。</li><li>2013 年 iOS 7 转向扁平化，拟物从主导界面退为局部图标和品牌记忆。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经桌面 GUI、移动系统、软件图标和游戏界面传播，帮助用户把新技术接入已有物件经验。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>隐喻会过时，也可能把现实物件的性别、阶层和文化经验当作普遍经验；写实表面还会消耗性能和注意力。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它证明视觉语言可以承担教学，但也提醒设计师在用户学会系统后及时撤掉过期隐喻。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

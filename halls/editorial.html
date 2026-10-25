@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>编辑杂志风 Editorial / Magazine · 主义馆展厅 HALL 30</title>
-<meta name="description" content="编辑杂志风(Editorial / Magazine)设计主义:历史、特征、代表案例与 CSS 实现。编辑风、Editorial、杂志排版、衬线、首字下沉 | 主义馆 ISM MUSEUM">
+<meta name="description" content="编辑杂志风(Editorial / Magazine)设计主义:起源、人物、转折、传播、争议、影响与代表案例。编辑风、Editorial、杂志排版、衬线、首字下沉 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="编辑风、Editorial、杂志排版、衬线、首字下沉">
 <meta property="og:title" content="编辑杂志风 Editorial / Magazine · 主义馆">
 <meta property="og:description" content="网页,值得像杂志一样被排版。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#FAF7F2;color:#1A1A1A;font-family:Georgia,"Songti SC","Noto Serif SC",serif}
 ::selection{background:#B08D4A;color:#fff}
 .topbar{background:rgba(250,247,242,.95);border-bottom:1px solid #1A1A1A;font-family:Georgia,serif;letter-spacing:.12em}
@@ -181,6 +181,12 @@ pre{background:#1A1A1A;color:#e8e0c8;font-family:"Courier New",monospace}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">当信息流把所有内容压成同一种卡片,一批数字出版物开始反问:网页为什么不能像杂志一样排版?超大衬线标题、跨栏布局、首字下沉、引用拉页、严肃的网格与呼吸感留白——The New Yorker 与 Pitchfork 的专题页、Stripe Press 与各类年度榜单,把六百年的印刷编辑传统搬进了浏览器。内容为王,版式是王冠。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>编辑设计来自书籍、报纸、杂志和新闻摄影对长文本、层级、节奏和阅读时间的长期组织。现代编辑设计在现代主义版式、摄影排版和杂志文化中成熟，后来才迁移到响应式网页。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Jan Tschichold、Alexey Brodovitch、Cipe Pineles、Willy Fleckhaus、Massimo Vignelli 和 Neville Brody 等人分别推动了书籍、时尚、新闻与实验排版。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1920—30 年代，新字体与摄影排版重新组织页面阅读。</li><li>1940—70 年代，杂志艺术指导把图片、标题、留白和跨页节奏变成综合叙事。</li><li>2000 年代后，网页和移动端迫使编辑设计把固定页面转成可变视口、可滚动和可交互结构。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经出版、新闻、品牌内容、博客和数字杂志传播，影响了网页中的大标题、章节节奏和长文阅读体验。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>编辑感容易把阅读当作单一的受过教育的身体经验；装饰性排版可能损害屏幕阅读、辅助技术和多语言适配。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它提醒前端设计首先是内容组织与阅读关系，版式不是截图，而是随时间和设备变化的编辑系统。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

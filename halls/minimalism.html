@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>极简主义 Minimalism · 主义馆展厅 HALL 02</title>
-<meta name="description" content="极简主义(Minimalism)设计主义:历史、特征、代表案例与 CSS 实现。极简主义、Minimalism、留白、内容优先 | 主义馆 ISM MUSEUM">
+<meta name="description" content="极简主义(Minimalism)设计主义:起源、人物、转折、传播、争议、影响与代表案例。极简主义、Minimalism、留白、内容优先 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="极简主义、Minimalism、留白、内容优先">
 <meta property="og:title" content="极简主义 Minimalism · 主义馆">
 <meta property="og:description" content="少即是多,无即是有。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#fff;color:#111;font-family:"Helvetica Neue","PingFang SC",sans-serif}
 ::selection{background:#111;color:#fff}
 .topbar{background:rgba(255,255,255,.9);border-bottom:1px solid #eee}
@@ -178,6 +178,12 @@ pre{background:#fafafa;color:#555;border-left:2px solid #111}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">极简主义源于 1960 年代的极简艺术运动,经 Dieter Rams「少,却更好」的设计十诫进入工业设计,2000 年代由 Apple、Google 带入数字界面。它的纪律是删除:每删掉一个装饰,内容的信噪比就上升一分。Medium 的阅读体验与 Airbnb 的留白系统证明——克制不是贫乏,而是对注意力的尊重。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>设计语境中的极简主义与 1960 年代美国极简艺术有关，但不能把 Donald Judd 的雕塑直接等同于网页风格。它后来与现代主义的功能纪律、工业产品减法和信息设计结合，形成“减少干扰、保留必要关系”的方法。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>艺术领域有 Donald Judd、Robert Morris；工业设计中 Dieter Rams 的“少，却更好”影响极大；数字产品阶段则由 Apple 设计团队、Google Material 早期系统和编辑型网页继续改写。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1960 年代，极简艺术以重复、模块和工业材料挑战传统表现性。</li><li>1970—90 年代，Rams 等人的产品设计把减法转为可用、耐久和可生产的原则。</li><li>2000 年代后，宽屏显示、移动设备和产品品牌把留白、无衬线字体与内容优先带入数字界面。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经工业产品、建筑、品牌识别、杂志和数字产品不断迁移，每次迁移都会重新定义“什么是必要信息”。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>极简不是天然中立；过度删除可能隐藏操作入口、文化差异和服务复杂度，所谓“干净”也可能转化为高价消费品的排他性。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它使信息层级、留白、可读性和长期维护成为设计评价的一部分，但也提醒我们不要把空白误认成思想。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

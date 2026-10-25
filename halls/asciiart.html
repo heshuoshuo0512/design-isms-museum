@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASCII 艺术 ASCII Art · 主义馆展厅 HALL 57</title>
-<meta name="description" content="ASCII 艺术(ASCII Art)设计主义:历史、特征、代表案例与 CSS 实现。ASCII 艺术、ASCII Art、BBS、终端、等宽字体 | 主义馆 ISM MUSEUM">
+<meta name="description" content="ASCII 艺术(ASCII Art)设计主义:起源、人物、转折、传播、争议、影响与代表案例。ASCII 艺术、ASCII Art、BBS、终端、等宽字体 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="ASCII 艺术、ASCII Art、BBS、终端、等宽字体">
 <meta property="og:title" content="ASCII 艺术 ASCII Art · 主义馆">
 <meta property="og:description" content="在字符的缝隙里画出整个世界。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#001B12;color:#B7FF6A;font-family:monospace}
 ::selection{background:#00FF9C;color:#001B12}
 .topbar{background:#062A1C;border-bottom:1px solid #00FF9C;color:#B7FF6A}
@@ -179,6 +179,12 @@ pre{background:#000D09;color:#B7FF6A;border:2px solid #00FF9C;text-shadow:0 0 6p
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">ASCII 艺术以美国信息交换标准码中的可打印字符为材料，把字母、数字和标点排列成图像。早期终端与电传打字机已经出现文字图画；到 1980–90 年代，BBS、Usenet、电子邮件签名和地下网络让它成为跨设备共享的创作形式。它与使用颜色控制码的 ANSI art 不同，ASCII art 的魅力正来自字符集与等宽网格的极端限制；表情符号和代码块插画延续了这条谱系。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>ASCII 艺术把字符集、等宽网格和终端限制当作图像材料。早期电传打字机和计算机实验已经出现字符图画，BBS、Usenet、邮件签名和地下网络则使它成为一种可跨设备传播的社群形式。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>早期计算机艺术家、终端用户、BBS 管理者和网络社群共同推进实践；它没有中心机构，作品常以匿名或集体署名流通。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1960 年代，终端和电传打字机出现字符图画实验。</li><li>1980 年代，BBS 用 ASCII 图像作为站点标识、签名和社群礼仪。</li><li>1990 年代后，邮件、Usenet 和网页保存了大量文字图像；代码块和表情继续延续方法。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它依赖纯文本网络传播，不需要图像文件或复杂软件，后来进入终端艺术、代码界面、独立游戏和网页实验。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>字符图像的历史常被匿名化，且不同字符集和终端宽度会改变观看结果；把它当复古装饰会忽略网络基础设施。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它证明材料限制可以形成独特视觉，也让设计重新看见文本、字符编码和设备差异。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>
