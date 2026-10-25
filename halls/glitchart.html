@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>故障艺术 Glitch Art · 主义馆展厅 HALL 62</title>
-<meta name="description" content="故障艺术(Glitch Art)设计主义:历史、特征、代表案例与 CSS 实现。故障艺术、Glitch Art、RGB 分离、数据损坏、扫描线 | 主义馆 ISM MUSEUM">
+<meta name="description" content="故障艺术(Glitch Art)设计主义:起源、人物、转折、传播、争议、影响与代表案例。故障艺术、Glitch Art、RGB 分离、数据损坏、扫描线 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="故障艺术、Glitch Art、RGB 分离、数据损坏、扫描线">
 <meta property="og:title" content="故障艺术 Glitch Art · 主义馆">
 <meta property="og:description" content="错误不是噪声,而是图像的另一种真相。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#0D0D18;color:#F4F4FF;font-family:Arial,Helvetica,sans-serif;filter:contrast(1.08)}
 ::selection{background:#FF3864;color:#0D0D18}
 .topbar{background:#141425;border-bottom:2px solid #00E5FF;color:#F4F4FF}
@@ -179,6 +179,12 @@ pre{background:#080810;color:#00E5FF;border:3px solid #FF3864;text-shadow:2px 0 
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">故障艺术把数字系统的失灵公开为一种构图方法。20 世纪 90 年代,艺术家开始利用损坏的图像文件、扫描线、视频噪声、色道错位和压缩伪影,回应数字媒介「完美复制」的承诺。进入 2000 年代后,datamoshing、VHS 失真与音乐视频让这种语言扩散到网络文化;故障不再只是事故,而是对技术透明性的有意揭露。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>故障艺术把数字系统的失灵、压缩、扫描线、色道错位和文件损坏转成主动构图。它反对数字媒介“完美复制、无摩擦运行”的宣传，公开显示机器、编码和传输留下的痕迹。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>JODI、Rosa Menkman、Cory Arcangel、谭力勤等网络与新媒体艺术家，以及视频剪辑和音乐视觉社群推动了实践。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1990 年代，网络艺术家开始把代码错误、网页崩溃和低清图像作为媒介材料。</li><li>2000 年代，datamoshing、VHS 噪声和压缩伪影进入音乐视频与网络影像。</li><li>2010 年代后，故障成为时尚、品牌、游戏和社交图像的可复制风格。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经网络艺术、实验电影、音乐视频、字体和 UI 传播，常用 RGB 错位、切片、噪声和数据破坏模拟不稳定。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>商业化故障可能只消费“系统失败”的外观，却不讨论平台、监控和数据劳动；真实故障也可能影响可读性和无障碍。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它让设计师把错误、限制和基础设施重新带到表面，说明稳定系统也有政治与物质条件。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

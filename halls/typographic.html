@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>字体排印主义 Typographic Poster · 主义馆展厅 HALL 33</title>
-<meta name="description" content="字体排印主义(Typographic Poster)设计主义:历史、特征、代表案例与 CSS 实现。字体排印、Typographic、海报、无衬线、字体即图形 | 主义馆 ISM MUSEUM">
+<meta name="description" content="字体排印主义(Typographic Poster)设计主义:起源、人物、转折、传播、争议、影响与代表案例。字体排印、Typographic、海报、无衬线、字体即图形 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="字体排印、Typographic、海报、无衬线、字体即图形">
 <meta property="og:title" content="字体排印主义 Typographic Poster · 主义馆">
 <meta property="og:description" content="当文字足够有力,它不需要配图。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F5F2EB;color:#111;font-family:Helvetica,Arial,"PingFang SC",sans-serif}
 ::selection{background:#D32F2F;color:#fff}
 .topbar{background:rgba(245,242,235,.95);border-bottom:2px solid #111;font-size:11px;letter-spacing:.08em}
@@ -179,6 +179,12 @@ pre{background:#111;color:#F5F2EB;border-left:8px solid #D32F2F}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">1960年代的国际字体排印海报把现代主义的文字实验推到视觉中心:瑞士网格、无衬线字体和摄影被拆成纯粹的尺度、方向与节奏。Josef Müller-Brockmann的音乐会海报、Massimo Vignelli的系统设计,证明信息本身就能构成图像。数字时代的纯文字着陆页、动态字标和可变字体,继续把阅读速度与观看冲动拉到同一张画布上。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>排版主义不是一个单一时期，而是把文字本身作为主要形体和信息结构的现代设计传统。它与印刷术、现代主义、新字体、海报和数字字体技术相连，强调文字的尺度、节奏、方向和可读性。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Jan Tschichold、Herbert Bayer、Josef Müller-Brockmann、Wolfgang Weingart、Emil Ruder、April Greiman 和当代字体设计师共同构成谱系。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1920—30 年代，新字体和包豪斯实验把文字从装饰提升为构图骨架。</li><li>1950—70 年代，瑞士排版与国际字体系统建立可复制的文字秩序。</li><li>1990 年代后，桌面出版、网页字体和可变字体让排版重新获得动态与个体表达。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从海报、书籍和杂志扩散到品牌、音乐、网页和动效片头，文字同时承担内容、图像和导航。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>把字当图可能损害阅读，拉丁字母中心的字体资源也不适用于所有书写系统；“实验性”不能成为忽略语言差异的理由。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它提醒设计师先处理语言、阅读和内容，再决定字体如何成为视觉事件。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

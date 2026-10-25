@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒸汽波 Vaporwave · 主义馆展厅 HALL 21</title>
-<meta name="description" content="蒸汽波(Vaporwave)设计主义:历史、特征、代表案例与 CSS 实现。蒸汽波、Vaporwave、粉青渐变、怀旧、Win95 | 主义馆 ISM MUSEUM">
+<meta name="description" content="蒸汽波(Vaporwave)设计主义:起源、人物、转折、传播、争议、影响与代表案例。蒸汽波、Vaporwave、粉青渐变、怀旧、Win95 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="蒸汽波、Vaporwave、粉青渐变、怀旧、Win95">
 <meta property="og:title" content="蒸汽波 Vaporwave · 主义馆">
 <meta property="og:description" content="一场关于 80 年代未来的怀旧梦。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:linear-gradient(180deg,#2B0A54,#4A1A6E 60%,#FF71CE 130%);color:#01CDFE;font-family:"MS PGothic","Courier New","PingFang SC",monospace}
 ::selection{background:#FF71CE;color:#2B0A54}
 .topbar{background:rgba(43,10,84,.92);border-bottom:1px solid #01CDFE;letter-spacing:.15em}
@@ -178,6 +178,12 @@ pre{background:#0d0318;border:1px solid #FF71CE;color:#01CDFE;letter-spacing:.05
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">蒸汽波是第一种完全在互联网上生长的美学:2010 年前后的网络音乐人把 80 年代商场音乐放慢、失真,封面配上希腊雕像、Windows 95 窗口、棕榈树与粉色落日。它怀旧的不是真实存在的过去,而是广告里许诺过的未来。A E S T H E T I C——字符之间的空格,就是这场梦的呼吸。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>蒸汽波在 2010 年前后网络音乐与图像社区中形成，常通过降速、切片和重混 1980—90 年代商业音乐来处理消费社会的怀旧。希腊雕像、Windows 95、商场空间和粉色落日把“过时的未来”变成网络身份。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Vektroid 的 Macintosh Plus、James Ferraro、Daniel Lopatin 等音乐与视觉创作者成为重要节点；Bandcamp、Tumblr、YouTube 和匿名论坛承担了传播。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2010 年前后，网络音乐人以低成本软件重混商业背景音乐。</li><li>2011 年 Macintosh Plus 等作品固定了雕像、日文、网格和棕榈树的视觉组合。</li><li>2010 年代中后期，它从音乐类型扩展为互联网怀旧、商品批评和可复制的迷因图像。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它完全依靠平台上传、转发和匿名再创作扩散，模糊了音乐、封面、字体和网络表情之间的边界。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>采样常涉及版权、文化挪用和对日本商业图像的异国化；反消费姿态也可能迅速变成新的可售卖商品。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>蒸汽波让设计史承认互联网亚文化、压缩痕迹和再利用本身也能构成形式与历史。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>瑞士朋克 Swiss Punk · 主义馆展厅 HALL 31</title>
-<meta name="description" content="瑞士朋克(Swiss Punk)设计主义:历史、特征、代表案例与 CSS 实现。瑞士朋克、Swiss Punk、反网格、剪切、叠印 | 主义馆 ISM MUSEUM">
+<meta name="description" content="瑞士朋克(Swiss Punk)设计主义:起源、人物、转折、传播、争议、影响与代表案例。瑞士朋克、Swiss Punk、反网格、剪切、叠印 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="瑞士朋克、Swiss Punk、反网格、剪切、叠印">
 <meta property="og:title" content="瑞士朋克 Swiss Punk · 主义馆">
 <meta property="og:description" content="网格不是牢笼,是可以被剪开再叠印的材料。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#E30613;color:#fff;font-family:Helvetica,Arial,"PingFang SC",sans-serif}
 ::selection{background:#F2D500;color:#111}
 .topbar{background:rgba(227,6,19,.94);border-bottom:3px solid #111;font-weight:700}
@@ -180,6 +180,12 @@ pre{background:#111;color:#F2D500;border:4px solid #fff;box-shadow:7px 7px 0 #11
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">1980年代的瑞士朋克并非单一团体,而是对国际主义网格的内部拆解:设计师保留几何骨架,却把标题剪开、倾斜、错位,让照片与色块像丝网印刷一样层层覆盖。它吸收地下音乐海报、独立出版物和反企业态度,把「理性」变成可被破坏的工具。今天的实验网页仍借它挑战整齐、稳定和完美对齐。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Swisspunk 是当代网络语境中的混合标签，把瑞士国际主义的网格、无衬线和秩序与朋克的撕裂、噪点和反权威态度并置。它不是有明确历史组织的传统主义，而是对“秩序与破坏能否共存”的视觉实验。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>瑞士学派、朋克 zine、David Carson、实验字体设计师和当代音乐视觉作者共同提供谱系；没有一位公认的创始人。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1950 年代的网格和字体提供清晰、可复制的结构。</li><li>1970—90 年代朋克与反设计把复印、撕裂和噪声带入传播。</li><li>2010 年代后，数字工具让同一页面可以在严格网格上叠加故障、贴纸和手写痕迹。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它常见于音乐厂牌、时尚海报、文化机构和作品集，通过社交平台以“秩序中的失控”被识别。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>混合两种风格不等于理解其历史；它可能把政治反叛消费成装饰，并让信息结构成为可牺牲的部分。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它提供了在结构与态度之间工作的练习：可以破坏表面，但必须知道哪些关系仍支撑阅读和行动。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>低多边形 Low Poly · 主义馆展厅 HALL 59</title>
-<meta name="description" content="低多边形(Low Poly)设计主义:历史、特征、代表案例与 CSS 实现。低多边形、Low Poly、实时 3D、平面着色、三角面 | 主义馆 ISM MUSEUM">
+<meta name="description" content="低多边形(Low Poly)设计主义:起源、人物、转折、传播、争议、影响与代表案例。低多边形、Low Poly、实时 3D、平面着色、三角面 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="低多边形、Low Poly、实时 3D、平面着色、三角面">
 <meta property="og:title" content="低多边形 Low Poly · 主义馆">
 <meta property="og:description" content="少一点面，反而看见更多形。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#1B263B;color:#E0E1DD;font-family:"Segoe UI",Arial,sans-serif}
 ::selection{background:#FFB703;color:#1B263B}
 .topbar{background:#101827;border-bottom:2px solid #415A77;color:#E0E1DD}
@@ -179,6 +179,12 @@ pre{background:#101827;color:#8ECAE6;border:3px solid #FFB703}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">低多边形首先是实时 3D 的工程策略：1990 年代的游戏主机、显卡和网页插件需要控制模型的面数，才能在有限算力下保持帧率。三角面、平面着色和低分辨率纹理因此成为早期 3D 的共同外观。随着硬件变强，设计师又主动保留这种可见的几何切面，把它发展成插画、品牌图形、独立游戏和网页背景中的审美语言；限制从不得已变成了风格。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>低多边形最初是实时 3D 的工程结果：主机、显卡和网页插件算力有限，模型必须减少面数才能保持帧率。三角面、平面着色和低分辨率纹理因此成为技术条件留下的外观。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>早期游戏主机、Quake 等 3D 游戏团队、实时图形程序员和后来的 Blender、Unity 社群共同形成了实践谱系。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1990 年代，实时 3D 硬件限制推动低面数模型进入游戏。</li><li>1996 年《Quake》等作品展示了可探索的多边形世界。</li><li>2000 年代硬件变强后，艺术家主动保留几何切面，低多边形成为插画、品牌和独立游戏风格。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经游戏、建筑可视化、数据图形、网页背景和 NFT 传播，常被用来表现“技术感”或复古限制。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>低多边形作为风格可能掩盖建模、优化和实时渲染的真实劳动；面数少不等于实现成本低。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它把性能约束转成形式选择，提醒数字材料的美学经常由算力、加载和设备条件生成。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

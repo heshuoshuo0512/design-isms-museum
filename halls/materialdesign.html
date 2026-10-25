@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>材质设计 Material Design · 主义馆展厅 HALL 73</title>
-<meta name="description" content="材质设计(Material Design)设计主义:历史、特征、代表案例与 CSS 实现。材质设计、Material Design、高程、涟漪、设计系统 | 主义馆 ISM MUSEUM">
+<meta name="description" content="材质设计(Material Design)设计主义:起源、人物、转折、传播、争议、影响与代表案例。材质设计、Material Design、高程、涟漪、设计系统 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="材质设计、Material Design、高程、涟漪、设计系统">
 <meta property="og:title" content="材质设计 Material Design · 主义馆">
 <meta property="og:description" content="纸的层级,像素的秩序。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F5F7FA;color:#263238;font-family:Roboto,"Helvetica Neue",Arial,sans-serif}
 ::selection{background:#6200EE;color:#fff}
 .topbar{background:#fff;border-bottom:1px solid #E0E3E7;box-shadow:0 3px 8px rgba(38,50,56,.16);color:#263238}
@@ -179,6 +179,12 @@ pre{background:#263238;color:#B2DFDB;border-radius:4px;box-shadow:0 4px 8px rgba
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">Google 在2014年 I/O 大会上发布材质设计,以纸张、墨水和阴影的隐喻统一 Android、网页与应用产品。系统强调表面与高程、鲜明色彩、响应式布局以及有物理来源的动效:元素从哪里来,就应回到哪里。Android 5.0 Lollipop 和 Google 的产品界面让它迅速普及。随后 Material Theming 与 Material 3 加入更灵活的颜色、组件和个性化规则,但「层级可见、反馈可感」仍是核心。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Material Design 于 2014 年 Google I/O 发布，以纸张、墨水、表面和海拔建立跨 Android、网页与应用的设计系统。它试图在扁平化之后重新提供可理解的层级、动效和组件规则。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Matías Duarte 与 Google Design 团队是主要推动者；Android、Chrome、Google 应用和开源组件库承担了实际扩散。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2014 年，Material Design 作为完整系统公开发布。</li><li>2018 年 Material Theming 允许更灵活的颜色、形状和品牌适配。</li><li>2021 年 Material 3 引入动态颜色、更多状态和个性化，纸张隐喻转向更抽象的系统语言。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它通过 Android、文档、开源代码、Figma 资源和网页组件库扩散，成为全球产品团队可直接采用的生产基础设施。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>统一组件提高效率，却可能让产品、文化和身体差异被同一套默认规范覆盖；动效和高程隐喻也不适用于所有用户。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它把设计原则、组件、状态、动效和开发协作整合成系统，影响了当代数字产品的生产方式。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

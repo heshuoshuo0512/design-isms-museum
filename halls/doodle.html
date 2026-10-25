@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>涂鸦手绘风 Doodle / Hand-drawn · 主义馆展厅 HALL 27</title>
-<meta name="description" content="涂鸦手绘风(Doodle / Hand-drawn)设计主义:历史、特征、代表案例与 CSS 实现。涂鸦、手绘风、Doodle、Notion 风、不完美 | 主义馆 ISM MUSEUM">
+<meta name="description" content="涂鸦手绘风(Doodle / Hand-drawn)设计主义:起源、人物、转折、传播、争议、影响与代表案例。涂鸦、手绘风、Doodle、Notion 风、不完美 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="涂鸦、手绘风、Doodle、Notion 风、不完美">
 <meta property="og:title" content="涂鸦手绘风 Doodle / Hand-drawn · 主义馆">
 <meta property="og:description" content="完美的线条很无聊,抖动的线条有体温。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#FFFDF5;color:#111;font-family:"Comic Sans MS","Segoe Print","PingFang SC",cursive}
 ::selection{background:#F25C54;color:#fff}
 .topbar{background:rgba(255,253,245,.94);border-bottom:3px solid #111;border-radius:0 0 255px 15px/0 0 25px 15px}
@@ -183,6 +183,12 @@ pre{background:#111;color:#FFE9A8;border-radius:15px 255px 15px 225px/225px 15px
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">当科技公司发现用户害怕冷冰冰的界面,涂鸦手绘风成了人格化武器:Notion 的歪扭插画、Dropbox 的蜡笔人物、Google Doodle 的每日惊喜。抖动的描边、超出线稿的涂色、永远画不直的直线——「不完美」是被精心设计出来的。手绘感告诉用户:屏幕后面坐着的,是和你一样会画歪的人。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>涂鸦手绘风把非正式的线条、边注、涂改和儿童绘画带入品牌与界面。它既来自街头与课堂的即时记录，也来自设计师对过度精确数字图形的反动。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Google Doodles 团队让“涂鸦”进入全球公共首页；儿童出版、独立插画师、Zine 和社交媒体创作者共同扩大了这套语言。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>20 世纪手绘插图和漫画为非正式线条提供了大众传统。</li><li>2000 年代后，Google Doodles 以节日和人物纪念展示手绘如何进入公共信息。</li><li>2010 年代后，品牌把手写箭头、贴纸和边注用于缓和技术产品的距离感。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它通过搜索首页、教育产品、社交贴纸、白板工具和营销页传播，常被用来表现过程、亲近和个性。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>“像小孩”是一种被设计的姿态，不应掩盖真实作者和文化来源；手绘也可能让严肃信息显得不可靠或难以阅读。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它保留了草稿、过程和个体痕迹的价值，提醒数字设计不必把所有判断伪装成无菌完成品。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

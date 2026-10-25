@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>动态字体 Kinetic Typography · 主义馆展厅 HALL 75</title>
-<meta name="description" content="动态字体(Kinetic Typography)设计主义:历史、特征、代表案例与 CSS 实现。动态字体、Kinetic Typography、动效排版、歌词视频、时间轴 | 主义馆 ISM MUSEUM">
+<meta name="description" content="动态字体(Kinetic Typography)设计主义:起源、人物、转折、传播、争议、影响与代表案例。动态字体、Kinetic Typography、动效排版、歌词视频、时间轴 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="动态字体、Kinetic Typography、动效排版、歌词视频、时间轴">
 <meta property="og:title" content="动态字体 Kinetic Typography · 主义馆">
 <meta property="og:description" content="文字不只被阅读,也被看见、听见,并感受其节奏。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#111;color:#FFF;font-family:Arial,"Helvetica Neue",sans-serif}
 ::selection{background:#E7FF4F;color:#111}
 .topbar{background:#1D1D1D;border-bottom:3px solid #E7FF4F;color:#FFF}
@@ -179,6 +179,12 @@ pre{background:#080808;color:#E7FF4F;border:3px solid #FF3CAC}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">动态字体的根系可以追溯到电影片头、实验动画和电视字幕;数字剪辑与 After Effects 让文字在时间轴上成为可编排的图形。2010年代,响应式网页、CSS 动画、SVG 与 GSAP 降低了动态排版的门槛,音乐歌词视频、品牌片头和产品首屏都开始用运动表达语气。好的动态字体并非给每个字加特效,而是让速度、停顿、重量和方向服务于内容与声音。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>动态字体把文字作为时间中的形体，连接电影片头、实验动画、电视字幕、音乐录像和网页动效。它的历史不是给静态字加动画，而是让速度、停顿、重量和方向参与语言意义。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Saul Bass、Pablo Ferro、Kyle Cooper 等片头设计师提供重要前史；After Effects、Flash、SVG、CSS 和 GSAP 社群把运动排版带入网页。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1950 年代，电影片头将文字从标题信息变成运动图形。</li><li>1990—2000 年代，Flash 与 After Effects 让实验字体动画进入网络和音乐视频。</li><li>2010 年代后，CSS、SVG、WebGL 和可变字体降低实时动态排版门槛。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经片头、歌词视频、品牌发布、网页首屏和交互叙事传播，常与声音、滚动和用户触发共同工作。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>运动会影响阅读、晕动症和辅助技术；“有动效”不等于有节奏，动态必须支持内容而不是制造等待。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它让排版进入时间维度，要求设计师同时处理语义、节奏、性能和减少动效偏好。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

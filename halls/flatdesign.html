@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>扁平化设计 Flat Design · 主义馆展厅 HALL 12</title>
-<meta name="description" content="扁平化设计(Flat Design)设计主义:历史、特征、代表案例与 CSS 实现。扁平化、Flat Design、Metro、iOS 7 | 主义馆 ISM MUSEUM">
+<meta name="description" content="扁平化设计(Flat Design)设计主义:起源、人物、转折、传播、争议、影响与代表案例。扁平化、Flat Design、Metro、iOS 7 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="扁平化、Flat Design、Metro、iOS 7">
 <meta property="og:title" content="扁平化设计 Flat Design · 主义馆">
 <meta property="og:description" content="剥掉拟物的伪装,像素回归像素。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#1ABC9C;color:#fff;font-family:"Segoe UI","Helvetica Neue","PingFang SC",sans-serif}
 ::selection{background:#E74C3C;color:#fff}
 .topbar{background:#16A085;border-bottom:none;backdrop-filter:none}
@@ -180,6 +180,12 @@ pre{background:#2C3E50;color:#1ABC9C;border-radius:2px}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2010 年 Windows Phone 的 Metro 语言率先宣战:纯色动态磁贴,无渐变无阴影。2013 年 Apple 用 iOS 7 一夜之间删掉所有皮革与玻璃拟物,扁平化成为全球标准。Google Material Design 随后给扁平加回一层「纸」的物理隐喻。扁平化的历史意义在于:数字媒介终于停止模仿现实,承认自己是数字的。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>扁平化设计是数字界面承认自身媒介属性的转折。它反对皮革、木纹和逼真阴影等拟物表面，改用纯色、几何、排版和状态来建立层级，但并不是完全抛弃空间。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Microsoft 的 Metro 设计团队、Apple iOS 7 团队和 Google Material 团队是关键系统力量；瑞士版式与现代主义为其提供了更早的形式资源。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2010 年 Windows Phone 7 与 Metro 用动态磁贴、纯色和大字号挑战移动界面惯例。</li><li>2013 年 iOS 7 大规模移除拟物表面，扁平化成为全球产品视觉的主流。</li><li>2014 年 Material Design 重新引入纸张、高程和动效，说明扁平化需要可理解的空间关系。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它通过操作系统、应用商店、图标、品牌识别和网页框架扩散，成为跨平台组件库的基础语言。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>扁平化如果只删除阴影而不重建层级，会让按钮、链接和状态难以辨认；“数字原生”也可能成为新的统一审美。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它确立了语义、排版、颜色和交互反馈的重要性，让界面不必依赖写实材质才能可用。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

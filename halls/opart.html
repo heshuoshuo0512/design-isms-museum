@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>欧普艺术 Op Art · 主义馆展厅 HALL 37</title>
-<meta name="description" content="欧普艺术(Op Art)设计主义:历史、特征、代表案例与 CSS 实现。欧普艺术、Op Art、视错觉、波纹、几何 | 主义馆 ISM MUSEUM">
+<meta name="description" content="欧普艺术(Op Art)设计主义:起源、人物、转折、传播、争议、影响与代表案例。欧普艺术、Op Art、视错觉、波纹、几何 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="欧普艺术、Op Art、视错觉、波纹、几何">
 <meta property="og:title" content="欧普艺术 Op Art · 主义馆">
 <meta property="og:description" content="眼睛会动,即使画面一动不动。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#fff;color:#111;font-family:Arial,"PingFang SC",sans-serif}
 ::selection{background:#111;color:#fff}
 .topbar{background:#fff;border-bottom:3px solid #111;font-weight:700;letter-spacing:.08em}
@@ -179,6 +179,12 @@ pre{background:#111;color:#fff;border:4px solid #D7263D}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">欧普艺术在1960年代以严格几何制造强烈的视觉错觉,Bridget Riley 的黑白波纹让线条看似流动、闪烁和膨胀,Víctor Vasarely 则把网格扭曲成空间。作品不再只是墙上的图像,而是观看者眼睛与大脑共同完成的事件。网页借助渐变、重复背景和微小位移,让屏幕继续成为一块会呼吸的视网膜。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>欧普艺术在 1960 年代以视觉知觉和几何重复为核心，利用黑白对比、网格、波纹和错位制造运动感。它连接了现代主义抽象、科学视觉和大众展览，把观看者的身体反应作为作品的一部分。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Victor Vasarely、Bridget Riley、Jesús Rafael Soto、Richard Anuszkiewicz 和 Josef Albers 是关键人物。1965 年纽约现代艺术博物馆的 The Responsive Eye 展览扩大了它的公众影响。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1950 年代，几何抽象与色彩实验为知觉艺术提供基础。</li><li>1960—65 年，Riley、Vasarely 等人把重复、波纹和色彩对比推向公众。</li><li>展览和时尚吸收其图案后，欧普从实验艺术转成可复制的装饰资源。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经画廊、海报、时装、唱片和动态图形传播，后来影响 CSS 图案、加载动画和数据视觉。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>过度刺激可能造成眩晕和身体不适；当视觉效果脱离知觉研究只剩黑白纹样，历史问题就被削弱。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它说明图形不是静止表面，重复、间距和颜色可以制造时间与身体经验。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

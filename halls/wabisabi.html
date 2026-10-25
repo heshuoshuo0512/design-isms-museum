@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>侘寂极简 Wabi-Sabi · 主义馆展厅 HALL 32</title>
-<meta name="description" content="侘寂极简(Wabi-Sabi)设计主义:历史、特征、代表案例与 CSS 实现。侘寂、Wabi-Sabi、留白、不完美、静寂 | 主义馆 ISM MUSEUM">
+<meta name="description" content="侘寂极简(Wabi-Sabi)设计主义:起源、人物、转折、传播、争议、影响与代表案例。侘寂、Wabi-Sabi、留白、不完美、静寂 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="侘寂、Wabi-Sabi、留白、不完美、静寂">
 <meta property="og:title" content="侘寂极简 Wabi-Sabi · 主义馆">
 <meta property="og:description" content="不完美不是缺陷,是时间留下的呼吸。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F4F0E8;color:#4D493F;font-family:"Hiragino Mincho ProN","Songti SC",serif}
 ::selection{background:#9E6B4E;color:#fff}
 .topbar{background:rgba(244,240,232,.9);border-bottom:1px solid #C7B8A2;letter-spacing:.08em}
@@ -178,6 +178,12 @@ pre{background:#3D3A34;color:#E8E1D6;border-radius:2px;border:1px solid #9E6B4E}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">侘寂源自佛教无常观与茶道审美,并非一套可复制的装饰模板,而是对短暂、残缺与自然材料的凝视。茶室的粗陶、旧木、苔痕和不对称摆放,让人的注意力从炫耀转向感受。数字产品借用它时,通常以克制的色彩、缓慢的动效、宽阔留白和可见的材质瑕疵,给过度刺激的屏幕留出安静角落。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>侘寂来自日本茶道、禅宗审美和对无常、朴素、不完整与时间痕迹的长期思考。它不是“旧物滤镜”，也不等于任何低饱和日式风格；其核心是接受不完满和有限性。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>茶人村田珠光、武野绍鸥、千利休及后来的日本工艺与建筑实践提供历史谱系；Leonard Koren 在 1990 年代的英文写作帮助它进入全球设计语境。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>中世茶道逐渐将简朴茶室、粗陶和不对称器物视为有价值的体验。</li><li>江户以后，民艺与地方工艺继续保存材料、手作和使用痕迹。</li><li>20 世纪末，英文出版和生活方式媒体把侘寂重新包装成全球室内设计词汇。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它经茶具、建筑、摄影、室内、品牌包装和数字产品传播，常被译为留白、自然色和不规则边缘。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>全球设计常把复杂的日本思想压缩成无来源的“极简自然感”，忽略宗教、阶层、劳动和地方差异。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它能帮助设计讨论时间、维修、衰败和材料寿命，但前提是尊重其语境，而不是只复制斑驳表面。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

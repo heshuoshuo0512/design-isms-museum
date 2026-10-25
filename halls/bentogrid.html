@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bento 网格 Bento Grid · 主义馆展厅 HALL 15</title>
-<meta name="description" content="Bento 网格(Bento Grid)设计主义:历史、特征、代表案例与 CSS 实现。Bento、便当网格、卡片、Apple | 主义馆 ISM MUSEUM">
+<meta name="description" content="Bento 网格(Bento Grid)设计主义:起源、人物、转折、传播、争议、影响与代表案例。Bento、便当网格、卡片、Apple | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="Bento、便当网格、卡片、Apple">
 <meta property="og:title" content="Bento 网格 Bento Grid · 主义馆">
 <meta property="og:description" content="像便当盒一样,每格精致,整体丰盛。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F5F5F7;color:#1d1d1f;font-family:-apple-system,"Helvetica Neue","PingFang SC",sans-serif}
 ::selection{background:#0071E3;color:#fff}
 .topbar{background:rgba(245,245,247,.85);border-bottom:1px solid #e2e2e6}
@@ -180,6 +180,12 @@ pre{background:#1d1d1f;border-radius:20px;color:#7ee0a3}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2022 年起,Apple 在发布会与产品页中系统性地使用不等分卡片网格展示卖点:大圆角矩形、统一间距、每格独立成篇。社区因其神似日式便当盒而命名 Bento Grid。Linear、Notion 与 Tailwind UI 迅速跟进,Bentogrids.com 开站收录。它本质是瑞士网格的产品化变体——用卡片节奏代替瀑布流,成为当代产品页的事实标准。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Bento 网格是 2020 年代产品发布页把卡片、模块化信息和日式便当隐喻结合后的命名。它不是古老的版式流派，而是响应式产品叙事对“每个卖点一格、整体仍有节奏”的解决方案。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Apple 产品页和 Keynote 的模块化展示推动了传播，Linear、Notion、Tailwind UI 与社区模板进一步把它标准化；设计工具的自动布局也降低了生产门槛。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2020 年代初，产品页开始用大小不一的卡片承载功能、数据和动效。</li><li>2022 年前后，社区因其类似便当盒的分格方式形成 Bento Grid 称呼。</li><li>随后它从营销页进入仪表盘、作品集和组件库，成为容易复制的产品叙事模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从 Apple 的营销叙事扩散到 SaaS、个人作品集、数据面板和低代码模板，依靠 CSS Grid 与容器查询实现响应式变体。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>分格会把复杂产品切成漂亮的卖点，可能削弱内容之间的因果关系；每格独立成篇也不等于信息真正可扫描。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它把网格从静态对齐工具变成叙事节奏，但需要通过内容优先和小屏顺序避免只剩卡片表面。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

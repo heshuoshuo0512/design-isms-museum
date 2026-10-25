@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>垃圾摇滚风 Grunge · 主义馆展厅 HALL 29</title>
-<meta name="description" content="垃圾摇滚风(Grunge)设计主义:历史、特征、代表案例与 CSS 实现。垃圾摇滚、Grunge、做旧、撕纸、Ray Gun | 主义馆 ISM MUSEUM">
+<meta name="description" content="垃圾摇滚风(Grunge)设计主义:起源、人物、转折、传播、争议、影响与代表案例。垃圾摇滚、Grunge、做旧、撕纸、Ray Gun | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="垃圾摇滚、Grunge、做旧、撕纸、Ray Gun">
 <meta property="og:title" content="垃圾摇滚风 Grunge · 主义馆">
 <meta property="og:description" content="脏,是对抛光世界的真实回答。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#2B2620;color:#C9BFA8;font-family:"Courier New","PingFang SC",monospace;filter:none}
 ::selection{background:#8B3A2A;color:#C9BFA8}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:55;opacity:.5;background-image:radial-gradient(circle at 20% 30%,rgba(0,0,0,.5) 0 2px,transparent 3px),radial-gradient(circle at 70% 60%,rgba(0,0,0,.4) 0 1.5px,transparent 2.5px),radial-gradient(circle at 45% 80%,rgba(139,58,42,.3) 0 3px,transparent 4px);background-size:90px 90px,60px 60px,140px 140px}
@@ -183,6 +183,12 @@ pre{background:#1a1712;border:2px dashed #8B3A2A;color:#C9BFA8;transform:rotate(
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">1990 年代,西雅图垃圾摇滚与独立杂志文化共生:David Carson 在《Ray Gun》杂志里把排版炸得粉碎——撕纸、胶带、复印机污渍、叠到读不清的图层、随手写下的涂鸦。Grunge 是对 80 年代企业抛光美学的破坏式回答:真实的东西都有磨损痕迹。网页端的做旧纹理、撕裂边缘与「未完成感」,都是它的遗产。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>设计语境中的 grunge 在 1990 年代音乐、独立杂志和另类文化中形成，以脏纹理、撕裂、复印、手写和故意失真回应商业平滑表面。它与西雅图音乐场景相关，却不应被简化成一种服装或配色。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>David Carson、Ray Gun 杂志、Cranbrook 设计教育和独立音乐出版物是重要传播节点；音乐摄影师、唱片设计师和 zine 作者共同提供素材。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1990 年代初，另类摇滚、地下出版和低成本复制形成粗糙视觉。</li><li>1992 年后，Ray Gun 等杂志把难读排版、撕裂图像和噪点带入主流设计讨论。</li><li>2000 年代，数字滤镜和模板把真实的复制限制转成可快速套用的纹理。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从唱片封面、海报和杂志扩散到时尚、网页和游戏界面，后来成为一种可售卖的“叛逆外观”。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>真正的 DIY 资源限制与软件生成的脏纹理不同；把混乱当作风格可能抹掉音乐社群与劳动背景。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它把复制痕迹、损坏和非专业性带入设计语言，但也要求说明粗糙是生产条件还是商业表演。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

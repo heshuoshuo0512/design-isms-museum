@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>扁平 3D Flat 3D / Isometric · 主义馆展厅 HALL 39</title>
-<meta name="description" content="扁平 3D(Flat 3D / Isometric)设计主义:历史、特征、代表案例与 CSS 实现。扁平3D、Flat 3D、等距、Isometric、糖果色 | 主义馆 ISM MUSEUM">
+<meta name="description" content="扁平 3D(Flat 3D / Isometric)设计主义:起源、人物、转折、传播、争议、影响与代表案例。扁平3D、Flat 3D、等距、Isometric、糖果色 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="扁平3D、Flat 3D、等距、Isometric、糖果色">
 <meta property="og:title" content="扁平 3D Flat 3D / Isometric · 主义馆">
 <meta property="og:description" content="不用透视,也能把世界折成立体。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#F7F9FC;color:#243447;font-family:"Segoe UI","Helvetica Neue","PingFang SC",sans-serif}
 ::selection{background:#FFB703;color:#243447}
 .topbar{background:rgba(247,249,252,.92);border-bottom:1px solid #D9E2EC;box-shadow:0 4px 12px rgba(36,52,71,.08)}
@@ -179,6 +179,12 @@ pre{background:#243447;color:#CDEAC0;border-radius:14px;box-shadow:0 8px 0 rgba(
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">扁平3D与等距插画在2010年代伴随产品插画和数据可视化兴起:它借用建筑制图的等距投影,去掉真实透视与复杂材质,用几何体、柔和阴影和明亮色块表现空间。Dropbox、Slack 等品牌插画让抽象流程变成可拼装的房间与物件。它既保留扁平设计的清晰,又给界面加入可探索的深度。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>扁平 3D 是平面图形和三维体积之间的当代折中：保留简单色面和清晰轮廓，同时用等距、切面或柔和阴影制造空间。它随着轻量 3D 软件、SVG 和品牌插画系统在 2010—20 年代普及。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>产品插画师、Blender/Spline 社区、科技品牌和矢量设计工具共同形成了它的实践，没有单一历史创始人。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2010 年代，扁平插画开始加入简单的体积和等距空间。</li><li>2020 年前后，轻量 3D 工具让品牌团队可以快速生产可控模型。</li><li>随后它在图标、卡片和 onboarding 中形成比完整写实 3D 更轻的表现方式。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它由产品插画扩散到 SaaS、金融、教育和移动应用，常作为复杂流程的友好说明图。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>混合 2D 与 3D 可能制造空间误读，且“友好”人物仍可能套用同质化身体和职业形象。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它展示了深度可以被选择性使用：不是越立体越真实，而是让体积帮助理解关系。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>

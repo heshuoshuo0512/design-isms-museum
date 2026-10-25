@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>瑞士国际主义 Swiss Style · 主义馆展厅 HALL 03</title>
-<meta name="description" content="瑞士国际主义(Swiss Style)设计主义:历史、特征、代表案例与 CSS 实现。瑞士国际主义、Swiss Style、Helvetica、网格 | 主义馆 ISM MUSEUM">
+<meta name="description" content="瑞士国际主义(Swiss Style)设计主义:起源、人物、转折、传播、争议、影响与代表案例。瑞士国际主义、Swiss Style、Helvetica、网格 | 主义馆 ISM MUSEUM">
 <meta name="keywords" content="瑞士国际主义、Swiss Style、Helvetica、网格">
 <meta property="og:title" content="瑞士国际主义 Swiss Style · 主义馆">
 <meta property="og:description" content="设计是理性的秩序,不是个性的表演。">
@@ -134,7 +134,7 @@ footer{text-align:center;padding:40px 6vw 60px;font-size:12px;opacity:.5;line-he
 /* 粒子与涟漪在所有设备生效(JS 控制创建) */
 .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen}
 .cur-ripple{position:fixed;z-index:9996;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;animation:rip .5s ease-out forwards}
-@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}
+@keyframes rip{from{width:10px;height:10px;opacity:1}to{width:70px;height:70px;opacity:0}}.history-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.history-deep-card{padding:15px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.12)}.history-deep-card h4{margin-bottom:8px;font-size:12px;letter-spacing:.08em}.history-deep-card p,.history-deep-card li{font-size:12px;line-height:1.9;opacity:.78}.history-deep-card ul{padding-left:18px}.history-deep-card li+li{margin-top:5px}@media(max-width:720px){.history-deep-grid{grid-template-columns:1fr}}
 body{background:#E30613;color:#fff;font-family:Helvetica,Arial,sans-serif}
 ::selection{background:#fff;color:#E30613}
 .topbar{background:rgba(227,6,19,.92);border-bottom:2px solid #fff}
@@ -175,6 +175,12 @@ pre{background:#fff;color:#E30613;font-weight:700}
     <div class="kicker">Archive</div>
     <h3>历史档案</h3>
     <p class="prose">二战后的瑞士中立而富足,苏黎世与巴塞尔的平面设计师用数学网格、非对称构图和 Akzidenz-Grotesk(后来的 Helvetica)建立了一套「国际主义」视觉语言:客观、可读、无国界。Vignelli 为纽约地铁和 IBM 做的识别系统证明网格可以统治一切信息。今天所有设计系统的栅格,都是它的直系后代。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">History / Deep Reading</div>
+    <h3>历史深描</h3>
+    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>瑞士国际主义形成于二战前后苏黎世与巴塞尔的平面设计教育和出版实践。它把网格、摄影、无衬线字体和非对称构图组织成可复用的视觉秩序，试图让公共信息超越个人风格和语言边界。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Josef Müller-Brockmann、Emil Ruder、Armin Hofmann、Max Miedinger 与 Eduard Hoffmann 是关键人物；Vignelli、Otl Aicher 等人把这套方法带入企业识别、交通导视和国际机构。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>1950 年代，苏黎世与巴塞尔学校通过海报、期刊和教学建立网格化方法。</li><li>1957 年 Helvetica 发布，字体的中性想象成为国际传播的重要符号。</li><li>1960—70 年代，企业识别、机场和地铁导视把设计规则变成组织基础设施。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>通过设计教育、国际企业、奥运会和公共交通系统扩散到世界各地，后来又被软件网格、设计令牌和响应式布局继承。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>“客观”和“无国界”并不是真的没有立场；它可能压低地方语言、手工经验和作者声音，也容易把特定欧洲现代性包装成普遍标准。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它为信息架构、版式系统、组件化和跨媒介识别提供了强大基础，但当代使用必须为不同语言、身体和阅读习惯留出弹性。</p></article></div>
   </section>
     <section class="sec rv">
     <div class="kicker">Specimens</div>
