@@ -233,6 +233,127 @@ ISM_BRIDGES = {
     'isometric': {'bridge': '在平面上搭建可俯瞰的空间，把结构关系变成可理解的图像。', 'frontend': '用 SVG/CSS、图例和分层交互表达系统、流程和空间关系。', 'feedback': '测试不同屏幕和认知负担，回写材料、功能与设计计划。'},
 }
 
+COURSE_EVENTS = [
+    {
+        'key': 'industrialization',
+        'no': '01',
+        'period': '1860s → 1910s',
+        'event': '工业化、工艺美术运动与新艺术',
+        'question': '机器生产扩大之后，设计如何面对质量、劳动、材料和日常生活？',
+        'impact': ['批量生产把设计从单件物品推向系统与大众，也暴露了标准化造成的粗劣。', '工艺美术运动重新强调材料、手工和生活环境，新艺术把自然与结构转成新的形式语言。', '设计开始同时面对生产效率、劳动条件和形式来源，而不只是装饰风格。'],
+        'guide': ['先画出一个物品的材料、生产、使用和废弃链条。', '把材料特性变成明确约束，再决定色彩、纹样和结构。', '区分真正来自工艺和语境的形式，与后来被抽空的装饰符号。'],
+        'teach': '教学任务：选择一个日常物件，做“工业批量版”和“材料诚实版”两种方案，比较成本、触感、寿命与使用者差异。',
+        'axes': ['material', 'production', 'ornament', 'ethics'],
+        'slugs': ['artsandcrafts', 'artnouveau', 'viennasecession', 'wabisabi', 'newchinese', 'papercut', 'cottagecore', 'darkacademia'],
+    },
+    {
+        'key': 'revolution_communication',
+        'no': '02',
+        'period': '1915 → 1930s',
+        'event': '革命、宣传与大众传播',
+        'question': '当设计进入公共传播和社会动员，它是在帮助理解，还是在操控理解？',
+        'impact': ['革命与大众印刷让海报、摄影蒙太奇和字体成为公共行动的工具。', '构成主义、未来主义、达达和超现实主义把构图从静态装饰推进到冲突、速度和心理影响。', '设计的传播效率变强，同时也让视觉层级、情绪和权力关系变得不可回避。'],
+        'guide': ['先写清信息要让谁在几秒内理解什么，再选择斜线、对比和图像。', '比较同一信息的中性版、动员版和反思版。', '把作者、来源、受众和被省略的声音写入设计说明。'],
+        'teach': '教学任务：把一段公共议题做成两张海报，分别追求传播速度和多方理解，再用同伴复述测试检验视觉是否操控了判断。',
+        'axes': ['function', 'ornament', 'ethics', 'planning'],
+        'slugs': ['constructivism', 'futurism', 'dada', 'photomontage', 'surrealism', 'blueprint', 'pushpin', 'typographic', 'opart'],
+    },
+    {
+        'key': 'modernist_education',
+        'no': '03',
+        'period': '1919 → 1933',
+        'event': '包豪斯教育与现代主义系统',
+        'question': '艺术、工艺、技术、教育和生产怎样共同组织现代生活？',
+        'impact': ['包豪斯把基础形、材料实验、工坊、建筑和工业生产放在同一套教育系统里。', '风格派、国际主义和现代主义把网格、字体、几何和功能提升为可迁移的设计原则。', '设计教育从模仿作品转向理解问题、材料、结构和生产关系。'],
+        'guide': ['把历史原则转成网格、层级、组件和响应式规则，而不是只复制红黄蓝。', '保留原则与外观两版，说明哪些是继承，哪些是当代改写。', '让每个视觉决定都能回到使用者、内容和生产条件。'],
+        'teach': '教学任务：用同一组内容做“忠实现代主义版”和“当代响应式版”，提交原则表、组件表和移动端改写说明。',
+        'axes': ['planning', 'function', 'material', 'modernism'],
+        'slugs': ['bauhaus', 'destijl', 'swiss', 'minimalism', 'artdeco', 'streamline', 'midcentury', 'editorial', 'hightech', 'isometric', 'duotone'],
+    },
+    {
+        'key': 'postwar_standard',
+        'no': '04',
+        'period': '1945 → 1960s',
+        'event': '战后重建、国际主义与标准化',
+        'question': '当设计要服务大规模社会和跨地域传播，标准如何带来秩序，也如何抹平差异？',
+        'impact': ['战后重建和企业传播需要清楚、可复制、跨语言的识别与信息系统。', '瑞士国际主义、Helvetica、企业识别和公共导视把网格与字体变成生产基础设施。', '标准化提升了阅读和生产效率，也制造了“中立形式”与地方经验之间的张力。'],
+        'guide': ['把内容分层、网格、字体比例和组件状态写成可复用系统。', '在系统之外保留语言、文化、身体和设备的差异。', '测试固定规则在小屏、长文本和辅助技术中是否仍然成立。'],
+        'teach': '教学任务：建立一套跨页面设计系统，再故意加入不同语言、屏幕和使用方式，记录标准化带来的收益与损失。',
+        'axes': ['production', 'function', 'modernism', 'ethics'],
+        'slugs': ['swiss', 'artdeco', 'streamline', 'midcentury', 'googie', 'atompunk', 'materialdesign', 'metro', 'bentogrid'],
+    },
+    {
+        'key': 'consumer_counterculture',
+        'no': '1950s → 1970s',
+        'event': '消费社会、大众媒介与反文化',
+        'question': '当广告、商品和复制图像进入设计，设计是在揭露消费，还是在继续制造消费？',
+        'impact': ['电视、广告、唱片和廉价印刷让图像进入高频复制和大众注意力竞争。', '波普、迷幻海报、欧普和推针工作室把商品、漫画、音乐和视错觉转成设计资源。', '设计开始主动处理复制、娱乐、欲望和注意力，而不仅是传递信息。'],
+        'guide': ['明确图像来源、复制方式和它对注意力的要求。', '用重复、网点、撞色和动态节奏表达内容，而不是把消费符号当作空洞装饰。', '检查视觉冲击是否帮助理解，还是只增加诱导。'],
+        'teach': '教学任务：用同一商品做一张促销海报和一张消费批评海报，比较两者如何使用重复、尺度与注意力。',
+        'axes': ['ornament', 'function', 'postmodern', 'ethics'],
+        'slugs': ['popart', 'psychedelic', 'psychedelicposter', 'pushpin', 'opart', 'maximalism'],
+    },
+    {
+        'key': 'postmodern_rebellion',
+        'no': '1981 → 1990s',
+        'period': '1981 → 1990s',
+        'event': '孟菲斯、朋克与后现代反叛',
+        'question': '如果唯一的好品味和统一秩序可以被拒绝，设计如何保留理解与使用的入口？',
+        'impact': ['孟菲斯、反设计、朋克出版物和垃圾摇滚反问现代主义的克制、功能和权威品味。', '拼贴、噪点、故意失衡和复制痕迹让作者态度重新进入视觉。', '反叛扩大了表达空间，也暴露了“难用”可能变成排斥的风险。'],
+        'guide': ['先确定要反对的规则，再决定哪些规则仍必须保留。', '让陌生化发生在语气和表面，信息结构、键盘路径和替代文本保持清楚。', '用克制版与反叛版的理解测试证明表达收益。'],
+        'teach': '教学任务：同一网页做可用版与反叛版，邀请同伴完成同一任务，记录表达强度、误读和完成成本。',
+        'axes': ['postmodern', 'function', 'ethics', 'planning'],
+        'slugs': ['memphis', 'antidesign', 'brutalism', 'swisspunk', 'grunge', 'punkxerox', 'neubrutalism', 'aciddesign', 'maximalism'],
+    },
+    {
+        'key': 'personal_web',
+        'no': '1980s → 2000s',
+        'period': '1980s → 2000s',
+        'event': '个人计算机、网页与数字原生美学',
+        'question': '当屏幕、像素、链接和故障成为新的材料，设计如何从物件转向可更新的环境？',
+        'impact': ['个人计算机、游戏、早期网页和 Flash 让每个人都可能生产界面与图像。', '像素、ASCII、复古 GUI、Y2K、故障和蒸汽波把硬件限制、压缩痕迹和软件记忆变成形式。', '网页设计第一次必须同时处理内容、代码、交互、加载和不断变化的设备。'],
+        'guide': ['把浏览器、像素、链接、状态和加载当作数字材料来设计。', '先保证语义结构和信息可达，再让故障、复古和动态承担叙事。', '记录限制如何生成形式，而不是把低保真当作滤镜。'],
+        'teach': '教学任务：在不依赖外部图片的条件下做一页早期网页，再做一版当代改写，比较限制、可读性和交互反馈。',
+        'axes': ['material', 'production', 'function', 'postmodern'],
+        'slugs': ['pixelart', 'asciiart', 'retrogui', 'web1', 'web2gloss', 'y2k', 'cyberpunk', 'vaporwave', 'glitchart', 'synthwave', 'lowpoly', 'retrofuturism', 'steampunk', 'dieselpunk'],
+    },
+    {
+        'key': 'mobile_platform',
+        'no': '2007 → 2014',
+        'period': '2007 → 2014',
+        'event': '智能手机、触屏与平台界面',
+        'question': '当数字界面进入每个人的手中，隐喻、反馈、系统标准和身体使用如何共同改变设计？',
+        'impact': ['iPhone 把触屏、手势和移动环境带入大众生活，拟物隐喻承担了早期的教学功能。', 'Metro、iOS 7 和 Material Design 先后让数字媒介承认自身的平面性、层级和系统化生产。', '界面从单个页面变成持续更新的平台系统，动效、状态和可访问性变成基础设计问题。'],
+        'guide': ['区分为新手提供的隐喻与用户已经掌握后的系统原则。', '把组件状态、触控尺寸、动效方向和响应式顺序写成规则。', '测试不同身体、设备、光线和网络条件下的真实使用。'],
+        'teach': '教学任务：把一个现实隐喻逐步改写成无隐喻的移动组件，比较学习成本、操作反馈和长期效率。',
+        'axes': ['function', 'material', 'production', 'ethics'],
+        'slugs': ['skeuomorphism', 'frutigeraero', 'flatdesign', 'metro', 'materialdesign', 'darkmode', 'glassmorphism', 'neumorphism', 'claymorphism', 'corpmemphis', 'bentogrid', 'kinetictypo', 'holographic', 'liquidtypo', 'aurora'],
+    },
+    {
+        'key': 'platform_identity_ai',
+        'no': '2010s → 当下',
+        'period': '2010s → 当下',
+        'event': '平台社会、身份想象与人工智能',
+        'question': '当设计参与身份、算法和资源分配，形式如何同时表达可能性并承担责任？',
+        'impact': ['平台和社交媒体让设计成为身份、注意力和行为引导的持续环境。', '非洲未来、太阳朋克、可爱文化、梦境核等方向重新讨论谁有权想象未来、谁被代表。', '生成式 AI、流动视觉和沉浸式界面把作者、来源、资源消耗和可访问性问题推到设计前台。'],
+        'guide': ['先声明作者、素材来源、训练或生成过程和被代表的群体。', '把身份叙事、环境数据和算法结果转成可理解、可退出、可审计的界面。', '把性能、对比度、动效、文化挪用和资源消耗作为发布条件。'],
+        'teach': '教学任务：做一个面向未来的界面提案，同时提交来源地图、代表性说明、无障碍审计和资源责任表。',
+        'axes': ['ethics', 'ornament', 'material', 'planning'],
+        'slugs': ['solarpunk', 'afrofuturism', 'kawaii', 'dreamcore', 'weirdcore', 'liminal', 'aigenerative', 'newchinese', 'wabisabi', 'doodle', 'cottagecore', 'flat3d', 'isometric'],
+    },
+]
+
+EVENT_SLUGS = {event['key']: event['slugs'] for event in COURSE_EVENTS}
+ISM_EVENTS = {}
+for event_key, slugs in EVENT_SLUGS.items():
+    for slug in slugs:
+        ISM_EVENTS.setdefault(slug, []).append(event_key)
+
+if set(ISM_EVENTS) != set(ISM_AXES):
+    missing = sorted(set(ISM_AXES) - set(ISM_EVENTS))
+    extra = sorted(set(ISM_EVENTS) - set(ISM_AXES))
+    raise ValueError(f'历史事件链覆盖不完整: missing={missing}, extra={extra}')
+
 if set(ISM_BRIDGES) != set(ISM_AXES):
     missing = sorted(set(ISM_AXES) - set(ISM_BRIDGES))
     extra = sorted(set(ISM_BRIDGES) - set(ISM_AXES))
