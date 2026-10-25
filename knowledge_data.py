@@ -233,7 +233,7 @@ ISM_BRIDGES = {
     'isometric': {'bridge': '在平面上搭建可俯瞰的空间，把结构关系变成可理解的图像。', 'frontend': '用 SVG/CSS、图例和分层交互表达系统、流程和空间关系。', 'feedback': '测试不同屏幕和认知负担，回写材料、功能与设计计划。'},
 }
 
-COURSE_EVENTS = [
+HISTORY_EVENTS = [
     {
         'key': 'industrialization',
         'no': '01',
@@ -343,7 +343,7 @@ COURSE_EVENTS = [
     },
 ]
 
-EVENT_SLUGS = {event['key']: event['slugs'] for event in COURSE_EVENTS}
+EVENT_SLUGS = {event['key']: event['slugs'] for event in HISTORY_EVENTS}
 ISM_EVENTS = {}
 for event_key, slugs in EVENT_SLUGS.items():
     for slug in slugs:
