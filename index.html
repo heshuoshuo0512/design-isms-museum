@@ -234,9 +234,10 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .route-lead h2{font-size:clamp(24px,4vw,42px);line-height:1.15;color:#fff}
 .route-lead p{max-width:650px;margin-top:10px;color:#aaa;font-size:14px;line-height:1.9}
 .route-lead .cta-row{margin-top:20px;justify-content:flex-start;animation:none}
-.secondary-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:780px;margin:12px auto 0;text-align:left;animation:fadeup .8s .9s both}
+.secondary-routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:980px;margin:12px auto 0;text-align:left;animation:fadeup .8s .9s both}
 .secondary-route{display:block;padding:15px 17px;border:1px solid #2d2f38;border-radius:10px;background:rgba(15,16,23,.64);color:#ddd;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
 .secondary-route:hover{border-color:#74B9FF;transform:translateY(-3px);background:rgba(25,27,37,.86)}
+.corridor-route{border-color:rgba(125,249,255,.35)}.corridor-route:hover{border-color:var(--cyan)}.corridor-route b{color:var(--cyan)}
 .secondary-route b{display:block;font-size:14px}.secondary-route span{display:block;margin-top:4px;color:#888;font-size:12px;line-height:1.6}
 .orientation{max-width:1120px;margin:0 auto;padding:76px 6vw 38px}.orientation-head{text-align:center}.orientation-head .k{font-size:11px;letter-spacing:.4em;color:#666}.orientation-head h2{margin-top:9px;font-size:clamp(26px,4vw,42px)}.orientation-head p{max-width:650px;margin:12px auto 0;color:#888;font-size:13px;line-height:1.9}.reading-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}.reading-card{padding:20px;border-top:2px solid #FFD23F;background:#12131a}.reading-card:nth-child(2){border-color:#7DF9FF}.reading-card:nth-child(3){border-color:#FF71CE}.reading-card b{display:block;color:#ddd;font-size:14px}.reading-card p{margin-top:8px;color:#888;font-size:12px;line-height:1.85}
 .hall-index{max-width:1240px;margin:0 auto}.hall-index summary{display:block;padding:16px 18px;border:1px solid #30333c;border-radius:10px;background:#13141b;color:#FFD23F;font-size:13px;cursor:pointer;list-style:none}.hall-index summary::-webkit-details-marker{display:none}.hall-index summary:before{content:'+';display:inline-block;width:22px;color:#FFD23F;font-size:18px;vertical-align:-1px}.hall-index[open] summary:before{content:'−'}.hall-index>p{margin:14px 0 18px;color:#777;font-size:12px}.hall-index .grid{margin-top:12px}
@@ -300,6 +301,7 @@ html.has-custom-cursor #cur-dot,html.has-custom-cursor #cur-ring{opacity:1}html.
   <div class="secondary-routes" aria-label="次要入口">
     <a class="secondary-route" href="knowledge.html#directions"><b>按设计主义浏览</b><span>搜索 80 个方向，阅读每个方向自己的起源、人物、转折和争议。</span></a>
     <a class="secondary-route" id="random" href="#"><b>随机进入一个展厅</b><span>跳过路线，直接进入一个独立展厅；读完后仍可回到全书。</span></a>
+    <a class="secondary-route corridor-route" href="corridor.html"><b>漫游长廊</b><span>不按章节阅读，只看 80 个方向之间的视觉差异。</span></a>
   </div>
   <div class="marq"><span id="marq"></span></div>
   <div class="key-hint">独立展厅、漫游长廊和时间轴都是支线入口；主路线从全书开始。</div>
