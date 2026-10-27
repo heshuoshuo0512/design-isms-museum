@@ -153,11 +153,9 @@ pre{background:rgba(0,0,0,.35);backdrop-filter:blur(10px);border:1px solid rgba(
 </head>
 <body>
 <div class="topbar">
-  <a href="../index.html">← 大厅</a>
-  <a href="../corridor.html">长廊</a>
-  <a href="../timeline.html">时间轴</a>
-  <a href="../knowledge.html">全书</a>
-  <a href="../index.html#door-glassmorphism">返回门位</a>
+  <a href="../knowledge.html#history">← 现代设计史</a>
+  <a class="tt" href="../index.html">主义馆 · 展厅 04</a>
+  <a href="../corridor.html">漫游长廊</a>
 </div>
 
 <header class="hero">
@@ -174,18 +172,59 @@ pre{background:rgba(0,0,0,.35);backdrop-filter:blur(10px);border:1px solid rgba(
 <main class="wrap">
   <p class="lede rv">隔着毛玻璃看世界,轮廓还在,细节柔化——深度第一次不需要阴影来证明。</p>
   <section class="sec rv">
-    <div class="kicker">Archive</div>
+    <div class="kicker">01 / Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2020 年,Apple 在 macOS Big Sur 与 iOS 控制中心里大面积使用半透明模糊面板,Microsoft Fluent Design 同步跟进。设计师 Michal Malewicz 将这种风格命名为 Glassmorphism。backdrop-filter 属性的成熟让「隔着毛玻璃看内容」第一次可以在浏览器里廉价实现,深度不再靠投影,而靠光的折射与遮挡。</p>
   </section>
   <section class="sec rv">
-    <div class="kicker">History / Deep Reading</div>
-    <h3>历史深描</h3>
-    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
-    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>玻璃拟态是 2020 年前后数字界面对半透明、模糊和层叠表面的重新命名。它不是玻璃工艺的直接历史延续，而是把操作系统的窗口层级、材质渲染和浏览器 backdrop-filter 组合成一种可复制的屏幕语法。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Michal Malewicz 通过文章和案例传播了 Glassmorphism 这一称呼；Apple 的 macOS Big Sur、iOS 控制中心和 Microsoft Fluent 则提供了更大范围的系统示范。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>操作系统长期使用半透明窗口和模糊来表达前后层级。</li><li>2020 年 macOS Big Sur 将这一语法大规模带入系统视觉。</li><li>设计社区把它抽象成卡片、边框、模糊和鲜艳背景的组合，迅速进入网页模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它由操作系统界面扩散到仪表盘、音乐播放器、金融产品和营销页，CSS 的 backdrop-filter 让这种效果从原生应用进入浏览器。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>背景模糊可能降低文字对比度、增加 GPU 成本，并把视觉层级误当成真实空间；玻璃的“透明”也可能掩盖信息遮挡和隐私风险。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它重新让界面讨论材质、景深和层级，但留下的核心问题是：视觉深度是否真的改善理解和操作。</p></article></div>
+    <div class="kicker">02 / History Deep Reading</div>
+    <h3>人物、转折与传播</h3>
+    <p class="prose">从起源、人物、关键转折和传播路径继续阅读。先理解这个方向如何形成，再进入它的形式。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>玻璃拟态是 2020 年前后数字界面对半透明、模糊和层叠表面的重新命名。它不是玻璃工艺的直接历史延续，而是把操作系统的窗口层级、材质渲染和浏览器 backdrop-filter 组合成一种可复制的屏幕语法。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Michal Malewicz 通过文章和案例传播了 Glassmorphism 这一称呼；Apple 的 macOS Big Sur、iOS 控制中心和 Microsoft Fluent 则提供了更大范围的系统示范。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>操作系统长期使用半透明窗口和模糊来表达前后层级。</li><li>2020 年 macOS Big Sur 将这一语法大规模带入系统视觉。</li><li>设计社区把它抽象成卡片、边框、模糊和鲜艳背景的组合，迅速进入网页模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它由操作系统界面扩散到仪表盘、音乐播放器、金融产品和营销页，CSS 的 backdrop-filter 让这种效果从原生应用进入浏览器。</p></article></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">03 / Design Language</div>
+    <h3>设计语言</h3>
+    <ul class="chips"><li><b>背景模糊</b> — backdrop-filter: blur() 是灵魂</li><li><b>半透明</b> — 10-25% 不透明度,底色透出来</li><li><b>高亮细边</b> — 1px 半透明白边模拟玻璃切面</li><li><b>鲜艳底色</b> — 面板之下必须有值得被模糊的内容</li><li><b>柔和投影</b> — 大半径低透明度,营造悬浮</li></ul>
+    <div class="kicker" style="margin-top:28px">Keywords</div>
+    <p class="prose">玻璃拟态、Glassmorphism、backdrop-filter、毛玻璃</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">04 / Works</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">macOS Big Sur 控制中心</li><li class="rv">Windows 11 Fluent</li><li class="rv">iOS 通知堆叠</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">05 / Debate</div>
+    <h3>批评与争议</h3>
+    <p class="prose">背景模糊可能降低文字对比度、增加 GPU 成本，并把视觉层级误当成真实空间；玻璃的“透明”也可能掩盖信息遮挡和隐私风险。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">06 / Legacy</div>
+    <h3>当代影响</h3>
+    <p class="prose">它重新让界面讨论材质、景深和层级，但留下的核心问题是：视觉深度是否真的改善理解和操作。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">07 / Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>2020</b><span>Malewicz 命名 Glassmorphism</span></li><li class="rv"><b>2020</b><span>macOS Big Sur 全面采用</span></li><li class="rv"><b>2021</b><span>Windows 11 Fluent 跟进</span></li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">08 / Application</div>
+    <h3>当代转译与教学补充</h3>
+    <p class="prose">这部分把历史原则转成当代实践问题，不替代前面的设计史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>前端转译</h4><p>用 backdrop-filter、半透明边界和清晰前后景做状态组件，并保留无模糊降级。</p></article><article class="history-deep-card"><h4>课内关系</h4><p>用透明、模糊和层叠模拟数字材料的深度，材料直接参与层级表达。</p></article><article class="history-deep-card"><h4>课程回写</h4><p>把对比度、性能和降级结果写入材料与结构案例，证明质感不是可访问性的豁免。</p></article></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">09 / Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>background: rgba(255,255,255,.14);
+backdrop-filter: blur(18px) saturate(160%);
+border: 1px solid rgba(255,255,255,.35);
+border-radius: 24px;</code></pre>
   </section>
     <section class="sec rv">
-    <div class="kicker">Specimens</div>
+    <div class="kicker">10 / CSS Specimens</div>
     <h3>馆内标本</h3>
     <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
     <div class="exgrid"><figure class="ex rv" data-x="0">
@@ -204,29 +243,6 @@ pre{background:rgba(0,0,0,.35);backdrop-filter:blur(10px);border:1px solid rgba(
       <div class="ex-code">display:block;width:130px;height:90px;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);border-radius:18px;transition:transform .1s</div>
       <script>(function(){var el=document.querySelector('[data-x="2"] .xob');var art=el.closest(".ex-art");art.addEventListener("mousemove",function(e){var r=art.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="rotateY("+x*30+"deg) rotateX("+(-y*30)+"deg)"});art.addEventListener("mouseleave",function(){el.style.transform=""})})()</script>
     </figure></div>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Archive</div>
-    <h3>代表案例</h3>
-    <ul class="chips"><li class="rv">macOS Big Sur 控制中心</li><li class="rv">Windows 11 Fluent</li><li class="rv">iOS 通知堆叠</li></ul>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Traits</div>
-    <h3>风格特征</h3>
-    <ul class="chips"><li><b>背景模糊</b> — backdrop-filter: blur() 是灵魂</li><li><b>半透明</b> — 10-25% 不透明度,底色透出来</li><li><b>高亮细边</b> — 1px 半透明白边模拟玻璃切面</li><li><b>鲜艳底色</b> — 面板之下必须有值得被模糊的内容</li><li><b>柔和投影</b> — 大半径低透明度,营造悬浮</li></ul>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Fingerprint</div>
-    <h3>代码指纹</h3>
-    <pre><code>background: rgba(255,255,255,.14);
-backdrop-filter: blur(18px) saturate(160%);
-border: 1px solid rgba(255,255,255,.35);
-border-radius: 24px;</code></pre>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Timeline</div>
-    <h3>年代坐标</h3>
-    <ul class="tl"><li class="rv"><b>2020</b><span>Malewicz 命名 Glassmorphism</span></li><li class="rv"><b>2020</b><span>macOS Big Sur 全面采用</span></li><li class="rv"><b>2021</b><span>Windows 11 Fluent 跟进</span></li></ul>
   </section>
 </main>
 
