@@ -269,14 +269,15 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
 
 /* ---- 自定义光标 ---- */
 @media(pointer:fine){
-  *{cursor:none!important}
-  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
-  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,opacity .3s;mix-blend-mode:difference}
+  .has-custom-cursor *{cursor:none!important}
+  #cur-dot{position:fixed;z-index:9999;width:6px;height:6px;border-radius:50%;background:#FFD23F;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,opacity .2s;opacity:0;mix-blend-mode:difference}
+  #cur-ring{position:fixed;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,210,63,.75);pointer-events:none;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,opacity .2s;opacity:0;mix-blend-mode:difference}
   .cur-p{position:fixed;z-index:9997;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:1;will-change:transform,opacity}
   body.cur-hover #cur-dot{width:12px;height:12px;background:#fff}
   body.cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(255,255,255,.9)}
   body.cur-down #cur-ring{width:22px;height:22px}
 }
+html.has-custom-cursor #cur-dot,html.has-custom-cursor #cur-ring{opacity:1}html.cursor-out #cur-dot,html.cursor-out #cur-ring{opacity:0}
 .cur-ripple{position:fixed;z-index:9996;width:12px;height:12px;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:homeRip .5s ease-out forwards}@keyframes homeRip{to{width:72px;height:72px;opacity:0}}
 </style>
 </head>
@@ -603,15 +604,16 @@ addEventListener('mousemove',e=>{
 
 /* 自定义光标(仅桌面指针) */
 (function(){
-  if(!matchMedia('(pointer:fine)').matches)return;
+  if(!matchMedia('(pointer:fine)').matches)return;document.documentElement.classList.add('has-custom-cursor');
   var dot=document.createElement('div'); dot.id='cur-dot';
   var ring=document.createElement('div'); ring.id='cur-ring';
-  document.body.appendChild(dot); document.body.appendChild(ring);
-  cursorRing=ring;
+  document.body.appendChild(dot); document.body.appendChild(ring); dot.style.left=cursorState.mx+'px';dot.style.top=cursorState.my+'px';ring.style.left=cursorState.rx+'px';ring.style.top=cursorState.ry+'px';
+  cursorRing=ring; var cursorPrimed=false;
   var lx=cursorState.mx,ly=cursorState.my;
   var hoverSelector='a,button,.xob,.door,.card',hovered=null;
   addEventListener('mousemove',function(e){
     cursorState.mx=e.clientX;cursorState.my=e.clientY;
+    if(!cursorPrimed){cursorState.rx=e.clientX;cursorState.ry=e.clientY;ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';cursorPrimed=true}document.documentElement.classList.remove('cursor-out');
     dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';
     var dx=e.clientX-lx,dy=e.clientY-ly;
     if(dx*dx+dy*dy>200){spawnP(e.clientX,e.clientY);lx=e.clientX;ly=e.clientY}
@@ -619,6 +621,9 @@ addEventListener('mousemove',e=>{
   },{passive:true});
   addEventListener('mousedown',function(){document.body.classList.add('cur-down')});
   addEventListener('mouseup',function(){document.body.classList.remove('cur-down')});
+  function hideCursor(){document.documentElement.classList.add('cursor-out');document.body.classList.remove('cur-hover','cur-down');cursorPrimed=false}
+  function showCursor(){document.documentElement.classList.remove('cursor-out')}
+  addEventListener('mouseleave',hideCursor,{passive:true});addEventListener('mouseenter',showCursor,{passive:true});addEventListener('blur',hideCursor,{passive:true});addEventListener('focus',showCursor,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden)hideCursor()},{passive:true});
   function closestHover(node){
     return node instanceof Element?node.closest(hoverSelector):null;
   }
