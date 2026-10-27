@@ -36,10 +36,12 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,210,63,.15)}
 .cta.primary{background:#FFD23F;color:#000;font-weight:800;border-color:#FFD23F}
 @keyframes fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.marq{margin-top:36px;width:100vw;overflow:hidden;border-top:1px solid #1c1c22;border-bottom:1px solid #1c1c22;padding:14px 0;animation:fadeup .8s 1s both}.marq span{display:inline-block;white-space:nowrap;font-size:13px;letter-spacing:.3em;color:#555;animation:marq 26s linear infinite}@keyframes marq{to{transform:translateX(-50%)}}
 .key-hint{margin-top:16px;color:#666;font-size:12px;letter-spacing:.14em;animation:fadeup .8s 1.05s both}
 .door.kb-flash{animation:kbFlash .2s ease both}
 @keyframes kbFlash{0%,100%{filter:brightness(1);outline:0 solid transparent;outline-offset:0}45%{filter:brightness(1.45);outline:4px solid #FFD23F;outline-offset:5px}}
 @keyframes bob{50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-hint{margin-top:18px;color:#555;font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.25em;animation:bob 1.6s ease-in-out infinite}
 
 /* ---------- 展厅门 ---------- */
 #doors{max-width:1240px;margin:0 auto;padding:110px 6vw 60px}
@@ -239,6 +241,7 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .orientation{max-width:1120px;margin:0 auto;padding:76px 6vw 38px}.orientation-head{text-align:center}.orientation-head .k{font-size:11px;letter-spacing:.4em;color:#666}.orientation-head h2{margin-top:9px;font-size:clamp(26px,4vw,42px)}.orientation-head p{max-width:650px;margin:12px auto 0;color:#888;font-size:13px;line-height:1.9}.reading-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}.reading-card{padding:20px;border-top:2px solid #FFD23F;background:#12131a}.reading-card:nth-child(2){border-color:#7DF9FF}.reading-card:nth-child(3){border-color:#FF71CE}.reading-card b{display:block;color:#ddd;font-size:14px}.reading-card p{margin-top:8px;color:#888;font-size:12px;line-height:1.85}
 .hall-index{max-width:1240px;margin:0 auto}.hall-index summary{display:block;padding:16px 18px;border:1px solid #30333c;border-radius:10px;background:#13141b;color:#FFD23F;font-size:13px;cursor:pointer;list-style:none}.hall-index summary::-webkit-details-marker{display:none}.hall-index summary:before{content:'+';display:inline-block;width:22px;color:#FFD23F;font-size:18px;vertical-align:-1px}.hall-index[open] summary:before{content:'−'}.hall-index>p{margin:14px 0 18px;color:#777;font-size:12px}.hall-index .grid{margin-top:12px}
 @media(max-width:720px){.route-lead{padding:20px;text-align:left}.secondary-routes,.reading-grid{grid-template-columns:1fr}.orientation{padding:58px 5vw 30px}.hall-index summary{min-height:48px;display:flex;align-items:center}}
+@media(max-width:720px){.marq{margin-top:44px}.marq span{font-size:11px}}
 
 footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-height:2;border-top:1px solid #1a1a20}
 
@@ -274,6 +277,7 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
   body.cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(255,255,255,.9)}
   body.cur-down #cur-ring{width:22px;height:22px}
 }
+.cur-ripple{position:fixed;z-index:9996;width:12px;height:12px;border:2px solid #FFD23F;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:homeRip .5s ease-out forwards}@keyframes homeRip{to{width:72px;height:72px;opacity:0}}
 </style>
 </head>
 <body>
@@ -296,6 +300,7 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
     <a class="secondary-route" href="knowledge.html#directions"><b>按设计主义浏览</b><span>搜索 80 个方向，阅读每个方向自己的起源、人物、转折和争议。</span></a>
     <a class="secondary-route" id="random" href="#"><b>随机进入一个展厅</b><span>跳过路线，直接进入一个独立展厅；读完后仍可回到全书。</span></a>
   </div>
+  <div class="marq"><span id="marq"></span></div>
   <div class="key-hint">独立展厅、漫游长廊和时间轴都是支线入口；主路线从全书开始。</div>
   <div class="scroll-hint">SCROLL ↓</div>
 </header>
@@ -315,7 +320,7 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
     <h2>独立展厅索引</h2>
     <p>这是支线，不是首页主任务。打开后按编号浏览全部方向，或使用上面的随机入口。</p>
   </div>
-  <details class="hall-index" id="hall-index">
+  <details class="hall-index" id="hall-index" open>
     <summary>展开 80 个设计方向</summary>
     <p>每扇门都通往一个完整展厅：历史档案 → 设计语言 → 案例 → 批评与影响 → 当代转译 → CSS 标本。</p>
     <div class="grid" id="grid"></div>
@@ -417,6 +422,7 @@ grid.innerHTML=ISMS.map(([s,no,zh,en,q])=>`
    <h3>${zh}</h3><div class="en">${en}</div>
    <div class="quote">“${q}”</div>
  </a>`).join('');
+document.getElementById('marq').textContent=(ISMS.map(i=>`HALL ${i[1]} ${i[2]} ${i[3]}`).join(' ★ ')+' ★ ').repeat(2);
 document.getElementById('random').onclick=e=>{e.preventDefault();location.href='halls/'+ISMS[Math.floor(Math.random()*ISMS.length)][0]+'.html'};
 const hallIndex=document.getElementById('hall-index');
 
@@ -645,6 +651,7 @@ addEventListener('mousemove',e=>{
     setTimeout(function(){p.remove()},420);
   }
 })();
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen'){const ripple=document.createElement('span');ripple.className='cur-ripple';ripple.style.left=e.clientX+'px';ripple.style.top=e.clientY+'px';document.body.appendChild(ripple);setTimeout(()=>ripple.remove(),500)}},{passive:true})}
 </script>
 </body>
 </html>
