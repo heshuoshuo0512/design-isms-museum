@@ -63,6 +63,10 @@ a{color:inherit}button,input{font:inherit}button{cursor:pointer}
 @media(max-width:760px){.book-volumes,.book-archives{grid-template-columns:1fr}.book-volume{padding:9px}.book-archive-panel{width:100%}}
 @media(max-width:760px){.book-spine{padding:16px}.book-spine-head{display:block}.book-spine-head p{margin-top:10px}.book-layout{display:flex;flex-direction:column}.book-nav{position:static;width:100%;max-height:240px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.book-nav button{border:1px solid #252a33;border-radius:5px}.book-reader{padding:18px}.book-cards,.book-source-grid,.book-lenses{grid-template-columns:1fr}.book-lens{padding:12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.001s!important}}
+.book-spine{border-color:#4b525d;background:linear-gradient(135deg,#151a21 0%,#11151b 55%,#1b2028 100%);box-shadow:0 24px 70px rgba(0,0,0,.22)}.book-spine:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 49.8%,rgba(255,255,255,.04) 50%,transparent 50.2%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:100% 100%,100% 28px;pointer-events:none}.book-spine>*{position:relative}.book-spine-head h3{font-size:clamp(30px,5vw,58px);color:#f4f0e7}.book-spine-head p{color:#aeb4bd}.book-volumes{gap:8px}.book-volume{min-height:104px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #3b434f;border-top:3px solid var(--yellow);background:rgba(255,255,255,.035);transition:transform .2s,border-color .2s,background .2s}.book-volume:nth-child(2){border-top-color:var(--cyan)}.book-volume:nth-child(3){border-top-color:var(--pink)}.book-volume:nth-child(4){border-top-color:var(--mint)}.book-volume:nth-child(5){border-top-color:#c89cff}.book-volume:nth-child(6){border-top-color:#ff9d71}.book-volume:hover{transform:translateY(-3px);border-color:#87909d;background:rgba(255,255,255,.08)}.book-volume b{font-size:11px}.book-volume strong{font-size:13px}.book-volume small{font-size:10.5px}.book-nav{padding:10px 0 10px 10px;border:0;border-left:1px solid #3b434f;border-radius:0;background:rgba(8,11,15,.62)}.book-nav button{position:relative;padding:14px 12px 14px 24px;border-bottom:1px solid #29303a;border-left:2px solid transparent}.book-nav button:before{content:"";position:absolute;left:7px;top:19px;width:7px;height:7px;border:1px solid #67717e;border-radius:50%;background:#11151b}.book-nav button.active{border-left-color:var(--yellow);background:linear-gradient(90deg,rgba(255,210,63,.13),transparent);color:#fff}.book-nav button.active:before{border-color:var(--yellow);background:var(--yellow);box-shadow:0 0 0 4px rgba(255,210,63,.12)}.book-nav .book-no{font-size:9px;letter-spacing:.06em}.book-nav strong{font-size:12px}.book-reader{padding:32px;border:0;border-radius:2px;background:linear-gradient(135deg,#f4f0e7,#e4ddcf);color:#20252b;box-shadow:12px 12px 0 rgba(0,0,0,.15);clip-path:polygon(0 0,100% 0,100% 99%,98% 100%,0 100%)}.book-reader:before{content:"ARCHIVE / READING COPY";display:block;padding-bottom:9px;border-bottom:1px solid #c2b8a7;color:#90733e;font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em}.book-reader .book-kicker{margin-top:20px;color:#8b5b16;font-weight:700}.book-reader h4{color:#171b20;font-size:clamp(32px,5vw,64px);letter-spacing:-.065em}.book-reader .book-period{color:#6c6b67}.book-reader-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;padding:10px 0;border-top:1px solid #c2b8a7;border-bottom:1px solid #c2b8a7}.book-reader-meta span{padding:5px 8px;border:1px solid #b9ad9b;color:#6d6558;font:9px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em}.book-reader-meta b{color:#242a30;font-weight:700}.book-thesis{margin-top:20px;border-left:5px solid #d28b22;background:rgba(255,255,255,.5);color:#2a3035;font-size:15px;box-shadow:inset 0 0 0 1px rgba(155,125,76,.1)}.book-section{border-top-color:#c5baaa}.book-section h5{color:#965e12}.book-section>p,.book-section>ul{color:#4a4d50}.book-section>ul{padding-left:20px;margin-top:10px}.book-section>ul li{line-height:1.9}.book-section>ul li+li{margin-top:4px}.book-card{border-left-color:#9b6b28;background:rgba(255,255,255,.48);box-shadow:0 1px 0 rgba(125,96,51,.1)}.book-card:nth-child(2n){border-color:#397a85}.book-card:nth-child(3n){border-color:#a05277}.book-card:nth-child(4n){border-color:#5e8a6d}.book-card b{color:#252a2f}.book-card p,.book-card li{color:#55595c}.book-reader .book-source{background:rgba(255,255,255,.5)}.book-reader .book-source b{color:#252a2f}.book-reader .book-source small{color:#7b5b2b}.book-reader .book-source p{color:#5b5d5e}.book-lens{min-height:178px}.book-archive-panel{background:rgba(255,255,255,.04)}
+@media(max-width:760px){.book-reader{padding:22px;clip-path:none;box-shadow:6px 6px 0 rgba(0,0,0,.13)}.book-reader h4{font-size:clamp(30px,10vw,46px)}.book-reader-meta{gap:5px}.book-reader-meta span{font-size:8.5px}.book-nav{padding:8px;border-left:0}.book-nav button{padding-left:22px}.book-volume{min-height:92px}.book-spine-head h3{font-size:clamp(30px,10vw,46px)}}
+.history-track-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 24px;padding:8px;border:1px solid #38404d;border-radius:10px;background:#10141a}.history-track-nav button{position:relative;min-height:70px;padding:11px 12px 11px 47px;text-align:left;border:1px solid transparent;border-radius:7px;background:transparent;color:#858c98}.history-track-nav button span{position:absolute;left:13px;top:14px;color:#5f6875;font:11px ui-monospace,SFMono-Regular,Menlo,monospace}.history-track-nav button strong{display:block;color:#c7cbd2;font-size:13px}.history-track-nav button small{display:block;margin-top:3px;color:#727a86;font-size:10px}.history-track-nav button:hover{border-color:#555f6d;background:rgba(255,255,255,.04)}.history-track-nav button.active{border-color:var(--yellow);background:linear-gradient(135deg,rgba(255,210,63,.16),rgba(255,210,63,.035));color:#fff}.history-track-nav button.active span{color:var(--yellow)}.history-track-nav button.active strong{color:#fff}.history-track-nav button[data-history-track-control="events"].active{border-color:var(--cyan);background:linear-gradient(135deg,rgba(125,249,255,.13),rgba(125,249,255,.03))}.history-track-nav button[data-history-track-control="events"].active span{color:var(--cyan)}.history-track-nav button[data-history-track-control="lab"].active{border-color:var(--pink);background:linear-gradient(135deg,rgba(255,113,206,.13),rgba(255,113,206,.03))}.history-track-nav button[data-history-track-control="lab"].active span{color:var(--pink)}[data-history-track][hidden]{display:none!important}
+@media(max-width:760px){.history-track-nav{grid-template-columns:1fr;margin-bottom:18px}.history-track-nav button{min-height:54px;padding-left:42px}.history-track-nav button span{top:15px}.history-track-nav button strong{font-size:12px}.history-track-nav button small{font-size:9.5px}}
 '''
 
 
@@ -97,7 +101,8 @@ HTML = r'''<!DOCTYPE html>
 <main class="book-main">
 <section class="mode-panel" id="history" data-panel="history">
   <div class="mode-heading"><div><div class="mode-kicker">ROUTE 01 / HISTORY</div><h2>先读历史</h2></div><p>先读 14 个连续章节，再用 9 个横向事件交叉阅读。每章都把时间、地点、生产、作品、争议和延伸阅读放在一起。</p></div>
-  <section class="book-spine" aria-labelledby="book-spine-title">
+  <div class="history-track-nav" role="tablist" aria-label="历史阅读层级"><button type="button" class="active" data-history-track-control="book" role="tab" aria-selected="true"><span>01</span><strong>通史主干</strong><small>14 章连续时间线</small></button><button type="button" data-history-track-control="events" role="tab" aria-selected="false"><span>02</span><strong>横向事件</strong><small>9 个关联切面</small></button><button type="button" data-history-track-control="lab" role="tab" aria-selected="false"><span>03</span><strong>设计实验</strong><small>规则与人机反馈</small></button></div>
+  <section class="book-spine" data-history-track="book" aria-labelledby="book-spine-title">
     <div class="book-spine-head"><div><div class="mode-kicker">VOLUME I / CHRONOLOGY</div><h3 id="book-spine-title">现代设计通史主干</h3></div><p>这不是 80 个方向的重新命名，而是一条从工业化、工艺改革、先锋传播、现代主义教育，到平台、人工智能和生态约束的连续历史线。</p></div>
     <div class="book-volumes" id="book-volumes" aria-label="现代设计全书六卷结构"></div>
     <div class="book-layout"><nav class="book-nav" id="book-nav" aria-label="现代设计通史章节"></nav><article class="book-reader" id="book-reader" aria-live="polite"></article></div>
@@ -105,9 +110,9 @@ HTML = r'''<!DOCTYPE html>
     <div class="book-archives" aria-label="实践、全球与机构档案"><details class="book-archive-panel"><summary>卷 II · 设计实践史 · 8 条实践线</summary><div class="archive-grid" id="practice-archive"></div></details><details class="book-archive-panel"><summary>卷 III · 全球与权力关系 · 8 个区域线索</summary><div class="archive-grid" id="global-archive"></div></details><details class="book-archive-panel"><summary>卷 VI · 机构档案 · 8 个制度节点</summary><div class="archive-grid" id="institution-archive"></div></details></div>
     <details class="book-library"><summary>参考资料库（本地静态书目，不依赖运行时外部请求）</summary><div class="book-source-grid" id="book-source-grid"></div></details>
   </section>
-  <div class="cross-index"><h3>横向历史事件索引</h3><p>以下 9 个事件不是通史主目录，而是用生产、传播、教育、媒介和平台等问题重新连接各个方向。</p></div>
-  <div class="history-layout"><nav class="history-nav" id="history-nav" aria-label="现代设计史章节"></nav><article class="history-reader" id="history-reader" aria-live="polite"></article></div>
-<div class="aesthetic-lab" id="aesthetic-lab" aria-labelledby="aesthetic-lab-title">
+  <div class="cross-index" data-history-track="events" hidden><h3>横向历史事件索引</h3><p>以下 9 个事件不是通史主目录，而是用生产、传播、教育、媒介和平台等问题重新连接各个方向。</p></div>
+  <div class="history-layout" data-history-track="events" hidden><nav class="history-nav" id="history-nav" aria-label="现代设计史章节"></nav><article class="history-reader" id="history-reader" aria-live="polite"></article></div>
+<div class="aesthetic-lab" id="aesthetic-lab" data-history-track="lab" aria-labelledby="aesthetic-lab-title" hidden>
   <div class="lab-kicker">BRIDGE / DESIGN AS COMPUTATIONAL KNOWLEDGE</div>
   <h3 id="aesthetic-lab-title">现代设计美学：艺术怎样给计算机新的问题</h3>
   <p class="lab-intro">艺术不会让 CPU 更快，也不会自动改善算法复杂度。它能提供的是计算机常常缺少的目标：什么叫清楚、什么叫有层级、什么叫可重复、什么叫不排除使用者。现代设计把这些判断转成网格、模块、感知组织和反馈规则，让计算机不只“生成结果”，还知道应该追求什么。</p>
@@ -179,11 +184,13 @@ const institutionArchive=document.getElementById('institution-archive');
 const count=document.getElementById('direction-count');
 const filters=document.getElementById('reader-filters');
 const filterSummary=document.getElementById('filter-summary');
+const historyTrackControls=document.querySelectorAll('[data-history-track-control]');
 let activeMode='history';
 let activeEvent=events[0]?.key;
 let activeSlug=records[0]?.slug;
 let activeEventFilter='all';
 let activeAxisFilter='all';
+let activeHistoryTrack='book';
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let activeChapter=chapters[0]?.key;
 const eventLabel=key=>eventByKey[key]?.event||key;
@@ -192,12 +199,12 @@ const list=items=>items?.length?`<ul class="reader-list">${items.map(item=>`<li>
 const bullets=items=>`<ul>${(items||[]).map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`;
 const sourceCards=keys=>`<div class="book-source-grid">${(keys||[]).map(key=>{const source=sourceByKey[key];return source?`<article class="book-source"><b>${esc(source.title)}</b><small>${esc(source.author)} · ${esc(source.year)} · ${esc(source.publisher)}</small><p>${esc(source.why)}</p></article>`:''}).join('')}</div>`;
 function renderBookNav(){
-  bookNav.innerHTML=chapters.map(chapter=>`<button type="button" class="${chapter.key===activeChapter?'active':''}" data-book-chapter="${esc(chapter.key)}"><span class="book-no">CHAPTER ${esc(chapter.no)} · ${esc(chapter.period)}</span><strong>${esc(chapter.title)}</strong><small>${chapter.works.length} 个作品线索</small></button>`).join('');
+  bookNav.innerHTML=chapters.map(chapter=>`<button type="button" class="${chapter.key===activeChapter?'active':''}" data-book-chapter="${esc(chapter.key)}"><span class="book-no">CHAPTER ${esc(chapter.no)} · ${esc(chapter.period)}</span><strong>${esc(chapter.title)}</strong><small>${chapter.works.length} 个作品 · ${chapter.source_keys.length} 条来源</small></button>`).join('');
 }
 function renderBookReader(){
   const chapter=chapters.find(item=>item.key===activeChapter)||chapters[0];
   if(!chapter)return;
-  bookReader.innerHTML=`<div class="book-kicker">VOLUME I / CHAPTER ${esc(chapter.no)}</div><h4>${esc(chapter.title)}</h4><div class="book-period">${esc(chapter.period)} · 主干章节</div><p class="book-thesis">${esc(chapter.thesis)}</p><section class="book-section"><h5>历史条件</h5><p>${esc(chapter.context)}</p><div class="book-cards"><article class="book-card"><b>参与者与制度</b><p>${esc(chapter.actors)}</p></article><article class="book-card"><b>地点与传播范围</b><p>${esc(chapter.places)}</p></article></div></section><section class="book-section"><h5>设计实践线</h5><div class="book-cards">${chapter.practices.map(item=>`<article class="book-card"><b>实践档案</b><p>${esc(item)}</p></article>`).join('')}</div></section><section class="book-section"><h5>关键转折</h5>${bullets(chapter.turning_points)}</section><section class="book-section"><h5>作品与媒介线索</h5>${bullets(chapter.works)}</section><section class="book-section"><h5>争议与限制</h5><p>${esc(chapter.debate)}</p></section><section class="book-section"><h5>留下什么</h5><p>${esc(chapter.legacy)}</p></section><section class="book-section"><h5>延伸阅读</h5>${sourceCards(chapter.source_keys)}</section>`;
+  bookReader.innerHTML=`<div class="book-kicker">VOLUME I / CHAPTER ${esc(chapter.no)}</div><h4>${esc(chapter.title)}</h4><div class="book-period">${esc(chapter.period)} · 主干章节</div><div class="book-reader-meta"><span>TIME <b>${esc(chapter.period)}</b></span><span>WORKS <b>${chapter.works.length}</b></span><span>PRACTICES <b>${chapter.practices.length}</b></span><span>SOURCES <b>${chapter.source_keys.length}</b></span></div><p class="book-thesis">${esc(chapter.thesis)}</p><section class="book-section"><h5>01 / 历史条件</h5><p>${esc(chapter.context)}</p><div class="book-cards"><article class="book-card"><b>参与者与制度</b><p>${esc(chapter.actors)}</p></article><article class="book-card"><b>地点与传播范围</b><p>${esc(chapter.places)}</p></article></div></section><section class="book-section"><h5>02 / 设计实践线</h5><div class="book-cards">${chapter.practices.map(item=>`<article class="book-card"><b>实践档案</b><p>${esc(item)}</p></article>`).join('')}</div></section><section class="book-section"><h5>03 / 关键转折</h5>${bullets(chapter.turning_points)}</section><section class="book-section"><h5>04 / 作品与媒介线索</h5>${bullets(chapter.works)}</section><section class="book-section"><h5>05 / 争议与限制</h5><p>${esc(chapter.debate)}</p></section><section class="book-section"><h5>06 / 留下什么</h5><p>${esc(chapter.legacy)}</p></section><section class="book-section"><h5>07 / 延伸阅读</h5>${sourceCards(chapter.source_keys)}</section>`;
 }
 function renderBookLenses(){
   bookLenses.innerHTML=lenses.map(lens=>`<article class="book-lens"><h4>${esc(lens.title)}</h4><p>${esc(lens.summary)}</p><ul>${lens.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul></article>`).join('');
@@ -272,6 +279,11 @@ document.querySelectorAll('[data-lab-feedback]').forEach(button=>button.addEvent
 renderLab();
 logLab('第 0 轮 · 设计传统先被翻译成规则、约束和评价指标。');
 
+function setHistoryTrack(track){
+  activeHistoryTrack=['book','events','lab'].includes(track)?track:'book';
+  document.querySelectorAll('[data-history-track]').forEach(panel=>{panel.hidden=panel.dataset.historyTrack!==activeHistoryTrack});
+  historyTrackControls.forEach(control=>{const active=control.dataset.historyTrackControl===activeHistoryTrack;control.classList.toggle('active',active);control.setAttribute('aria-selected',String(active));});
+}
 function setMode(mode,updateHash=true){
   activeMode=mode==='directions'?'directions':'history';
   document.querySelectorAll('[data-panel]').forEach(panel=>{panel.hidden=panel.dataset.panel!==activeMode});
@@ -324,12 +336,14 @@ function routeToDirection(slug){activeSlug=slug;setMode('directions');renderDire
 
 
 document.addEventListener('click',event=>{
+  const trackButton=event.target.closest('[data-history-track-control]');
+  if(trackButton){setHistoryTrack(trackButton.dataset.historyTrackControl);return;}
   const bookButton=event.target.closest('[data-book-chapter]');
   if(bookButton){activeChapter=bookButton.dataset.bookChapter;renderBookNav();renderBookReader();return;}
   const mode=event.target.closest('[data-mode]');
-  if(mode){event.preventDefault();setMode(mode.dataset.mode);document.getElementById(mode.dataset.mode).scrollIntoView({behavior:'smooth'});return;}
+  if(mode){event.preventDefault();if(mode.dataset.mode==='history')setHistoryTrack('book');setMode(mode.dataset.mode);document.getElementById(mode.dataset.mode).scrollIntoView({behavior:'smooth'});return;}
   const historyButton=event.target.closest('[data-history-event]');
-  if(historyButton){activeEvent=historyButton.dataset.historyEvent;renderHistory();if(activeMode!=='history'){setMode('history');document.getElementById('history').scrollIntoView({behavior:'smooth'})}return;}
+  if(historyButton){activeEvent=historyButton.dataset.historyEvent;setHistoryTrack('events');renderHistory();if(activeMode!=='history'){setMode('history');document.getElementById('history').scrollIntoView({behavior:'smooth'})}return;}
   const directionButton=event.target.closest('[data-direction-slug]');
   if(directionButton){routeToDirection(directionButton.dataset.directionSlug);return;}
   const eventButton=event.target.closest('[data-reader-event]');
@@ -338,7 +352,7 @@ document.addEventListener('click',event=>{
   if(axisButton){activeAxisFilter=axisButton.dataset.readerAxis;syncFilters();renderDirectionIndex();return;}
 });
 search.addEventListener('input',renderDirectionIndex);
-renderBookNav();renderBookReader();renderBookLenses();renderBookVolumes();renderBookArchives();renderBookSources();renderFilters();syncFilters();renderHistory();renderDirectionIndex();setMode(location.hash.slice(1)==='directions'?'directions':'history',false);
+renderBookNav();renderBookReader();renderBookLenses();renderBookVolumes();renderBookArchives();renderBookSources();renderFilters();syncFilters();renderHistory();renderDirectionIndex();setHistoryTrack('book');setMode(location.hash.slice(1)==='directions'?'directions':'history',false);
 </script>
 </body>
 </html>
