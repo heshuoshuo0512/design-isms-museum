@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>主义馆 · ISM MUSEUM — 现代设计与设计主义历史展馆</title>
-<meta name="description" content="80 个设计主义,80 个展厅:从工艺美术、包豪斯、构成主义、装饰艺术到新粗野主义、玻璃拟态、酸性设计、极光渐变、Bento 网格——一部跨越百年的现代设计与主义史。">
+<title>主义馆 · ISM MUSEUM — 从现代设计史进入 80 个设计方向</title>
+<meta name="description" content="先读现代设计史，再进入 80 个设计方向与独立展厅。主义馆以历史路线为主入口，提供方向索引、漫游长廊和 CSS 标本。">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,9 +36,6 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,210,63,.15)}
 .cta.primary{background:#FFD23F;color:#000;font-weight:800;border-color:#FFD23F}
 @keyframes fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.marq{margin-top:60px;width:100vw;overflow:hidden;border-top:1px solid #1c1c22;border-bottom:1px solid #1c1c22;padding:14px 0;animation:fadeup .8s 1s both}
-.marq span{display:inline-block;white-space:nowrap;font-size:13px;letter-spacing:.3em;color:#555;animation:marq 26s linear infinite}
-@keyframes marq{to{transform:translateX(-50%)}}
 .key-hint{margin-top:16px;color:#666;font-size:12px;letter-spacing:.14em;animation:fadeup .8s 1.05s both}
 .door.kb-flash{animation:kbFlash .2s ease both}
 @keyframes kbFlash{0%,100%{filter:brightness(1);outline:0 solid transparent;outline-offset:0}45%{filter:brightness(1.45);outline:4px solid #FFD23F;outline-offset:5px}}
@@ -229,55 +226,20 @@ h1.title{font-size:clamp(56px,13vw,168px);font-weight:900;line-height:.92;letter
 .door.magnet-active{scale:1.04;box-shadow:0 30px 78px rgba(0,0,0,.68),0 0 0 1px rgba(255,255,255,.18)}
 .door .door-particle{position:absolute;left:50%;top:50%;width:var(--particle-size,3px);height:var(--particle-size,3px);border-radius:var(--particle-radius,50%);background:var(--particle-color,currentColor);box-shadow:0 0 8px var(--particle-color,currentColor);opacity:1;transform:translate(-50%,-50%) scale(.2) rotate(0deg);pointer-events:none;z-index:5;will-change:transform,opacity;transition:transform .4s ease-out,opacity .4s ease-out}
 
-/* ---------- 尾厅 ---------- */
-#exit{padding:110px 6vw;text-align:center}
-#exit h2{font-size:clamp(28px,5vw,48px);font-weight:800;color:#ccc;margin-bottom:18px}
-#exit p{color:#666;max-width:560px;margin:0 auto;line-height:2.1;font-size:14px}
-#exit .modes{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ---------- 单一路线入口 ---------- */
+.route-lead{max-width:780px;margin:36px auto 0;padding:26px 28px;text-align:left;border:1px solid rgba(255,210,63,.45);border-radius:16px;background:rgba(12,13,20,.72);box-shadow:0 18px 60px rgba(0,0,0,.22);animation:fadeup .8s .75s both}
+.route-lead .route-k{color:#FFD23F;font-size:11px;letter-spacing:.28em;margin-bottom:10px}
+.route-lead h2{font-size:clamp(24px,4vw,42px);line-height:1.15;color:#fff}
+.route-lead p{max-width:650px;margin-top:10px;color:#aaa;font-size:14px;line-height:1.9}
+.route-lead .cta-row{margin-top:20px;justify-content:flex-start;animation:none}
+.secondary-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:780px;margin:12px auto 0;text-align:left;animation:fadeup .8s .9s both}
+.secondary-route{display:block;padding:15px 17px;border:1px solid #2d2f38;border-radius:10px;background:rgba(15,16,23,.64);color:#ddd;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
+.secondary-route:hover{border-color:#74B9FF;transform:translateY(-3px);background:rgba(25,27,37,.86)}
+.secondary-route b{display:block;font-size:14px}.secondary-route span{display:block;margin-top:4px;color:#888;font-size:12px;line-height:1.6}
+.orientation{max-width:1120px;margin:0 auto;padding:76px 6vw 38px}.orientation-head{text-align:center}.orientation-head .k{font-size:11px;letter-spacing:.4em;color:#666}.orientation-head h2{margin-top:9px;font-size:clamp(26px,4vw,42px)}.orientation-head p{max-width:650px;margin:12px auto 0;color:#888;font-size:13px;line-height:1.9}.reading-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}.reading-card{padding:20px;border-top:2px solid #FFD23F;background:#12131a}.reading-card:nth-child(2){border-color:#7DF9FF}.reading-card:nth-child(3){border-color:#FF71CE}.reading-card b{display:block;color:#ddd;font-size:14px}.reading-card p{margin-top:8px;color:#888;font-size:12px;line-height:1.85}
+.hall-index{max-width:1240px;margin:0 auto}.hall-index summary{display:block;padding:16px 18px;border:1px solid #30333c;border-radius:10px;background:#13141b;color:#FFD23F;font-size:13px;cursor:pointer;list-style:none}.hall-index summary::-webkit-details-marker{display:none}.hall-index summary:before{content:'+';display:inline-block;width:22px;color:#FFD23F;font-size:18px;vertical-align:-1px}.hall-index[open] summary:before{content:'−'}.hall-index>p{margin:14px 0 18px;color:#777;font-size:12px}.hall-index .grid{margin-top:12px}
+@media(max-width:720px){.route-lead{padding:20px;text-align:left}.secondary-routes,.reading-grid{grid-template-columns:1fr}.orientation{padding:58px 5vw 30px}.hall-index summary{min-height:48px;display:flex;align-items:center}}
 
-/* ---- 双向赋能 ---- */
-#bridge{padding:100px 6vw 110px;background:linear-gradient(180deg,#0b0b0f,#11131b);border-top:1px solid #1a1a20;border-bottom:1px solid #1a1a20}
-.bridge-head{max-width:780px;margin:0 auto 42px;text-align:center}
-.bridge-head .k{font-size:11px;letter-spacing:.4em;color:#666;margin-bottom:10px}
-.bridge-head h2{font-size:clamp(26px,4vw,44px);font-weight:800;color:#eee;margin-bottom:16px}
-.bridge-head p{max-width:700px;margin:0 auto;color:#999;font-size:14px;line-height:2}
-.bridge-feature{max-width:1120px;margin:36px auto 0;padding:28px;border:1px solid #272934;border-radius:18px;background:#14161d}
-.bridge-feature-head{max-width:720px;margin-bottom:20px}
-.bridge-feature-head .k{font-size:11px;letter-spacing:.35em;color:#666;margin-bottom:9px}
-.bridge-feature-head h3{font-size:clamp(20px,3vw,30px);color:#eee;margin-bottom:10px}
-.bridge-feature-head p{color:#858894;font-size:13px;line-height:1.9}
-.bridge-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px 0 12px}
-.bridge-tab{appearance:none;border:1px solid #30333e;border-radius:9px;padding:11px 12px;background:#101219;color:#858894;text-align:left;font:inherit;font-size:12px;line-height:1.4;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
-.bridge-tab:hover{color:#eee;border-color:#55596a}
-.bridge-tab[aria-selected=true]{color:#111;background:#FFD23F;border-color:#FFD23F;font-weight:700}
-.bridge-detail{padding:22px;border:1px solid #343744;border-radius:14px;background:rgba(255,255,255,.025)}
-.bridge-detail-top{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
-.bridge-detail-index{font:700 11px ui-monospace,monospace;color:#FFD23F;letter-spacing:.12em}
-.bridge-detail h4{font-size:20px;color:#f0f0f5}
-.bridge-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.bridge-detail-item{padding:15px;border-left:2px solid #353846;background:rgba(0,0,0,.12)}
-.bridge-detail-item:nth-child(2){border-color:#7DF9FF}
-.bridge-detail-item:nth-child(3){border-color:#FF71CE}
-.bridge-detail-item b{display:block;color:#d9dae1;font-size:12px;margin-bottom:7px}
-.bridge-detail-item p{color:#9295a1;font-size:12.5px;line-height:1.8}
-.bridge-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;color:#c8cad4;font-size:12px}
-.bridge-flow span{padding:6px 10px;border:1px solid #30333e;border-radius:99px}
-.bridge-flow i{font-style:normal;color:#555}
-.bridge-note{margin:16px auto 0;max-width:720px;text-align:center;color:#666;font-size:12px;line-height:1.8}
-.bridge-book-link{display:block;width:max-content;margin:12px auto 0;color:#FFD23F;font-size:12px;text-decoration:none}.bridge-book-link:hover{text-decoration:underline}
-
-/* ---- 策展笔记 ---- */
-#notes{padding:90px 6vw;background:#0f0f13;border-top:1px solid #1a1a20}
-#notes .k{font-size:11px;letter-spacing:.4em;color:#666;margin-bottom:8px}
-#notes h2{font-size:clamp(24px,3.6vw,40px);font-weight:800;color:#eee;margin-bottom:44px}
-.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1200px;margin:0 auto}
-.note{background:#141419;border:1px solid #22222a;border-radius:16px;padding:26px;transition:transform .3s,border-color .3s}
-.note:hover{transform:translateY(-5px);border-color:#3a3a48}
-.note .n-num{font-size:30px;font-weight:200;color:#FFD23F;line-height:1;margin-bottom:14px}
-.note h4{font-size:16px;color:#e8e8f0;margin-bottom:10px;font-weight:700}
-.note p{font-size:13.5px;color:#888;line-height:1.9}
-.note p b{color:#c8c8d8;font-weight:600}
-.note p code{color:#7df9ff;background:rgba(125,249,255,.08);padding:1px 6px;border-radius:4px;font-size:12px}
 footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-height:2;border-top:1px solid #1a1a20}
 
 /* ---- 触屏 / 窄屏适配(无精确指针即视为触屏) ---- */
@@ -295,20 +257,6 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
   .door h3{font-size:22px}
   #doors{padding:70px 5vw 44px}
   .doors-head{margin-bottom:36px}
-  .bridge-feature{margin-top:28px;padding:18px}
-  .bridge-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:18px}
-  .bridge-tab{padding:10px;font-size:11px}
-  .bridge-detail{padding:16px}
-  .bridge-detail-top{display:block;margin-bottom:14px}
-  .bridge-detail h4{margin-top:6px;font-size:18px}
-  .bridge-detail-grid{grid-template-columns:1fr;gap:9px}
-  .bridge-detail-item{padding:13px}
-  .bridge-flow{justify-content:flex-start;gap:7px}
-  .bridge-flow i{display:none}
-  .bridge-note{text-align:left}
-  #notes{padding:60px 5vw}
-  #exit{padding:70px 5vw}
-  .marq{margin-top:44px}
   footer{padding:32px 5vw 48px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -332,109 +280,50 @@ footer{padding:40px 6vw 60px;text-align:center;color:#444;font-size:12px;line-he
 
 <div id="curtain"><b>开 馆</b></div>
 
-<header>
+<header id="entry">
   <div class="bg-grid"></div>
   <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
   <div class="tick">ISM MUSEUM · 现代设计与设计主义历史展馆</div>
   <h1 class="title">主义馆</h1>
-  <div class="sub">80 个设计主义 · 80 个展厅<br>从工艺美术、包豪斯到平台界面与赛博原生,每一扇门都保留自己的历史。</div>
-  <div class="key-hint">键盘 1-30 快速进厅 · 31-80 请用鼠标</div>
-  <div class="cta-row">
-    <a class="cta primary" href="#doors">进入展厅 ↓</a>
-    <a class="cta" id="random" href="#">🎲 带我去随机一厅</a>
-    <a class="cta" href="corridor.html">长廊模式</a>
-    <a class="cta" href="#bridge">↔ 反哺展示</a>
-    <a class="cta" href="knowledge.html">◎ 现代设计全书</a>
+  <div class="sub">一个关于现代设计如何形成的线上展馆<br>先读历史，再选择一个方向深入。</div>
+  <section class="route-lead" aria-labelledby="main-route-title">
+    <div class="route-k">THE MAIN ROUTE / 01</div>
+    <h2 id="main-route-title">从现代设计史开始</h2>
+    <p>沿 9 个历史事件理解工业化、革命传播、现代主义教育、标准化、大众媒介和平台界面如何改变设计。读完历史，再进入 80 个设计方向。</p>
+    <div class="cta-row"><a class="cta primary" href="knowledge.html#history">开始历史路线 →</a></div>
+  </section>
+  <div class="secondary-routes" aria-label="次要入口">
+    <a class="secondary-route" href="knowledge.html#directions"><b>按设计主义浏览</b><span>搜索 80 个方向，阅读每个方向自己的起源、人物、转折和争议。</span></a>
+    <a class="secondary-route" id="random" href="#"><b>随机进入一个展厅</b><span>跳过路线，直接进入一个独立展厅；读完后仍可回到全书。</span></a>
   </div>
-  <div class="marq"><span id="marq"></span></div>
+  <div class="key-hint">独立展厅、漫游长廊和时间轴都是支线入口；主路线从全书开始。</div>
   <div class="scroll-hint">SCROLL ↓</div>
 </header>
 
-<main id="doors">
-  <div class="doors-head rv">
-    <div class="k">EXHIBITION HALLS</div>
-    <h2>八十个展厅</h2>
-    <div class="zone">第三展区 · 风格边疆 31-40</div>
-    <div class="zone">第四展区 · 时间深处 41-60</div>
-    <div class="zone">第五展区 · 赛博原生 61-80</div>
-    <p>每扇门都是它所守护的主义本身。推门进去,阅读它的历史、特征与代码指纹。</p>
+<section class="orientation" aria-labelledby="orientation-title">
+  <div class="orientation-head"><div class="k">HOW TO READ</div><h2 id="orientation-title">三层阅读关系</h2><p>不要把历史、方向和代码当成三个平行首页。它们有明确的先后关系。</p></div>
+  <div class="reading-grid">
+    <article class="reading-card"><b>01 · 历史路线</b><p>事件提供横向背景：谁参与、发生了什么、如何传播，以及留下哪些争议。</p></article>
+    <article class="reading-card"><b>02 · 设计方向</b><p>每个主义是独立叙事主体：起源、形式、案例、影响和批评各自分栏。</p></article>
+    <article class="reading-card"><b>03 · 独立展厅</b><p>最后再看 CSS 标本、代码指纹和当代转译，作为历史的应用补充。</p></article>
   </div>
-  <div class="grid" id="grid"></div>
+</section>
+
+<main id="doors">
+  <div class="doors-head">
+    <div class="k">OPTIONAL INDEX / 80 HALLS</div>
+    <h2>独立展厅索引</h2>
+    <p>这是支线，不是首页主任务。打开后按编号浏览全部方向，或使用上面的随机入口。</p>
+  </div>
+  <details class="hall-index" id="hall-index">
+    <summary>展开 80 个设计方向</summary>
+    <p>每扇门都通往一个完整展厅：历史档案 → 设计语言 → 案例 → 批评与影响 → 当代转译 → CSS 标本。</p>
+    <div class="grid" id="grid"></div>
+  </details>
 </main>
 
-<section id="exit" class="rv">
-  <h2>展览结束,主义不死。</h2>
-  <p>从工艺美术运动、包豪斯、瑞士网格到平台界面,现代设计不断回应生产、传播、身体与权力。每个主义不只是屏幕上的风格,而是对现代生活的一次判断；CSS 只是其中一种当代转译。</p>
-  <div class="modes">
-    <a class="cta" href="corridor.html">长廊模式 · 一镜到底看完全部风格</a>
-  </div>
-</section>
-
-<section id="bridge" class="rv">
-  <div class="bridge-head">
-    <div class="k">TWO-WAY EMPOWERMENT</div>
-    <h2>双向赋能 · 课程与前端互相改写</h2>
-    <p>课程提供命题,前端把它变成可验证的学习对象,再把证据带回课程。</p>
-  </div>
-  <div class="bridge-feature">
-    <div class="bridge-feature-head">
-      <div class="k">ONE FEATURE / COURSE ↔ FRONTEND</div>
-      <h3>选择一个课内母题,看它如何变成前端证据</h3>
-      <p>这是首页的应用层预览。完整的现代设计史、八十个设计方向和九个历史事件进入《现代设计全书》；每个方向先讲起源、人物、转折、传播、争议和影响，历史事件再讲事件本身、背景、结果与未完成的问题，最后才连接当代转译和教学。</p>
-    </div>
-    <div class="bridge-tabs" role="tablist" aria-label="课内母题">
-      <button class="bridge-tab" type="button" role="tab" aria-selected="true" aria-controls="bridge-detail" data-bridge-axis="planning">01 计划与问题</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="function">02 功能与使用者</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="material">03 材料与结构</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="production">04 生产与标准</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="ornament">05 装饰与来源</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="modernism">06 现代主义</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="postmodern">07 后现代与反叛</button>
-      <button class="bridge-tab" type="button" role="tab" aria-selected="false" aria-controls="bridge-detail" data-bridge-axis="ethics">08 伦理与责任</button>
-    </div>
-    <article class="bridge-detail" id="bridge-detail" role="tabpanel" aria-live="polite">
-      <div class="bridge-detail-top"><span class="bridge-detail-index" id="bridge-detail-index">01 · PLAN / SOLVE</span><h4 id="bridge-detail-title">设计计划与问题解决</h4></div>
-      <div class="bridge-detail-grid">
-        <div class="bridge-detail-item"><b>课内追问</b><p id="bridge-question">要解决谁的问题？场景、材料、成本和限制是什么？</p></div>
-        <div class="bridge-detail-item"><b>前端转译</b><p id="bridge-frontend">先写用户任务、内容目标、约束条件和验收标准,再开始做视觉。</p></div>
-        <div class="bridge-detail-item"><b>课程回写</b><p id="bridge-feedback">把 brief、决策日志和测试结果作为设计计划案例,回到课程。</p></div>
-      </div>
-      <div class="bridge-flow" aria-label="反哺流程"><span>课内问题</span><i>→</i><span>前端原型</span><i>→</i><span>验证记录</span><i>→</i><span>课程补丁</span></div>
-    </article>
-    <p class="bridge-note">首页只展示一条课程关系;完整事件链进入全书,每个设计方向都保留自己的历史档案,每个历史事件都保留事件本身与反思。</p>
-    <a class="bridge-book-link" href="knowledge.html">进入现代设计全书 →</a>
-  </div>
-</section>
-
-<section id="notes" class="rv">
-  <div class="k" style="text-align:center">CURATOR'S NOTES</div>
-  <h2 style="text-align:center">策展笔记 · 如何"用"这些主义</h2>
-  <div class="notes-grid">
-    <div class="note">
-      <div class="n-num">Ⅰ</div>
-      <h4>风格是修辞,不是语法</h4>
-      <p>新粗野的硬阴影适合独立电商的态度,瑞士网格适合财报的克制。<b>先想清楚要说"什么",再决定用"哪种口音"说。</b>风格选错,内容再对也像念错台词。</p>
-    </div>
-    <div class="note">
-      <div class="n-num">Ⅱ</div>
-      <h4>混搭要有主次</h4>
-      <p>暗色底 + 极光渐变 + Bento 网格 = 当代 SaaS 标配。但一个页面只能有一个主角。<b>选定一个基调占 70%,其余主义当调料</b>,撒太多就是极繁,撒太少就是平庸。</p>
-    </div>
-    <div class="note">
-      <div class="n-num">Ⅲ</div>
-      <h4>可用性是不可让渡的底线</h4>
-      <p>新拟态死于对比度,酸性设计死于可读性。可以在 hero 区放肆,但<b>正文对比度 ≥ 4.5:1、字号 ≥ 14px、可点击区域 ≥ 44px</b> 这三条,任何主义都无权违反。</p>
-    </div>
-    <div class="note">
-      <div class="n-num">Ⅳ</div>
-      <h4>一切主义皆可 CSS</h4>
-      <p>本馆 80 个展厅 0 张图片:毛玻璃是 <code>backdrop-filter</code>,硬阴影是 <code>box-shadow</code>,故障是 <code>clip-path</code>,极光是 <code>radial-gradient + blur</code>。<b>打开 DevTools,把任何一件标本的样式偷走。</b></p>
-    </div>
-  </div>
-</section>
-
 <footer>
-  主义馆 ISM MUSEUM · 策展参考:Nielsen Norman Group · Smashing Magazine · Wikipedia · Webflow<br>
+  主义馆 ISM MUSEUM · <a href="knowledge.html#history">现代设计史</a> · <a href="knowledge.html#directions">主义索引</a> · <a href="corridor.html">漫游长廊</a><br>
   全馆 0 张图片 · 0 框架依赖 · 所有质感由 CSS 绘制
 </footer>
 
@@ -528,37 +417,10 @@ grid.innerHTML=ISMS.map(([s,no,zh,en,q])=>`
    <h3>${zh}</h3><div class="en">${en}</div>
    <div class="quote">“${q}”</div>
  </a>`).join('');
-document.getElementById('marq').textContent=(ISMS.map(i=>`HALL ${i[1]} ${i[2]} ${i[3]}`).join(' ★ ')+' ★ ').repeat(2);
 document.getElementById('random').onclick=e=>{e.preventDefault();location.href='halls/'+ISMS[Math.floor(Math.random()*ISMS.length)][0]+'.html'};
-const bridgeAxes={
-  planning:{no:'01 · PLAN / SOLVE',title:'设计计划与问题解决',question:'要解决谁的问题？场景、材料、成本和限制是什么？',frontend:'先写用户任务、内容目标、约束条件和验收标准,再开始做视觉。',feedback:'把 brief、决策日志和测试结果作为设计计划案例,回到课程。'},
-  function:{no:'02 · FUNCTION / USER / FORM',title:'功能、使用者与形式',question:'形式是否帮助使用者？装饰何时服务内容,何时遮蔽内容？',frontend:'用信息架构、语义 HTML、视觉层级和同伴任务测试验证“好看”有没有真的变好用。',feedback:'把误读、任务路径和修改前后对照写回功能主义案例。'},
-  material:{no:'03 · MATERIAL / STRUCTURE',title:'材料与结构',question:'材料特性和制作方法怎样生成形式？结构是否应该诚实地显露？',frontend:'把 DOM、布局、CSS 状态和动效当作数字材料;效果必须改变空间或交互。',feedback:'记录不同屏幕、输入方式和性能条件下的材料行为,补充数字材料讨论。'},
-  production:{no:'04 · PRODUCTION / STANDARD',title:'工业生产与标准化',question:'机器、批量生产和标准化如何改变设计？效率中如何保留质量与差异？',frontend:'用设计令牌、组件、数据驱动页面和性能预算支持复用,同时保留语境差异。',feedback:'把组件清单、版本变化和标准化造成的损失做成数字生产案例。'},
-  ornament:{no:'05 · ORNAMENT / SOURCE',title:'装饰与形式来源',question:'纹样从哪里来？不同来源为什么不能混成一种“好看”？',frontend:'为色彩、图形、字体和动效建立来源说明,让装饰承担导航、语义或情绪功能。',feedback:'把来源、改动和语境风险写进标本说明与评价量表。'},
-  modernism:{no:'06 · MODERNISM',title:'现代主义',question:'机器时代后,设计怎样建立适合现代生活的新形式？',frontend:'用网格、字体层级、内容优先和响应式系统组织信息,区分原则与外观。',feedback:'当固定网格在手机或无障碍场景失效时,把改写写回现代主义讨论。'},
-  postmodern:{no:'07 · POSTMODERN / REBELLION',title:'后现代与反叛',question:'能不能拒绝唯一的好品味、统一秩序和单一功能？',frontend:'允许冲突和陌生化,但用清晰结构、替代文本和键盘路径避免排斥。',feedback:'保留克制版与反叛版的理解测试,把表达与可用性的证据带回课程。'},
-  ethics:{no:'08 · ETHICS / RESPONSIBILITY',title:'设计伦理与责任',question:'设计为谁服务？是否排斥、操控、浪费资源或伪装价值？',frontend:'把对比度、键盘访问、减少动效、性能和包容性作为发布门槛。',feedback:'把可访问性审计、资源取舍和用户伤害风险写入评分量表。'}
-};
-const bridgeTabs=document.querySelectorAll('.bridge-tab');
-const bridgeDetailIndex=document.getElementById('bridge-detail-index');
-const bridgeDetailTitle=document.getElementById('bridge-detail-title');
-const bridgeQuestion=document.getElementById('bridge-question');
-const bridgeFrontend=document.getElementById('bridge-frontend');
-const bridgeFeedback=document.getElementById('bridge-feedback');
-const showBridgeAxis=key=>{
-  const item=bridgeAxes[key];
-  if(!item)return;
-  bridgeTabs.forEach(tab=>tab.setAttribute('aria-selected',String(tab.dataset.bridgeAxis===key)));
-  bridgeDetailIndex.textContent=item.no;
-  bridgeDetailTitle.textContent=item.title;
-  bridgeQuestion.textContent=item.question;
-  bridgeFrontend.textContent=item.frontend;
-  bridgeFeedback.textContent=item.feedback;
-};
-bridgeTabs.forEach(tab=>tab.addEventListener('click',()=>showBridgeAxis(tab.dataset.bridgeAxis)));
+const hallIndex=document.getElementById('hall-index');
 
-/* 滚动显现：一次性给整面墙加 class,由 CSS transition-delay 编排入场 */
+/* 滚动显现：展开索引后再显现门卡 */
 const doors=document.querySelectorAll('.door');
 doors.forEach((d,i)=>d.style.setProperty('--reveal-delay',`${i*20}ms`));
 let doorsRevealed=false;
@@ -568,6 +430,7 @@ const revealDoors=()=>{
   doors.forEach(d=>d.classList.add('in'));
   setTimeout(()=>doors.forEach(d=>d.style.setProperty('--reveal-delay','0ms')),doors.length*20+760);
 };
+hallIndex.addEventListener('toggle',()=>{if(hallIndex.open)revealDoors()});
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;
   if(e.target===grid)revealDoors();

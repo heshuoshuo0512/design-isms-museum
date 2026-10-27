@@ -156,11 +156,9 @@ pre{background:#1d1d1f;border-radius:20px;color:#7ee0a3}
 </head>
 <body>
 <div class="topbar">
-  <a href="../index.html">← 大厅</a>
-  <a href="../corridor.html">长廊</a>
-  <a href="../timeline.html">时间轴</a>
-  <a href="../knowledge.html">全书</a>
-  <a href="../index.html#door-bentogrid">返回门位</a>
+  <a href="../knowledge.html#history">← 现代设计史</a>
+  <a class="tt" href="../index.html">主义馆 · 展厅 15</a>
+  <a href="../corridor.html">漫游长廊</a>
 </div>
 
 <header class="hero">
@@ -177,18 +175,60 @@ pre{background:#1d1d1f;border-radius:20px;color:#7ee0a3}
 <main class="wrap">
   <p class="lede rv">Apple 发布会把卖点装进便当格:大格装主角,小格装配角。网格即叙事,节奏即说服力。</p>
   <section class="sec rv">
-    <div class="kicker">Archive</div>
+    <div class="kicker">01 / Archive</div>
     <h3>历史档案</h3>
     <p class="prose">2022 年起,Apple 在发布会与产品页中系统性地使用不等分卡片网格展示卖点:大圆角矩形、统一间距、每格独立成篇。社区因其神似日式便当盒而命名 Bento Grid。Linear、Notion 与 Tailwind UI 迅速跟进,Bentogrids.com 开站收录。它本质是瑞士网格的产品化变体——用卡片节奏代替瀑布流,成为当代产品页的事实标准。</p>
   </section>
   <section class="sec rv">
-    <div class="kicker">History / Deep Reading</div>
-    <h3>历史深描</h3>
-    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
-    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Bento 网格是 2020 年代产品发布页把卡片、模块化信息和日式便当隐喻结合后的命名。它不是古老的版式流派，而是响应式产品叙事对“每个卖点一格、整体仍有节奏”的解决方案。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Apple 产品页和 Keynote 的模块化展示推动了传播，Linear、Notion、Tailwind UI 与社区模板进一步把它标准化；设计工具的自动布局也降低了生产门槛。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2020 年代初，产品页开始用大小不一的卡片承载功能、数据和动效。</li><li>2022 年前后，社区因其类似便当盒的分格方式形成 Bento Grid 称呼。</li><li>随后它从营销页进入仪表盘、作品集和组件库，成为容易复制的产品叙事模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从 Apple 的营销叙事扩散到 SaaS、个人作品集、数据面板和低代码模板，依靠 CSS Grid 与容器查询实现响应式变体。</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>分格会把复杂产品切成漂亮的卖点，可能削弱内容之间的因果关系；每格独立成篇也不等于信息真正可扫描。</p></article><article class="history-deep-card"><h4>当代影响</h4><p>它把网格从静态对齐工具变成叙事节奏，但需要通过内容优先和小屏顺序避免只剩卡片表面。</p></article></div>
+    <div class="kicker">02 / History Deep Reading</div>
+    <h3>人物、转折与传播</h3>
+    <p class="prose">从起源、人物、关键转折和传播路径继续阅读。先理解这个方向如何形成，再进入它的形式。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>Bento 网格是 2020 年代产品发布页把卡片、模块化信息和日式便当隐喻结合后的命名。它不是古老的版式流派，而是响应式产品叙事对“每个卖点一格、整体仍有节奏”的解决方案。</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>Apple 产品页和 Keynote 的模块化展示推动了传播，Linear、Notion、Tailwind UI 与社区模板进一步把它标准化；设计工具的自动布局也降低了生产门槛。</p></article><article class="history-deep-card"><h4>关键转折</h4><ul><li>2020 年代初，产品页开始用大小不一的卡片承载功能、数据和动效。</li><li>2022 年前后，社区因其类似便当盒的分格方式形成 Bento Grid 称呼。</li><li>随后它从营销页进入仪表盘、作品集和组件库，成为容易复制的产品叙事模板。</li></ul></article><article class="history-deep-card"><h4>传播路径</h4><p>它从 Apple 的营销叙事扩散到 SaaS、个人作品集、数据面板和低代码模板，依靠 CSS Grid 与容器查询实现响应式变体。</p></article></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">03 / Design Language</div>
+    <h3>设计语言</h3>
+    <ul class="chips"><li><b>不等分网格</b> — 重要内容占大格,节奏即叙事</li><li><b>大圆角矩形</b> — 16-24px 统一圆角</li><li><b>一致间距</b> — gap 是全页唯一的尺子</li><li><b>每格独立</b> — 一格一事,可单独成立</li><li><b>响应式重排</b> — 移动端自然折行</li></ul>
+    <div class="kicker" style="margin-top:28px">Keywords</div>
+    <p class="prose">Bento、便当网格、卡片、Apple</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">04 / Works</div>
+    <h3>代表案例</h3>
+    <ul class="chips"><li class="rv">Apple 产品页(2022+)</li><li class="rv">Linear 官网</li><li class="rv">Notion 营销页</li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">05 / Debate</div>
+    <h3>批评与争议</h3>
+    <p class="prose">分格会把复杂产品切成漂亮的卖点，可能削弱内容之间的因果关系；每格独立成篇也不等于信息真正可扫描。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">06 / Legacy</div>
+    <h3>当代影响</h3>
+    <p class="prose">它把网格从静态对齐工具变成叙事节奏，但需要通过内容优先和小屏顺序避免只剩卡片表面。</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">07 / Timeline</div>
+    <h3>年代坐标</h3>
+    <ul class="tl"><li class="rv"><b>2022</b><span>Apple Keynote 全面采用</span></li><li class="rv"><b>2023</b><span>Bentogrids.com 开站收录</span></li><li class="rv"><b>2024</b><span>产品页事实标准</span></li></ul>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">08 / Application</div>
+    <h3>当代转译与教学补充</h3>
+    <p class="prose">这部分把历史原则转成当代实践问题，不替代前面的设计史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>前端转译</h4><p>用 CSS Grid、容器查询和数据驱动卡片处理多页面内容变化。</p></article><article class="history-deep-card"><h4>课内关系</h4><p>把信息拆成像便当格一样的模块，以秩序容纳多种内容比例。</p></article><article class="history-deep-card"><h4>课程回写</h4><p>用手机折行、阅读顺序和内容优先级测试网格，回写标准化的边界。</p></article></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">09 / Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-auto-rows: 130px;
+gap: 14px;
+border-radius: 24px;</code></pre>
   </section>
     <section class="sec rv">
-    <div class="kicker">Specimens</div>
+    <div class="kicker">10 / CSS Specimens</div>
     <h3>馆内标本</h3>
     <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
     <div class="exgrid"><figure class="ex rv" data-x="0">
@@ -207,30 +247,6 @@ pre{background:#1d1d1f;border-radius:20px;color:#7ee0a3}
       <div class="ex-code">display:inline-block;padding:10px 22px;background:#0071E3;color:#fff;border-radius:99px;font-weight:600;font-size:14px;cursor:pointer</div>
       <script>(function(){var el=document.querySelector('[data-x="2"] .xob');el.addEventListener("click",function(){el.style.animation="bg-pop .4s cubic-bezier(.34,1.56,.64,1)";setTimeout(function(){el.style.animation=""},400)});if(!document.getElementById("bg-kf")){var s=document.createElement("style");s.id="bg-kf";s.textContent="@keyframes bg-pop{40%{transform:scale(1.2)}}";document.head.appendChild(s)}})()</script>
     </figure></div>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Archive</div>
-    <h3>代表案例</h3>
-    <ul class="chips"><li class="rv">Apple 产品页(2022+)</li><li class="rv">Linear 官网</li><li class="rv">Notion 营销页</li></ul>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Traits</div>
-    <h3>风格特征</h3>
-    <ul class="chips"><li><b>不等分网格</b> — 重要内容占大格,节奏即叙事</li><li><b>大圆角矩形</b> — 16-24px 统一圆角</li><li><b>一致间距</b> — gap 是全页唯一的尺子</li><li><b>每格独立</b> — 一格一事,可单独成立</li><li><b>响应式重排</b> — 移动端自然折行</li></ul>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Fingerprint</div>
-    <h3>代码指纹</h3>
-    <pre><code>display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-auto-rows: 130px;
-gap: 14px;
-border-radius: 24px;</code></pre>
-  </section>
-  <section class="sec rv">
-    <div class="kicker">Timeline</div>
-    <h3>年代坐标</h3>
-    <ul class="tl"><li class="rv"><b>2022</b><span>Apple Keynote 全面采用</span></li><li class="rv"><b>2023</b><span>Bentogrids.com 开站收录</span></li><li class="rv"><b>2024</b><span>产品页事实标准</span></li></ul>
   </section>
 </main>
 

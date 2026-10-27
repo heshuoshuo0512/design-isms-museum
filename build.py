@@ -3,8 +3,8 @@
 import html as H, os
 from data import ISMS
 from history_data import ISM_HISTORY
+from knowledge_data import ISM_BRIDGES
 from knowledge import build_knowledge
-
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, 'halls')
 os.makedirs(OUT, exist_ok=True)
@@ -1663,7 +1663,7 @@ def render(m, prev_m, next_m):
     kw = '、'.join(m['keywords'])
     seo = f"{m['zh']}({m['en']})设计主义:起源、人物、转折、传播、争议、影响与代表案例。{kw} | 主义馆 ISM MUSEUM"
     prologue = m.get('prologue', '')
-    history_deep = f'''<div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>{e(m['origin'])}</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>{e(m['figures'])}</p></article><article class="history-deep-card"><h4>关键转折</h4><ul>{''.join(f'<li>{e(item)}</li>' for item in m['turns'])}</ul></article><article class="history-deep-card"><h4>传播路径</h4><p>{e(m['diffusion'])}</p></article><article class="history-deep-card"><h4>批评与争议</h4><p>{e(m['debate'])}</p></article><article class="history-deep-card"><h4>当代影响</h4><p>{e(m['legacy'])}</p></article></div>'''
+    history_deep = f'''<div class="history-deep-grid"><article class="history-deep-card"><h4>起源与语境</h4><p>{e(m['origin'])}</p></article><article class="history-deep-card"><h4>核心人物与机构</h4><p>{e(m['figures'])}</p></article><article class="history-deep-card"><h4>关键转折</h4><ul>{''.join(f'<li>{e(item)}</li>' for item in m['turns'])}</ul></article><article class="history-deep-card"><h4>传播路径</h4><p>{e(m['diffusion'])}</p></article></div>'''
     exhibits = ''.join(f'''<figure class="ex rv" data-x="{i}">
       <div class="ex-art"><span class="xob" style="{css}"></span></div>
       <figcaption class="ex-cap">{e(cap)}</figcaption>
@@ -1671,7 +1671,7 @@ def render(m, prev_m, next_m):
       {f'<script>(function(){{var el=document.querySelector(\'[data-x="{i}"] .xob\');{js}}})()</script>' if js else ''}
     </figure>''' for i, (cap, css, js) in enumerate(m.get('exhibits', [])))
     exhibit_sec = f'''  <section class="sec rv">
-    <div class="kicker">Specimens</div>
+    <div class="kicker">10 / CSS Specimens</div>
     <h3>馆内标本</h3>
     <p class="hint">全部质感由 CSS 实时绘制,无一张图片。可直接检视元素、复制样式。</p>
     <div class="exgrid">{exhibits}</div>
@@ -1690,11 +1690,9 @@ def render(m, prev_m, next_m):
 </head>
 <body>
 <div class="topbar">
-  <a href="../index.html">← 大厅</a>
-  <a href="../corridor.html">长廊</a>
-  <a href="../timeline.html">时间轴</a>
-  <a href="../knowledge.html">全书</a>
-  <a href="../index.html#door-{m['slug']}">返回门位</a>
+  <a href="../knowledge.html#history">← 现代设计史</a>
+  <a class="tt" href="../index.html">主义馆 · 展厅 {m['no']}</a>
+  <a href="../corridor.html">漫游长廊</a>
 </div>
 
 <header class="hero">
@@ -1711,37 +1709,55 @@ def render(m, prev_m, next_m):
 <main class="wrap">
   {f'<p class="lede rv">{e(prologue)}</p>' if prologue else ''}
   <section class="sec rv">
-    <div class="kicker">Archive</div>
+    <div class="kicker">01 / Archive</div>
     <h3>历史档案</h3>
     <p class="prose">{e(m['history'])}</p>
   </section>
   <section class="sec rv">
-    <div class="kicker">History / Deep Reading</div>
-    <h3>历史深描</h3>
-    <p class="prose">从起源、人物、转折和传播路径继续阅读，并保留批评与争议；下面的前端标本只是应用层，不替代这段历史。</p>
+    <div class="kicker">02 / History Deep Reading</div>
+    <h3>人物、转折与传播</h3>
+    <p class="prose">从起源、人物、关键转折和传播路径继续阅读。先理解这个方向如何形成，再进入它的形式。</p>
     {history_deep}
   </section>
-  {exhibit_sec}
   <section class="sec rv">
-    <div class="kicker">Archive</div>
+    <div class="kicker">03 / Design Language</div>
+    <h3>设计语言</h3>
+    <ul class="chips">{traits}</ul>
+    <div class="kicker" style="margin-top:28px">Keywords</div>
+    <p class="prose">{e(kw)}</p>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">04 / Works</div>
     <h3>代表案例</h3>
     <ul class="chips">{reps}</ul>
   </section>
   <section class="sec rv">
-    <div class="kicker">Traits</div>
-    <h3>风格特征</h3>
-    <ul class="chips">{traits}</ul>
+    <div class="kicker">05 / Debate</div>
+    <h3>批评与争议</h3>
+    <p class="prose">{e(m['debate'])}</p>
   </section>
   <section class="sec rv">
-    <div class="kicker">Fingerprint</div>
-    <h3>代码指纹</h3>
-    <pre><code>{e(m['code'])}</code></pre>
+    <div class="kicker">06 / Legacy</div>
+    <h3>当代影响</h3>
+    <p class="prose">{e(m['legacy'])}</p>
   </section>
   <section class="sec rv">
-    <div class="kicker">Timeline</div>
+    <div class="kicker">07 / Timeline</div>
     <h3>年代坐标</h3>
     <ul class="tl">{tl}</ul>
   </section>
+  <section class="sec rv">
+    <div class="kicker">08 / Application</div>
+    <h3>当代转译与教学补充</h3>
+    <p class="prose">这部分把历史原则转成当代实践问题，不替代前面的设计史。</p>
+    <div class="history-deep-grid"><article class="history-deep-card"><h4>前端转译</h4><p>{e(m['frontend'])}</p></article><article class="history-deep-card"><h4>课内关系</h4><p>{e(m['bridge'])}</p></article><article class="history-deep-card"><h4>课程回写</h4><p>{e(m['feedback'])}</p></article></div>
+  </section>
+  <section class="sec rv">
+    <div class="kicker">09 / Fingerprint</div>
+    <h3>代码指纹</h3>
+    <pre><code>{e(m['code'])}</code></pre>
+  </section>
+  {exhibit_sec}
 </main>
 
 <nav class="hallnav">
@@ -1756,6 +1772,7 @@ def render(m, prev_m, next_m):
 
 for m in ISMS:
     m.update(ISM_HISTORY[m['slug']])
+    m.update(ISM_BRIDGES[m['slug']])
 for i, m in enumerate(ISMS):
     prev_m = ISMS[(i - 1) % len(ISMS)]
     next_m = ISMS[(i + 1) % len(ISMS)]
